@@ -1,0 +1,78 @@
+﻿<script type="text/template" id="groupDetails_page">
+
+    <div class="page groupdetails">
+        <!--Menu-->
+        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+        <!-- Your Content -->
+        <div id="container">
+
+            <div class="scroller">
+                <div class="top-detail-nav">
+                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
+                        <img src="contents/images/nav-back-button.png" alt="retour" />
+                    </a>
+                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
+                        <img src="contents/images/nav-groups-visual.png" alt="groupes" />
+                    </div>
+                    <div class="top-detail-nav-title" data-bind="text:title">
+
+                    </div>
+                    <a class="top-detail-nav-right-btn" data-bind="click:refresh">
+                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
+                    </a>
+                </div>
+                <!--Contenu-->
+                <div class="content-container">
+                    <div class="scores" data-bind="with:group">
+                        <div class="row">
+                            <div class="col-xs-4">&nbsp;</div>
+                            <div class="col-xs-1">G</div>
+                            <div class="col-xs-1">N</div>
+                            <div class="col-xs-1">P</div>
+                            <div class="col-xs-1">BP</div>
+                            <div class="col-xs-1">BC</div>
+                            <div class="col-xs-2">Pts</div>
+                        </div>
+
+                        <div class="group-score-details" data-bind="foreach:Results">
+                            <div class="row">                                
+                                <div class="col-xs-3"> <img class="img-responsive" data-bind="teamBinding:Id" /> <span data-bind="text:libelle"></span></div>
+                                <div class="col-xs-1" data-bind="text:G"></div>
+                                <div class="col-xs-1" data-bind="text:N"></div>
+                                <div class="col-xs-1" data-bind="text:P"></div>
+                                <div class="col-xs-1" data-bind="text:BP"></div>
+                                <div class="col-xs-1" data-bind="text:BC"></div>
+                                <div class="col-xs-2" data-bind="text:PTS"></div>
+                            </div>
+                        </div>
+
+                    </div>
+
+                    <div class="matchs" data-bind="with:group">
+                        <div class="row">
+                            <div class="col-xs-12">
+                                Matchs
+                            </div>
+                            <div class="groupmatchFeed" data-bind=" template : { name:'MatchTemplate', foreach:Matches}">
+
+                            </div>
+                        </div>
+
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--Barre inférieure-->
+        <div data-type="widget" data-widget="BottomNav"></div>
+
+        <!--Loader de chargement-->
+        <div data-type="widget" data-widget="PageLoader"></div>
+    </div>
+</script>

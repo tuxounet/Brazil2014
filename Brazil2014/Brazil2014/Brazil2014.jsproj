@@ -58,14 +58,14 @@
       <Configuration>Release</Configuration>
       <Platform>Windows Phone</Platform>
     </ProjectConfiguration>
-	<ProjectConfiguration Include="Distribution|Android">
-	  <Configuration>Distribution</Configuration>
-	  <Platform>Android</Platform>
-	</ProjectConfiguration>
-	<ProjectConfiguration Include="Distribution|iOS">
-	  <Configuration>Distribution</Configuration>
-	  <Platform>iOS</Platform>
-	</ProjectConfiguration>
+    <ProjectConfiguration Include="Distribution|Android">
+      <Configuration>Distribution</Configuration>
+      <Platform>Android</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Distribution|iOS">
+      <Configuration>Distribution</Configuration>
+      <Platform>iOS</Platform>
+    </ProjectConfiguration>
     <ProjectConfiguration Include="Distribution|Windows-AnyCPU">
       <Configuration>Distribution</Configuration>
       <Platform>Windows-AnyCPU</Platform>
@@ -115,11 +115,135 @@
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="config.xml" >
+    <Content Include="app\datas\BaseDataProvider.js" />
+    <Content Include="app\datas\GroupDataProvider.js" />
+    <Content Include="app\datas\GroupDetailDataProvider.js" />
+    <Content Include="app\datas\MatchDataProvider.js" />
+    <Content Include="app\datas\NewsDataProvider.js" />
+    <Content Include="app\datas\StadiumDataProvider.js" />
+    <Content Include="app\datas\VideosDataProvider.js" />
+    <Content Include="app\models\MatchTemplate.html" />
+    <Content Include="app\pages\Calendar.html" />
+    <Content Include="app\pages\Calendar.js" />
+    <Content Include="app\pages\GroupDetails.html" />
+    <Content Include="app\pages\GroupDetails.js" />
+    <Content Include="app\pages\Groups.html" />
+    <Content Include="app\pages\Groups.js" />
+    <Content Include="app\pages\Home.html" />
+    <Content Include="app\pages\Home.js" />
+    <Content Include="app\pages\News.html" />
+    <Content Include="app\pages\News.js" />
+    <Content Include="app\pages\NewsDetails.html" />
+    <Content Include="app\pages\NewsDetails.js" />
+    <Content Include="app\pages\Results.html" />
+    <Content Include="app\pages\Results.js" />
+    <Content Include="app\pages\ResultsDetails.html" />
+    <Content Include="app\pages\ResultsDetails.js" />
+    <Content Include="app\pages\Stadium.html" />
+    <Content Include="app\pages\Stadium.js" />
+    <Content Include="app\pages\Videos.html" />
+    <Content Include="app\pages\Videos.js" />
+    <Content Include="app\pages\VideosDetails.html" />
+    <Content Include="app\pages\VideosDetails.js" />
+    <Content Include="app\pages\_Dev.html" />
+    <Content Include="app\pages\_Dev.js" />
+    <Content Include="app\services\platform.js" />
+    <Content Include="app\viewmodels\MatchViewModel.js" />
+    <Content Include="app\widgets\BottomNav.html" />
+    <Content Include="app\widgets\BottomNav.js" />
+    <Content Include="app\widgets\OffMenu.html" />
+    <Content Include="app\widgets\OffMenu.js" />
+    <Content Include="app\widgets\PageLoader.html" />
+    <Content Include="config.js" />
+    <Content Include="config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="contents\datas\stadiums\1.jpg" />
+    <Content Include="contents\datas\stadiums\10.jpg" />
+    <Content Include="contents\datas\stadiums\11.jpg" />
+    <Content Include="contents\datas\stadiums\12.jpg" />
+    <Content Include="contents\datas\stadiums\2.jpg" />
+    <Content Include="contents\datas\stadiums\3.jpg" />
+    <Content Include="contents\datas\stadiums\4.jpg" />
+    <Content Include="contents\datas\stadiums\5.jpg" />
+    <Content Include="contents\datas\stadiums\6.jpg" />
+    <Content Include="contents\datas\stadiums\7.jpg" />
+    <Content Include="contents\datas\stadiums\8.jpg" />
+    <Content Include="contents\datas\stadiums\9.jpg" />
+    <Content Include="contents\datas\teams\alg.png" />
+    <Content Include="contents\datas\teams\arg.png" />
+    <Content Include="contents\datas\teams\aus.png" />
+    <Content Include="contents\datas\teams\bel.png" />
+    <Content Include="contents\datas\teams\bih.png" />
+    <Content Include="contents\datas\teams\bra.png" />
+    <Content Include="contents\datas\teams\chi.png" />
+    <Content Include="contents\datas\teams\civ.png" />
+    <Content Include="contents\datas\teams\cmr.png" />
+    <Content Include="contents\datas\teams\col.png" />
+    <Content Include="contents\datas\teams\crc.png" />
+    <Content Include="contents\datas\teams\cro.png" />
+    <Content Include="contents\datas\teams\ecu.png" />
+    <Content Include="contents\datas\teams\eng.png" />
+    <Content Include="contents\datas\teams\esp.png" />
+    <Content Include="contents\datas\teams\fra.png" />
+    <Content Include="contents\datas\teams\ger.png" />
+    <Content Include="contents\datas\teams\gha.png" />
+    <Content Include="contents\datas\teams\gre.png" />
+    <Content Include="contents\datas\teams\hon.png" />
+    <Content Include="contents\datas\teams\irn.png" />
+    <Content Include="contents\datas\teams\ita.png" />
+    <Content Include="contents\datas\teams\jpn.png" />
+    <Content Include="contents\datas\teams\kor.png" />
+    <Content Include="contents\datas\teams\mex.png" />
+    <Content Include="contents\datas\teams\ned.png" />
+    <Content Include="contents\datas\teams\nga.png" />
+    <Content Include="contents\datas\teams\por.png" />
+    <Content Include="contents\datas\teams\rus.png" />
+    <Content Include="contents\datas\teams\sui.png" />
+    <Content Include="contents\datas\teams\unknow.png" />
+    <Content Include="contents\datas\teams\uru.png" />
+    <Content Include="contents\datas\teams\usa.png" />
+    <Content Include="contents\icons\apple-touch-icon-114x114-precomposed.png" />
+    <Content Include="contents\icons\apple-touch-icon-72x72-precomposed.png" />
+    <Content Include="contents\icons\apple-touch-icon-precomposed.png" />
+    <Content Include="contents\icons\favicon.ico" />
+    <Content Include="contents\images\footer-calendar.png" />
+    <Content Include="contents\images\footer-results.png" />
+    <Content Include="contents\images\footer-videos.png" />
+    <Content Include="contents\images\glyph-map-point.png" />
+    <Content Include="contents\images\glyph-play-video.png" />
+    <Content Include="contents\images\home-background.png" />
+    <Content Include="contents\images\image-load.png" />
+    <Content Include="contents\images\loader.gif" />
+    <Content Include="contents\images\menu-button.png" />
+    <Content Include="contents\images\nav-back-button.png" />
+    <Content Include="contents\images\nav-calendar-visual.png" />
+    <Content Include="contents\images\nav-groups-visual.png" />
+    <Content Include="contents\images\nav-news-visual.png" />
+    <Content Include="contents\images\nav-next-button.png" />
+    <Content Include="contents\images\nav-refresh-button.png" />
+    <Content Include="contents\images\nav-stadium-visual.png" />
+    <Content Include="contents\images\nav-tournament-visual.png" />
+    <Content Include="contents\images\nav-videos-visual.png" />
+    <Content Include="contents\images\page-transition.png" />
+    <Content Include="contents\images\pull-icon.png" />
     <Content Include="index.html" />
-    <Content Include="scripts\index.js" />
+    <Content Include="scripts\components\classie.js" />
+    <Content Include="scripts\components\duration.js" />
+    <Content Include="scripts\components\guid.js" />
+    <Content Include="scripts\components\jquery.touchSwipe.js" />
+    <Content Include="scripts\components\ko.bindinghandlers.js" />
+    <Content Include="scripts\components\modalEffects.js" />
+    <Content Include="scripts\components\pageTransitions.js" />
+    <Content Include="scripts\components\pushy.js" />
+    <Content Include="scripts\cordova\device.js" />
+    <Content Include="scripts\core\baseModal.js" />
+    <Content Include="scripts\core\basePage.js" />
+    <Content Include="scripts\core\baseWidget.js" />
+    <Content Include="scripts\core\boot.js" />
+    <Content Include="scripts\core\kernel.js" />
+    <Content Include="scripts\core\logger.js" />
+    <Content Include="scripts\core\router.js" />
     <Content Include="css\index.css" />
     <Content Include="res\cert\android\ant.properties" />
     <Content Include="res\icons\android\icon-36-ldpi.png" />
@@ -162,47 +286,83 @@
     <Content Include="res\screens\ios\screen-iphone-portrait-2x.png" />
     <Content Include="res\screens\windows8\splashscreen.png" />
     <Content Include="res\screens\wp8\screen-portrait.jpg" />
+    <Content Include="scripts\vendor\bootstrap.min.js" />
+    <Content Include="scripts\vendor\fastclick.js" />
+    <Content Include="scripts\vendor\idangerous.swiper-2.1.min.js" />
+    <Content Include="scripts\vendor\idangerous.swiper.scrollbar-2.1.js" />
+    <Content Include="scripts\vendor\jquery-2.1.0.intellisense.js" />
+    <Content Include="scripts\vendor\jquery-2.1.0.min.js" />
+    <Content Include="scripts\vendor\jquery.lazyload.js" />
+    <Content Include="scripts\vendor\knockout-3.1.0.js" />
+    <Content Include="scripts\vendor\modernizr-2.7.2.js" />
+    <Content Include="scripts\vendor\moment-with-langs.min.js" />
+    <Content Include="styles\app\site.css" />
+    <Content Include="styles\app\site.css.map" />
+    <Content Include="styles\app\site.fonts.css" />
+    <Content Include="styles\app\site.fonts.less" />
+    <Content Include="styles\app\site.fonts.min.css" />
+    <Content Include="styles\app\site.layout.css" />
+    <Content Include="styles\app\site.layout.less" />
+    <Content Include="styles\app\site.layout.min.css" />
+    <Content Include="styles\app\site.less" />
+    <Content Include="styles\app\site.min.css" />
+    <Content Include="styles\components\genericStyles.css" />
+    <Content Include="styles\components\genericStyles.less" />
+    <Content Include="styles\components\genericStyles.min.css" />
+    <Content Include="styles\components\niftymodals.css" />
+    <Content Include="styles\components\niftymodals.less" />
+    <Content Include="styles\components\niftymodals.min.css" />
+    <Content Include="styles\components\pageTransitions.css" />
+    <Content Include="styles\components\pageTransitions.less" />
+    <Content Include="styles\components\pageTransitions.min.css" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.eot" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.svg" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.ttf" />
+    <Content Include="styles\fonts\glyphicons-halflings-regular.woff" />
+    <Content Include="styles\fonts\OpenSans300.ttf" />
+    <Content Include="styles\fonts\OpenSans400.woff" />
+    <Content Include="styles\vendor\bootstrap-theme.min.css" />
+    <Content Include="styles\vendor\bootstrap.min.css" />
+    <Content Include="styles\vendor\idangerous.swiper.css" />
+    <Content Include="styles\vendor\idangerous.swiper.scrollbar.css" />
+    <Content Include="styles\vendor\pushy.min.css" />
+    <Content Include="version.js" />
   </ItemGroup>
   <PropertyGroup>
-	<TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
-	<DefaultReferenceGroup>Implicit (Multi-Device Apps)</DefaultReferenceGroup>
+    <TypeScriptToolsVersion>1.0</TypeScriptToolsVersion>
+    <DefaultReferenceGroup>Implicit (Multi-Device Apps)</DefaultReferenceGroup>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
-	<TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
-	<TypeScriptRemoveComments>false</TypeScriptRemoveComments>
-	<TypeScriptSourceMap>true</TypeScriptSourceMap>
+    <TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptRemoveComments>false</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>true</TypeScriptSourceMap>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Release'">
-	<TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
-	<TypeScriptRemoveComments>true</TypeScriptRemoveComments>
-	<TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <PropertyGroup Condition="'$(Configuration)' == 'Distribution'">
-	<TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
-	<TypeScriptRemoveComments>true</TypeScriptRemoveComments>
-	<TypeScriptSourceMap>false</TypeScriptSourceMap>
+    <TypeScriptCompileOnSaveEnabled>false</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptRemoveComments>true</TypeScriptRemoveComments>
+    <TypeScriptSourceMap>false</TypeScriptSourceMap>
   </PropertyGroup>
   <Import Project="$(AppData)\npm\node_modules\vs-mda-targets\Microsoft.MDA.targets" />
   <Import Project="$(AppData)\npm\node_modules\vs-mda-targets\Microsoft.TypeScript.MDA.targets" />
   <PropertyGroup>
     <ProjectUISubcaption>Multi-Device Hybrid App</ProjectUISubcaption>
   </PropertyGroup>
-
   <Target Name="EnsureBuildPrerequisites">
     <!-- These errors will trigger if building from inside Visual Studio and requirements could not be determined -->
     <Error Condition="$(MDAPropertiesEvaluated) == 'true' And $(NodeJsDir) == ''" Text="Path to NodeJs could not be determined. Please check that NodeJs has been installed." />
     <Error Condition="$(MDAPropertiesEvaluated) == 'true' And $(MDAVsixDir) == ''" Text="Path to the Visual Studio Extension for Multi-Device Hybrid Apps could not be determined. Please check that the extension has been installed." />
-
     <!-- These errors will trigger if building from outside Visual Studio (e.g. command line) and environment variables have not been set -->
     <Error Condition="$(MDAPropertiesEvaluated) == '' And $(NodeJsDir) == ''" Text="Path to NodeJs has not been specified. Please check that NodeJs has been installed and set the NodeJsDir environment variable before building." />
     <Error Condition="$(MDAPropertiesEvaluated) == '' And $(MDAVsixDir) == ''" Text="Path to Visual Studio Extension for Multi-Device Hybrid Apps has not been specified. Please install it and set the MDAVsixDir environment variable before building." />
-
     <!-- Sanity check that things exist in the specified places. These are more likely to fail if building outside Visual Studio and the required environment variables have not been set, or set incorrectly. -->
     <Error Condition="!Exists('$(NodeJsDir)') Or !Exists('$(NodeJsDir)\node.exe')" Text="The specified NodeJs directory $(NodeJsDir) either does not exist, or does not contain node.exe. Please check that NodeJs has been installed, and set the NodeJsDir variable to the correct directory." />
     <Error Condition="!Exists('$(MDAVsixDir)') Or !Exists('$(MDAVsixDir)\packages\vs-mda')" Text="The specified directory to the Visual Studio extension $(MDAVsixDir)\node.exe either does not exist, or does not contain a packages\vs-mda sub-directory. Please check that the extension directory exists and set the MDAVsixDir variable to the correct directory." />
-
     <!-- Installs (if necessary) the supporting Nodejs module -->
-    <Exec Command='"$(MDAVsixDir)"\packages\vs-mda\install "$(NodeJsDir)" "$(MDAVsixDir)"\packages\vs-mda'/>
+    <Exec Command="&quot;$(MDAVsixDir)&quot;\packages\vs-mda\install &quot;$(NodeJsDir)&quot; &quot;$(MDAVsixDir)&quot;\packages\vs-mda" />
   </Target>
-
 </Project>

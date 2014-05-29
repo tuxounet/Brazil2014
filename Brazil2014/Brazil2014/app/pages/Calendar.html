@@ -1,0 +1,58 @@
+﻿<script type="text/template" id="calendar_page">
+
+    <div class="page">
+        <!-- Pushy Menu -->
+        <!--<div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>-->
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+        <!-- Your Content -->
+        <div id="container">
+
+
+            <div class="scroller">
+                <div class="top-detail-nav">
+                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
+                        <img src="contents/images/nav-back-button.png" alt="retour" />
+                    </a>
+                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
+                        <img src="contents/images/nav-calendar-visual.png" alt="dernières news" />
+                    </div>
+
+
+                    <div class="top-detail-nav-title">
+                        Calendrier
+                    </div>
+
+
+
+                    <a class="top-detail-nav-right-btn" data-bind="click:refresh, ifnot:isLoading">
+                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
+                    </a>
+
+
+                </div>
+
+
+                <div class="content-container">
+                    <div class="swiper-container">
+                        <div class="swiper-wrapper calendarFeed" data-bind="foreach:groupedMatches">
+                            <div class="swiper-slide day-item" data-bind="attr: { 'data-id' : moment(Date).unix() }">
+                                <div class="day"><span data-bind="text:moment(Date).format('dddd Do MMMM')"></span> </div>
+                                <div class="day-matchs" data-bind="template : { name:'MatchTemplate', foreach:Matchs}">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="pagination"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!--Barre inférieure-->
+        <div data-type="widget" data-widget="BottomNav"></div>
+
+        <!--Loader de chargement-->
+        <div data-type="widget" data-widget="PageLoader"></div>
+
+    </div>
+</script>

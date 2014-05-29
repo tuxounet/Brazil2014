@@ -1,0 +1,63 @@
+﻿<script type="text/template" id="groups_page">
+
+    <div class="page groups">
+        <!--Menu-->
+        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+        <!-- Your Content -->
+        <div id="container">
+        
+            <div class="scroller">
+                <div class="top-detail-nav">
+                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
+                        <img src="contents/images/nav-back-button.png" alt="retour" />
+                    </a>
+                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
+                        <img src="contents/images/nav-groups-visual.png" alt="groupes" />
+                    </div>
+                    <div class="top-detail-nav-title">
+                        Groupes
+                    </div>
+                    <a class="top-detail-nav-right-btn" data-bind="click:refresh">
+                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
+                    </a>
+                </div>
+                <!--Contenu-->
+                <div class="content-container">
+
+                    <div class="newsfeed" data-bind="visible : groups().length == 0">
+                        <div class="news-item">
+                            <span class="title">Aucun groupe disponible</span>
+                            <div class="content">Glissez vers le bas pour actualiser</div>
+                        </div>
+                    </div>
+
+
+                    <div class="groupfeed" data-bind="foreach:groups, visible : groups().length > 0">
+                        <div class="group-item">
+                            <div class="title">
+                                <a data-bind="attr : {href:'#groupDetails/' + Name}">
+                                    Groupe <span data-bind="text:Name"></span>
+                                </a>
+                            </div>
+                            <div class="teams" data-bind="foreach:Teams">
+                                <img data-bind="teamBinding:Id, attr:{alt:Name}" />
+                            </div>
+                        </div>
+
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!--Barre inférieure-->
+        <div data-type="widget" data-widget="BottomNav"></div>
+
+        <!--Loader de chargement-->
+        <div data-type="widget" data-widget="PageLoader"></div>
+    </div>
+</script>

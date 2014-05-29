@@ -1,0 +1,64 @@
+﻿<script type="text/template" id="news_page">
+
+    <div class="page">
+
+        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
+
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+        <!-- Your Content -->
+        <div id="container">
+
+      
+            <div class="scroller">
+
+                <div class="top-detail-nav">
+                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
+                        <img src="contents/images/nav-back-button.png" alt="retour" />
+                    </a>
+
+                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
+                        <img src="contents/images/nav-news-visual.png" alt="dernières news" />
+                    </div>
+
+                    <div class="top-detail-nav-title">
+                        Les dernières news
+                    </div>
+
+                    <a class="top-detail-nav-right-btn" data-bind="click:refresh">
+                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
+                    </a>
+                </div>
+
+                <div class="content-container">
+
+
+                    <div class="newsfeed" data-bind="visible : news().length == 0">
+                        <div class="news-item">
+                            <span class="title">   Aucun article disponible</span>
+                            <div class="content">Glissez vers le bas pour actualiser</div>
+                        </div>
+                    </div>
+
+
+                    <div class="newsfeed" data-bind="disable:isLoading, foreach:news, visible : news().length > 0">
+                        <a class="news-item" data-bind="attr : {href:'#newsDetails/' + Id}">
+                            <div><span class="title" data-bind="text:Title"></span> <small class="when">(<span data-bind="text:moment(Date).fromNow()"></span>)</small></div>
+                            <div class="content" data-bind="trimText: Content, trimTextLength: 200"></div>
+                        </a>
+                    </div>
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+        <!--Barre inférieure-->
+        <div data-type="widget" data-widget="BottomNav"></div>
+
+        <!--Loader de chargement-->
+        <div data-type="widget" data-widget="PageLoader"></div>
+    </div>
+</script>

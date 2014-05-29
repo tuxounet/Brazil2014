@@ -1,0 +1,84 @@
+﻿<script type="text/template" id="results_page">
+
+    <div class="page results">
+
+        <!-- Site Overlay -->
+        <div class="site-overlay"></div>
+        <!-- Your Content -->
+        <div id="container">
+
+            <div class="scroller">
+                <div class="top-detail-nav">
+                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
+                        <img src="contents/images/nav-back-button.png" alt="retour" />
+                    </a>
+                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
+                        <img src="contents/images/nav-news-visual.png" alt="dernières news" />
+                    </div>
+                    <div class="top-detail-nav-title">
+                        Résultats
+                    </div><a class="top-detail-nav-right-btn" data-bind="click:refresh">
+                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
+                    </a>
+                </div>
+
+                <!--Contenu-->
+                <div class="content-container">
+                    <div class="tabs">
+                        <a href="#" class="active">Groupes</a>
+                        <a href="#">1/8</a>
+                        <a href="#">1/4</a>
+                        <a href="#">1/2</a>
+                        <a href="#">Finale</a>
+                    </div>
+                    <div class="content-wrapper">
+                        <div class="swiper-container">
+                            <div class="swiper-wrapper">
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div class="day-matchs" data-bind="template : { name:'MatchTemplate', foreach:groups}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div class="day-matchs" data-bind="template : { name:'MatchTemplate', foreach:eighth}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div class="day-matchs" data-bind="template : { name:'MatchTemplate', foreach:quarter}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div class="day-matchs" data-bind="template : { name:'MatchTemplate', foreach:semi}">
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="swiper-slide">
+                                    <div class="content-slide">
+                                        <div class="day-matchs" data-bind="template : { name:'MatchTemplate', foreach:final}">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+                </div>
+
+            </div>
+        </div>
+
+        <!--Barre inférieure-->
+        <div data-type="widget" data-widget="BottomNav"></div>
+
+        <!--Loader de chargement-->
+        <div data-type="widget" data-widget="PageLoader"></div>
+    </div>
+</script>

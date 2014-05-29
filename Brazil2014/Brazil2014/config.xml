@@ -4,8 +4,8 @@
   <description>
     A blank project that uses Apache Cordova to help you build an app that targets multiple mobile platforms: Android, iOS, Windows, and Windows Phone.
   </description>
-  <author href="http://cordova.io" email="dev@cordova.apache.org">
-    Apache Cordova Team
+  <author href="http://www.krux.fr" email="krux@krux.fr">
+   Christophe Tiraoui / Krux.fr
   </author>
   <content src="index.html" />
   <access origin="*" />

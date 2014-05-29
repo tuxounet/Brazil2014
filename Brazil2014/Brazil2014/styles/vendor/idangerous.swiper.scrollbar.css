@@ -1,0 +1,23 @@
+.swiper-scrollbar {
+    border-radius: 10px;    
+    -ms-touch-action: none;
+    background: rgba(0,0,0,0.1);
+    background: none;
+    position: absolute;
+    right: 3px;
+    top: 0;
+    height: 100%;
+    width: 5px;
+}
+
+.swiper-scrollbar-drag {
+    height: 100%;
+    width: 100%;
+    position: relative;
+    background: rgba(0,0,0,0.5);
+    border-radius: 10px;
+}
+
+.swiper-scrollbar-cursor-drag {
+    cursor: move;
+}

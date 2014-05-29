@@ -1,0 +1,240 @@
+﻿.home #container {
+  overflow: hidden;
+}
+.newsfeed .news-item {
+  width: 100%;
+  border-bottom: 1px #EBF1DE solid;
+  padding: 12px;
+  display: block;
+}
+.newsfeed .news-item:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #FFF402;
+  color: #019340;
+}
+.newsfeed .news-item .title {
+  font-size: 12pt;
+  font-weight: bold;
+}
+.newsfeed .news-item .when {
+  font-size: 9pt;
+  color: #888;
+}
+.newsfeed .news-item .content {
+  font-size: 9pt;
+  font-style: italic;
+}
+.news-detail-wrapper {
+  height: 100%;
+  position: relative;
+}
+.news-detail {
+  padding: 12px;
+}
+.news-detail .title {
+  font-size: 14pt;
+  font-weight: bold;
+}
+.news-detail .content {
+  font-size: 12pt;
+  padding-top: 16px;
+}
+.calendar-container {
+  height: 100%;
+}
+.calendarFeed {
+  height: 100%;
+  width: 100%;
+}
+.calendarFeed .day-item {
+  width: 100%;
+}
+.calendarFeed .day-matchs {
+  overflow: auto;
+  height: 100%;
+  padding-bottom: 50px;
+}
+.calendarFeed .day-item .day {
+  font-size: 12pt;
+  font-weight: bold;
+  border-bottom: #019340 1px solid;
+  padding: 8px 12px;
+}
+.calendarFeed .day-item .match {
+  border-bottom: 1px #EBF1DE solid;
+  width: 100%;
+}
+.calendarFeed .swiper-container-matchs {
+  padding-bottom: 38px;
+}
+.calendarFeed .day-item .match .stadium {
+  margin-bottom: 15px;
+}
+.calendarFeed .day-item .match .stade {
+  line-height: 32px;
+}
+.calendarFeed .day-item .match .stade a:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #FFF402;
+  color: #019340;
+}
+.calendarFeed .day-item .type {
+  padding: 8px 0px;
+}
+.calendarFeed .day-item .team,
+.calendarFeed .day-item .time {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.calendarFeed .day-item .team img {
+  margin-bottom: 8px;
+}
+.stadium-detail-wrapper {
+  padding: 12px;
+}
+.stadium-detail-wrapper .stadium-info-line {
+  font-size: 12pt;
+  margin-top: 18px;
+}
+.groupdetails .content-container {
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.groupfeed .group-item {
+  padding: 0px 12px;
+  height: 42px;
+  line-height: 42px;
+  clear: both;
+  border-bottom: 1px #EBF1DE solid;
+}
+.groupfeed .group-item .title {
+  float: left;
+}
+.groupfeed .group-item .teams {
+  float: right;
+}
+.groupfeed .group-item .teams img {
+  padding: 5px 3px;
+  width: 4em;
+}
+.videofeed {
+  background-color: #fff;
+}
+.videofeed .video-item {
+  padding: 0px 12px;
+  width: 100%;
+  min-height: 42px;
+  border-bottom: 1px #EBF1DE solid;
+  padding-top: 5px;
+}
+.videofeed .video-item .title {
+  font-weight: bold;
+  font-size: 12pt;
+}
+.videofeed .video-item .play-link {
+  float: right;
+}
+.youtube-video {
+  height: 100%;
+  width: 100%;
+}
+.video-detail .content-container {
+  overflow: hidden !important;
+}
+.tournament .content-container {
+  overflow-y: hidden;
+}
+.tournament .swiper-container,
+.tournament .swiper-slide {
+  width: 100%;
+  height: 100%;
+  overflow-y: auto;
+}
+.swiper-container,
+.swiper-container-matchs {
+  width: 100%;
+  height: 100%;
+}
+.pagination {
+  position: absolute;
+  z-index: 20;
+  left: 10px;
+  bottom: 10px;
+  margin: 0;
+}
+.swiper-pagination-switch {
+  display: inline-block;
+  width: 6px;
+  height: 6px;
+  border-radius: 6px;
+  background: #222;
+  margin-right: 5px;
+  opacity: 0.8;
+  border: 1px solid #fff;
+  cursor: pointer;
+}
+.swiper-visible-switch {
+  background: #aaa;
+}
+.swiper-active-switch {
+  background: #fff;
+}
+.results .tabs {
+  height: 35px;
+  line-height: 35px;
+  font-size: 10pt;
+}
+.results .tabs a {
+  margin: 0 12px;
+  padding-bottom: 5px;
+}
+.results .tabs a:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #FFF402;
+  color: #019340;
+}
+.results .tabs a.active {
+  font-size: 12pt;
+  font-weight: bold;
+  border-bottom: 3px solid #019340;
+}
+.results .content-wrapper {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  padding-bottom: 35px;
+}
+.results .content-slide {
+  height: 100%;
+  overflow-y: auto;
+  padding: 12px;
+}
+.match {
+  border-bottom: 1px #EBF1DE solid;
+  width: 100%;
+}
+.match .stadium {
+  margin-bottom: 15px;
+}
+.match .stade {
+  line-height: 32px;
+}
+.match .stade a:hover {
+  text-decoration: none;
+  border-bottom: 3px solid #FFF402;
+  color: #019340;
+}
+.match .type {
+  padding: 8px 0px;
+}
+.match .team,
+.match .time {
+  text-align: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
+.match .team img {
+  margin-bottom: 8px;
+}
+/*}*/

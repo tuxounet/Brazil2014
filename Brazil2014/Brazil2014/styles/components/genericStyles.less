@@ -1,0 +1,155 @@
+﻿* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input {
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+    -webkit-touch-callout: none;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0.1);
+}
+
+
+
+
+
+.pt-page div[data-role=navbar] {
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    right: 0px;
+    height: 44px;
+}
+
+    .pt-page div[data-role=navbar] h1 {
+        font-size: 20px;
+        line-height: 44px;
+        padding-left: 60px;
+        padding-right: 60px;
+        margin: 0px;
+    }
+
+    .pt-page div[data-role=navbar] .left-btn {
+    }
+
+    .pt-page div[data-role=navbar] .right-btn {
+        padding: 0px 12px 0px 12px;
+        position: absolute;
+        top: 5px;
+        right: 8px;
+        line-height: 32px;
+        border-radius: 2px;
+    }
+
+
+
+
+
+.pt-page .scroller {
+    position: relative;
+    height:100%;
+    width:100%;
+}
+
+.pt-page .content-container {
+    opacity: 0;
+    -webkit-transition: opacity 0.2s ease-out;
+    -moz-transition: opacity 0.2s ease-out;
+    -o-transition: opacity 0.2s ease-out;
+    transition: opacity 0.2s ease-out;
+}
+
+    .pt-page .content-container.page-loaded {
+        opacity: 1;
+        -webkit-transition: opacity 0.2s ease-out;
+        -moz-transition: opacity 0.2s ease-out;
+        -o-transition: opacity 0.2s ease-out;
+        transition: opacity 0.2s ease-out;
+    }
+
+ 
+
+.pt-page .page-loading {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    z-index: 9999;
+    opacity: 0.2;
+    background-color:#027BC0;
+    top: 0px;
+    left: 0px;
+    bottom: 0px;
+    right: 0px;
+    visibility: visible;
+    -webkit-transition: visibility 0.2s ease-out;
+    -moz-transition: visibility 0.2s ease-out;
+    -o-transition: visibility 0.2s ease-out;
+    transition: visibility 0.2s ease-out;
+    text-align: center;
+}
+
+
+
+    .pt-page .page-loading img {
+        top: 0px;
+        right: 0px;
+        width: 32px;
+        margin: 5px;
+        position: absolute;
+    }
+
+
+
+
+
+    .pt-page .page-loading.page-loading-invisible {
+        opacity: 0;
+        visibility: hidden;
+        -webkit-transition: visibility 0.2s ease-out;
+        -moz-transition: visibility 0.2s ease-out;
+        -o-transition: visibility 0.2s ease-out;
+        transition: visibility 0.2s ease-out;
+    }
+
+
+
+
+#_core-debug {
+    height: 100%;
+    overflow-y: scroll;
+    overflow-x: hidden;
+}
+
+
+/*Pushy */
+#container {
+    height: 100%;
+}
+
+.page {
+    height: 100%;
+}
+
+
+/* Legacy */
+.ludivine-legacy .pushy {
+    -moz-transition: none;
+    -o-transition: none;
+    -webkit-transition: none;
+    transition: none;
+    -webkit-transform: none;
+    -moz-transform: none;
+    -ms-transform: none;
+    -o-transform: none;
+    transform: none;
+}

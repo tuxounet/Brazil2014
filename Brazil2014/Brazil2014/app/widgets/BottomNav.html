@@ -1,0 +1,12 @@
+﻿<script type="text/template" id="widget_BottomNav">
+    <div class="bottom-nav three-items" data-bind="foreach:items">
+        <div class="entry" data-bind="css:{active:isActive}">
+            <a href="#calendar" data-bind="attr: { href: target}" style="display:block">
+                
+
+                <img data-bind="attr : { src: image, alt:title }" /><br />
+                <span data-bind="text:title"></span>
+            </a>
+        </div>
+    </div>
+</script>
