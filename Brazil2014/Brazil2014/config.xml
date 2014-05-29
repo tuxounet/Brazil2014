@@ -25,7 +25,11 @@
   <preference name="android-minSdkVersion" value="7" />
   <preference name="android-installLocation" value="auto" />
   <preference name="splashScreen" value="screen" />
-  <vs:features />
+  <preference name="Fullscreen" value="true" />
+  <vs:features>
+    <vs:feature>org.apache.cordova.device@0.2.9</vs:feature>
+    <vs:feature>org.apache.cordova.splashscreen@0.3.0</vs:feature>
+  </vs:features>
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows8" />
   </vs:platformSpecificValues>
