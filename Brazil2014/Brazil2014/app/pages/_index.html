@@ -126,21 +126,129 @@
     <div class="panel-overlay"></div>
     <!-- Left panel with reveal effect-->
     <div class="panel panel-left panel-reveal">
-        <div class="content-block">
 
+
+
+        <div class="content-block-title">Menu</div>
+
+        <div class="list-block">
             <ul>
-                <li> <a href="#calendar">Prochain match</a></li>
-                <li> <a href="#news">Les dernières news</a></li>
-                <li> <a href="#groups">Les groupes</a></li>
-                <li> <a href="#videos">Les plus belles actions</a></li>
-                <li> <a href="#dev">DEV</a></li>
-                <li><a href="#" data-bind="click:showLogs">Logs</a></li>
-                <li><a href="#" data-bind="click:restart">Redémarrer</a></li>
+                <li>
+                    <a href="Calendar.html" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">Prochain match</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="News.html" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">Les dernières news</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="Groups.html" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">Les groupes</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="Videos.html" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">Les plus belles actions</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="_Dev.html" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">DEV</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-bind="click:showLogs" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">Logs</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
+                <li>
+                    <a href="#" data-bind="click:restart" class="close-panel item-link">
+                        <div class="item-content">
+                            <div class="item-media"><i class="icon icon-f7"></i></div>
+                            <div class="item-inner">
+                                <div class="item-title">Redémarrer</div>
+                            </div>
+                        </div>
+                    </a>
+                </li>
             </ul>
-
         </div>
     </div>
-   
+
+
+    <div class="view view-right" data-page="panel-right1">
+        <div class="navbar">
+            <div class="navbar-inner">
+                <div class="center sliding" style="left: 80.5px;">Right Panel</div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="panel-right1" class="page">
+                <div class="page-content">
+                    <div class="content-block">
+                        <p>This is a right side panel. You can close it by clicking outsite or on this link: <a href="#" class="close-panel">close me</a>. You can put here anything, even another isolated view, try it:</p>
+                    </div>
+                    <div class="list-block">
+                        <ul>
+                            <li>
+                                <a href="panel-right2.html" class="item-link">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Right panel page 2</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="panel-right3.html" class="item-link">
+                                    <div class="item-content">
+                                        <div class="item-inner">
+                                            <div class="item-title">Right panel page 3</div>
+                                        </div>
+                                    </div>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <!-- Views-->
     <div class="views tabs toolbar-through" id="tabPages">
 
@@ -253,7 +361,7 @@
 
     <!--Core -->
     <script src="../../config.js"></script>
-   
+
     <script src="../../scripts/core/logger.js"></script>
     <script src="../../scripts/core/basePage.js"></script>
     <script src="../../scripts/core/baseModal.js"></script>

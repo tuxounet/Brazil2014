@@ -316,6 +316,7 @@
     <Content Include="styles\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="styles\fonts\OpenSans300.ttf" />
     <Content Include="styles\fonts\OpenSans400.woff" />
+    <Content Include="styles\img\i-f7.png" />
     <Content Include="styles\vendor\bootstrap-theme.min.css" />
     <Content Include="styles\vendor\bootstrap.min.css" />
     <Content Include="styles\vendor\framework7.min.css" />
