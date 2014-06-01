@@ -31,11 +31,11 @@
 
 
     self.refresh = function (callback) {
-        debugger; 
+        
         self.isLoading(true);
         var useCache = typeof (callback) == "function";
         self.loading();
-        new VideoDataProvider().fetchDatas(false, function (result) {
+        new VideoDataProvider().fetchDatas(useCache, function (result) {
             self.videos(result);
             if (typeof (callback) == "function") callback();
             self.loadCompleted();

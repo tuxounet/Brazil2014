@@ -1,45 +1,48 @@
 ﻿<div class="view navbar-fixed toolbar-fixed" id="videos">
+
     <div class="navbar">
         <div class="navbar-inner">
-            <div class="left sliding"><a href="index.html" class="back link"><i class="icon icon-back-blue"></i><span>Back</span></a></div>
-            <div class="center sliding">Vidéos</div>
-            <div class="right">
-                <a href="#" data-bind="click:refresh">
+            <div class="left sliding">
+                <a href="index.html" class="back link">
+                    <img src="../../contents/images/nav-back-button.png" />
+                    <img class="visual" src="../../contents/images/nav-videos-visual.png" />
+
+                </a>
+                <span class="title">Vidéos</span>
+            </div>
+
+            <div class="right sliding">
+                <a href="#" class="button" onclick="javascript:Brazil.app.invokeOnPage('refresh');">
                     <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
                 </a>
-
             </div>
         </div>
-        <div class="pages navbar-through">
-            <div data-page="videos" class="page">
-                <div class="page-content">
-                    <div class="content-block">
-                        <div data-bind="visible:isLoading() == false">
-                            <div class="newsfeed" data-bind="visible : hasDatas() == false">
-                                <div class="news-item">
-                                    <span class="title">Aucun vidéo disponible</span>
-                                    <div class="content">Veuillez actualiser</div>
-                                </div>
+    </div>
+
+
+    <div class="pages navbar-through">
+        <div data-page="videos" class="page">
+            <div class="page-content">
+                <div class="content-block">
+                    <div data-bind="visible:isLoading() == false">
+                        <div class="newsfeed" data-bind="visible : hasDatas() == false">
+                            <div class="news-item">
+                                <span class="title">Aucun vidéo disponible</span>
+                                <div class="content">Veuillez actualiser</div>
                             </div>
-
-                            <div class="videofeed" data-bind="foreach:videos,visible : hasDatas">
-                                <div class="video-item">
-                                    <span class="title" data-bind="text:Title"></span>
-                                    <a class="play-link" data-bind="attr : {href : '#VideosDetails/' + Id}">
-                                        <img class="play" src="contents/images/glyph-play-video.png" alt="lire" />
-                                    </a>
-                                </div>
-                            </div>
-
-
                         </div>
 
+                        <div class="videofeed" data-bind="foreach:videos,visible : hasDatas">
+                            <div class="video-item">
+                                <span class="title" data-bind="text:Title"></span>
+                                <a class="play-link" data-bind="attr : {href : '#VideosDetails/' + Id}">
+                                    <img class="play" src="contents/images/glyph-play-video.png" alt="lire" />
+                                </a>
+                            </div>
+                        </div>
                     </div>
-
-
                 </div>
             </div>
         </div>
-
     </div>
 </div>

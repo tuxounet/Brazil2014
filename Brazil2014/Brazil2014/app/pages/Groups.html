@@ -1,4 +1,76 @@
-﻿<script type="text/template" id="groups_page">
+﻿
+<div class="view navbar-fixed toolbar-fixed" id="groups">
+
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding">
+                <a href="index.html" class="back link">
+                    <img src="../../contents/images/nav-back-button.png" />
+                    <img class="visual" src="../../contents/images/nav-groups-visual.png" />
+
+                </a>
+                <span class="title">Groupes</span>
+            </div>
+
+            <div class="right sliding">
+                <a href="#" class="button" onclick="javascript:Brazil.app.invokeOnPage('refresh');">
+                    <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pages navbar-through">
+        <div data-page="groups" class="page">
+            <div class="page-content">
+
+
+                <div class="newsfeed" data-bind="visible : groups().length == 0">
+                    <div class="news-item">
+                        <span class="title">Aucun groupe disponible</span>
+                        <div class="content">Veuillez actualiser</div>
+                    </div>
+                </div>
+
+                <div class="list-block">
+                    <ul data-bind="foreach:groups, visible : groups().length > 0">
+                        <li>
+                            <a class="item-link item-content" data-bind="attr : {href:'GroupDetails.html?group=' + Name}">
+
+                                <div class="item-inner">
+                                    <div class="item-title">
+                                        Groupe <span data-bind="text:Name"></span>
+                                    </div>
+                                    <div class="item-after">
+                                        <div class="teams" data-bind="foreach:Teams">
+                                            <img data-bind="teamBinding:Id, attr:{alt:Name}" />
+                                        </div>
+                                    </div>
+                                </div>
+                            </a>
+                        </li>
+
+                    </ul>
+                 
+
+
+
+                </div>
+
+
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+
+
+<script type="text/template" id="groups_page">
 
     <div class="page groups">
         <!--Menu-->
@@ -7,7 +79,7 @@
         <div class="site-overlay"></div>
         <!-- Your Content -->
         <div id="container">
-        
+
             <div class="scroller">
                 <div class="top-detail-nav">
                     <a class="top-detail-nav-left-btn" data-bind="click:goBack">
@@ -26,28 +98,6 @@
                 <!--Contenu-->
                 <div class="content-container">
 
-                    <div class="newsfeed" data-bind="visible : groups().length == 0">
-                        <div class="news-item">
-                            <span class="title">Aucun groupe disponible</span>
-                            <div class="content">Glissez vers le bas pour actualiser</div>
-                        </div>
-                    </div>
-
-
-                    <div class="groupfeed" data-bind="foreach:groups, visible : groups().length > 0">
-                        <div class="group-item">
-                            <div class="title">
-                                <a data-bind="attr : {href:'#groupDetails/' + Name}">
-                                    Groupe <span data-bind="text:Name"></span>
-                                </a>
-                            </div>
-                            <div class="teams" data-bind="foreach:Teams">
-                                <img data-bind="teamBinding:Id, attr:{alt:Name}" />
-                            </div>
-                        </div>
-
-
-                    </div>
 
                 </div>
             </div>

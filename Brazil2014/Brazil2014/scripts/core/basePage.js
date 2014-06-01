@@ -59,18 +59,24 @@ function BasePage() {
     }
 
 
-    self.bind = function (domObject) {
+    self.bind = function (domObject, datas) {
         self.DOM = domObject;
 
         self.loading();
 
-        //Branchement du ViewModel
-        ko.applyBindings(self, self.DOM);
+        try {          
+            //Branchement du ViewModel
+            ko.applyBindings(self, self.DOM);
+
+        } catch (e) {
+            logger.error(e);
+            return; 
+        }
 
         if (self.load != null)
-            self.load();
+            self.load(datas);
 
- 
+
     }
 
 
@@ -98,7 +104,7 @@ function BasePage() {
     self.loadCompleted = function () {
         self.isLoaded(true);
 
-      
+
     }
 
     self.unloading = function () {

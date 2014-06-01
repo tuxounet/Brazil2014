@@ -5,7 +5,7 @@
     self.F7 = null;
     self.mainView = null;
     self.currentPage = null;
-    
+
 
     self.initalize = function () {
         self.F7 = new Framework7({
@@ -36,7 +36,7 @@
         var $$ = Framework7.$;
         // Events for specific pages when it initialized
         $$(document).on('pageInit', self.onPageInit);
-
+        $$(document).on('pageAfterAnimation', self.onPageTransitionEnded);
         //Construction du view model
         self.VM = new AppVMClass();
         //Binding du viewmodel général
@@ -51,39 +51,46 @@
     }
 
     self.onPageInit = function (e) {
+        //gestion du bottom app bar 
+        var targetUrl = e.detail.page.url;
+        $(".bz-bottomNav a").removeClass("active");
+        $(".bz-bottomNav a[href='" + targetUrl + "']").addClass("active");
+
+
+
+    }
+
+    self.onPageTransitionEnded = function (e) {
+        
 
         var targetClass = e.detail.page.name + "_PageClass";
         if (eval("typeof " + targetClass + " == 'undefined'") == false) {
             //Instanciation de la page          
             self.currentPage = eval("new " + targetClass + "()");
             //Binding KO
-            self.currentPage.bind(e.detail.page.container);
+            self.currentPage.bind(e.detail.page.container, e.detail.page.query);
         }
         else {
-            self.currentPage = null; 
+            self.currentPage = null;
         }
-
-
     }
 
 
 
     self.invokeOnPage = function (functionName) {
-        if (self.currentPage == null)
-        {
+        if (self.currentPage == null) {
             logger.warn("Aucune instance de page associée");
-            return; 
+            return;
         }
 
         var func = self.currentPage[functionName];
-        if (func == null || typeof func != 'function')
-        {
+        if (func == null || typeof func != 'function') {
             logger.warn("Invocation non autorisée");
-            return 
+            return
         }
 
-        func(); 
-        
+        func();
+
 
     }
 
