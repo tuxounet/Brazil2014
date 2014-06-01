@@ -25,7 +25,7 @@
   <preference name="android-minSdkVersion" value="7" />
   <preference name="android-installLocation" value="auto" />
   <preference name="splashScreen" value="screen" />
-  <preference name="Fullscreen" value="true" />
+  <preference name="Fullscreen" value="false" />
   <vs:features>
     <vs:feature>org.apache.cordova.device@0.2.9</vs:feature>
     <vs:feature>org.apache.cordova.splashscreen@0.3.0</vs:feature>

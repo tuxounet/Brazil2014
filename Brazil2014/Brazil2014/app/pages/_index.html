@@ -36,84 +36,10 @@
     <link rel="apple-touch-icon-precomposed" sizes="72×72" href="contents/icons/apple-touch-icon-72x72-precomposed.png" />
     <link rel="apple-touch-icon-precomposed" href="contents/icons/apple-touch-icon-precomposed.png" />
 
-
-
-    <style>
-        body {
-            padding: 0px;
-            margin: 0px;
-            font-size: 14px;
-        }
-
-        .kernelLoader {
-            text-align: center;
-            position: absolute;
-            top: 0px;
-            left: 0px;
-            width: 100%;
-            background: #ffffff;
-            height: 100%;
-            z-index: 1;
-        }
-
-            .kernelLoader #_core-debug {
-                text-align: left;
-            }
-
-            .kernelLoader ._core_hidelogs {
-                display: none;
-                position: absolute;
-                top: 0;
-                right: 0;
-                font-size: 26px;
-                background-color: lightgray;
-                padding: 5px;
-            }
-
-
-            .kernelLoader .loader {
-                position: absolute;
-                bottom: 0px;
-                margin-bottom: 3em;
-                width: 100%;
-            }
-
-            .kernelLoader .brand {
-                position: absolute;
-                top: 0px;
-                margin-top: 5em;
-                width: 100%;
-            }
-
-            .kernelLoader .restart {
-                display: none;
-                width: 200px;
-                background-color: green;
-                height: 60px;
-                font-size: 26px;
-                line-height: 60px;
-                vertical-align: middle;
-                color: lightgray;
-                position: absolute;
-                bottom: 0;
-            }
-
-            .kernelLoader .debug {
-                position: absolute;
-                bottom: 0px;
-                right: 0px;
-            }
-
-        /***** Fade in child when parent hovered *****/
-        .fadeIn {
-            opacity: 1;
-            -webkit-transition: opacity 0.5s ease-out;
-            -moz-transition: opacity 0.5s ease-out;
-            -o-transition: opacity 0.5s ease-out;
-            transition: opacity 0.5s ease-out;
-        }
-    </style>
-
+    <!--Styles-->
+    <link href="../../styles/vendor/framework7.min.css" rel="stylesheet" />
+    <link href="../../styles/app/site.fonts.css" rel="stylesheet" />
+    <link href="../../styles/app/site-f7.css" rel="stylesheet" />
 
 </head>
 <body>
@@ -124,15 +50,22 @@
     <div class="statusbar-overlay"></div>
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
+
     <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal">
-
-
-
-        <div class="content-block-title">Menu</div>
-
+    <div class="panel panel-left panel-reveal bz-main-menu">
         <div class="list-block">
             <ul>
+
+                <li>
+                    <div class="item-content">
+
+                        <div class="item-inner">
+                            <div class="item-title">Menu</div>
+                        </div>
+                    </div>
+
+                </li>
+
                 <li>
                     <a href="Calendar.html" class="close-panel item-link">
                         <div class="item-content">
@@ -206,70 +139,23 @@
             </ul>
         </div>
     </div>
-
-
-    <div class="view view-right" data-page="panel-right1">
-        <div class="navbar">
-            <div class="navbar-inner">
-                <div class="center sliding" style="left: 80.5px;">Right Panel</div>
-            </div>
-        </div>
-        <div class="pages navbar-through">
-            <div data-page="panel-right1" class="page">
-                <div class="page-content">
-                    <div class="content-block">
-                        <p>This is a right side panel. You can close it by clicking outsite or on this link: <a href="#" class="close-panel">close me</a>. You can put here anything, even another isolated view, try it:</p>
-                    </div>
-                    <div class="list-block">
-                        <ul>
-                            <li>
-                                <a href="panel-right2.html" class="item-link">
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title">Right panel page 2</div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="panel-right3.html" class="item-link">
-                                    <div class="item-content">
-                                        <div class="item-inner">
-                                            <div class="item-title">Right panel page 3</div>
-                                        </div>
-                                    </div>
-                                </a>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-
-
-
+    
     <!-- Views-->
-    <div class="views tabs toolbar-through" id="tabPages">
-
-        <div class="view view-main tab active navbar-fixed toolbar-fixed" id="main">
-
+    <div class="views">
+        <div class="view view-main" id="master">
             <div class="navbar">
                 <div class="navbar-inner">
                     <div class="left">
                         <a href="#" class="link icon-only open-panel">
-                            <i class="icon icon-bars-blue"></i>&nbsp;
-                            <div class="sliding">Brazil 2014</div>
+                            <img src="../../contents/images/menu-button.png" />
+                         
                         </a>
                     </div>
-
-
                 </div>
-
             </div>
             <!-- We can make with view with navigation, let's add Top Navbar-->
-            <div class="pages navbar-through">
-                <div class="page" data-page="home">
+            <div class="pages navbar-through  toolbar-through">
+                <div class="page home" data-page="main">
                     <div class="page-content" style="text-align:center">
                         <img src="../../contents/images/home-background.png" alt="" style="height:70%; margin-top:25px;" />
                     </div>
@@ -281,37 +167,21 @@
 
 
 
+
     <!-- Bottom Toolbar-->
 
-
-
-    <div class="kernelLoader fadeIn">
-
-        <div id="_core-debug"></div>
-
-        <div class="_core_hidelogs">
-            <a href="javascript:Brazil.hideLogs()">Fermer</a>
+    <div class="popup popup-logs">
+        <div class="content-block-title">Logs</div>
+        <div class="content-block">
+            <p><a href="#" class="close-popup">Fermer</a></p>
+            <p><div id="_core-debug"></div></p>
         </div>
-        <div class="brand">
-            <!--<img src="contents/images/logo.png" />-->
-        </div>
-        <div class="loader">
-            <img src="../../contents/images/loader.gif" />
-        </div>
-
-        <div class="restart">
-            <a href="javascript:Brazil.restart()">Redémarrer</a>
-        </div>
-
     </div>
+
+
 
     <div id="templates"></div>
 
-    <!--Styles-->
-    <link href="../../styles/vendor/framework7.min.css" rel="stylesheet" />
-
-    <link href="../../styles/app/site.fonts.css" rel="stylesheet" />
-    <link href="../../styles/app/site-f7.css" rel="stylesheet" />
 
 
     <!--Cordova-->
@@ -373,7 +243,7 @@
     <script src="../app.js"></script>
     <script type="text/javascript">
         Brazil.fetchTemplate("../models/MatchTemplate.html");
-        Brazil.fetchInto("../widgets/BottomNav.html", "#tabPages")
+        Brazil.fetchInto("../widgets/BottomNav.html", "#master")
         boot.initialize();
     </script>
 

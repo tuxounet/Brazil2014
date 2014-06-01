@@ -1,1 +1,145 @@
-﻿
+﻿* {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+input {
+    -moz-user-select: text;
+    -ms-user-select: text;
+    -webkit-user-select: text;
+    user-select: text;
+}
+
+
+.button {
+    border-color: #019340;
+    color: #019340;
+}
+
+.bz-main-menu {
+    background-color: #019340;
+}
+
+    .bz-main-menu .list-block {
+        margin-top: 0px;
+    }
+
+        .bz-main-menu .list-block ul {
+            background-color: #019340;
+            border: none;
+        }
+
+        .bz-main-menu .list-block li {
+            border-bottom: #EBF1DE 1px solid;
+            color: #EBF1DE;
+        }
+
+            .bz-main-menu .list-block li .item-inner {
+                border: none;
+            }
+
+
+.bz-bottomNav {
+    background-color: #019340;
+}
+
+    .bz-bottomNav .tabbar-label {
+        color: #ffffff;
+        font-weight: normal;
+    }
+
+    .bz-bottomNav .tab-link.active {
+        background-color: #FFF402;
+    }
+
+        .bz-bottomNav .tab-link.active .tabbar-label {
+            color: #019340;
+            font-weight: bold;
+        }
+
+
+
+.day-item-wrapper {
+    height: 100%;
+    overflow-y: scroll;
+}
+
+.day-item .page-content {
+    padding: 0;
+    background-color: #ffffff;
+}
+
+
+    .day-item .page-content .content-block-title {
+        margin-top: 11px;
+        color: #019340;
+        font-weight: bold;
+    }
+
+    .day-item .page-content .list-block.media-list ul {
+        border-top: 1px #019340 solid;
+        border-bottom: none;
+        border-left: none;
+        border-right: none;
+    }
+
+    .day-item .page-content .list-block.media-list .match {
+        border-bottom: 1px #EBF1DE solid;
+    }
+
+
+.match .team,
+.match .time,
+.match .stade {
+    text-align: center;
+}
+
+.match .type {
+    margin: 0px 15px;
+    margin-bottom: 11px;
+}
+
+.match .stadium {
+    padding-bottom: 11px;
+    padding-top: 11px;
+}
+
+    .match .stadium img,
+    .match .stadium span {
+        float: left;
+    }
+
+
+#master .navbar {
+    background-color: #ffffff;
+}
+
+.navbar .title {
+    color: #019340;
+}
+
+.page.home {
+    background-color: #ffffff;
+}
+
+.calendar .slider-pagination {
+    top: 5px;
+    bottom: auto;
+}
+
+    .calendar .slider-pagination .slider-pagination-bullet {
+        width: 2px;
+        height: 12px;
+        border-radius: 0;
+    }
+
+    .calendar .slider-pagination .slider-pagination-active {
+        background-color: #019340;
+    }
+
+
+.visual {
+    padding-right: 7px;
+}

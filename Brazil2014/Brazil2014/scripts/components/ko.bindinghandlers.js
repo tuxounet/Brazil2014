@@ -40,11 +40,11 @@ ko.bindingHandlers.teamBinding = {
         }
         ko.applyBindingsToNode(element, {
             attr: {
-              
+                width: 32,
                 src: "../../contents/datas/teams/" + result + ".png"
             }
         }, viewModel);
-     
+
         return {
             controlsDescendantBindings: true
         };

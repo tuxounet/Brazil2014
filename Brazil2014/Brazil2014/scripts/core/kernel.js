@@ -34,7 +34,6 @@ window.Brazil = {
         }
         else {
             //Navigation sur l'acceuil
-            Brazil.app.navigate("Home.html");
             Brazil.load();
         }
 
@@ -130,22 +129,8 @@ window.Brazil = {
     },
 
     showLogs: function () {
-     
-        $(".kernelLoader").show();
-        $(".kernelLoader").css("opacity", 1);
-        $(".kernelLoader .loader").hide();
-        $(".kernelLoader ._core_hidelogs").show();
+        Brazil.app.F7.popup('.popup-logs');  
     },
-
-    hideLogs: function () {
-
-        $(".kernelLoader").css("opacity", 0);
-        $(".kernelLoader").hide();
-        $(".kernelLoader .loader").show();
-        $(".kernelLoader ._core_hidelogs").hide();
-
-    },
-
 
     onerror: function (e) {
         var message = "Erreur : ";

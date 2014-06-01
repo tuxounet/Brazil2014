@@ -130,8 +130,6 @@
     <Content Include="app\pages\GroupDetails.js" />
     <Content Include="app\pages\Groups.html" />
     <Content Include="app\pages\Groups.js" />
-    <Content Include="app\pages\Home.html" />
-    <Content Include="app\pages\Home.js" />
     <Content Include="app\pages\_index.html" />
     <Content Include="app\pages\News.html" />
     <Content Include="app\pages\News.js" />
