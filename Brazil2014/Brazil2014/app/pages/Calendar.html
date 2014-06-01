@@ -1,4 +1,47 @@
-﻿<script type="text/template" id="calendar_page">
+﻿<div class="view navbar-fixed toolbar-fixed" id="calendar">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding">
+                <a href="index.html" class="back link">
+                    <img src="../../contents/images/nav-back-button.png" />
+                    <img class="visual" src="../../contents/images/nav-calendar-visual.png" />
+                 
+                </a>
+                <span class="title">Calendrier</span>
+            </div>
+
+            <div class="right sliding">
+                <a href="#" class="button" onclick="javascript:Brazil.app.invokeOnPage('refresh');">
+                    <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="pages navbar-through">
+        <div data-page="calendar" class="page calendar">
+            <div class="page-content">
+                <!-- Slider -->
+                <div class="slider-container">
+                    <div class="slider-wrapper calendarFeed" data-bind="foreach:groupedMatches">
+                        <div class="slider-slide day-item" data-bind="attr: { 'data-id' : moment(Date).unix() }">
+                            <div class="day-item-wrapper">
+                                <div class="content-block-title"><span data-bind="text:moment(Date).format('dddd Do MMMM')"></span></div>
+                                <div class="list-block media-list">
+                                    <ul data-bind="template : { name:'MatchTemplate', foreach:Matchs}"></ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="slider-pagination" data-bind="click:goto"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+<script type="text/template" id="calendar_page">
 
     <div class="page">
         <!-- Pushy Menu -->

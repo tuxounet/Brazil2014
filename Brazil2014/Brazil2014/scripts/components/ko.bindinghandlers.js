@@ -40,11 +40,30 @@ ko.bindingHandlers.teamBinding = {
         }
         ko.applyBindingsToNode(element, {
             attr: {
-              
-                src: "contents/datas/teams/" + result + ".png"
+                width: 32,
+                src: "../../contents/datas/teams/" + result + ".png"
             }
         }, viewModel);
-     
+
+        return {
+            controlsDescendantBindings: true
+        };
+    }
+};
+
+
+
+
+ko.bindingHandlers.stadiumBinding = {
+    init: function (element, valueAccessor, allBindings, viewModel, bindingContext) {
+
+        debugger;
+        ko.applyBindingsToNode(element, {
+            attr: {      
+                src: "../../contents/datas/stadiums/" + valueAccessor() + ".jpg"
+            }
+        }, viewModel);
+
         return {
             controlsDescendantBindings: true
         };

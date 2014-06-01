@@ -15,8 +15,11 @@
         return "Groupe " + self.groupName();
 
     });
-    self.load = function (uriParameters) {
-        self.groupName(uriParameters);
+    self.load = function (datas) {
+        
+        
+        self.groupName(datas.group);
+        $(".page-on-center .title").text(self.title());
         self.refresh(self.loadCompleted);
 
 

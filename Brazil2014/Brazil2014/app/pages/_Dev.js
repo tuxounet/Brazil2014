@@ -1,4 +1,4 @@
-﻿var _Dev_PageClass = function () {
+﻿window._Dev_PageClass = function () {
 
    //Heritage de la page de base
     BasePage.call(this)
@@ -9,7 +9,7 @@
 
 
     self.load = function (uriParameters) {
-
+        debugger;
         var mySwiper = new Swiper('.swiper-container', {
             pagination: '.pagination',
             paginationClickable: true,

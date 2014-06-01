@@ -1,30 +1,29 @@
-﻿<script type="text/template" id="videos_page">
+﻿<div class="view navbar-fixed toolbar-fixed" id="videos">
 
-    <div class="page">
-        <!--Menu-->
-        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
-        <!-- Site Overlay -->
-        <div class="site-overlay"></div>
-        <!-- Your Content -->
-        <div id="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding">
+                <a href="index.html" class="back link">
+                    <img src="../../contents/images/nav-back-button.png" />
+                    <img class="visual" src="../../contents/images/nav-videos-visual.png" />
 
-            <div class="scroller">
-                <div class="top-detail-nav">
-                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
-                        <img src="contents/images/nav-back-button.png" alt="retour" />
-                    </a>
-                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
-                        <img src="contents/images/nav-videos-visual.png" alt="vidéos" />
-                    </div>
-                    <div class="top-detail-nav-title">
-                        Vidéos
-                    </div>
-                    <a class="top-detail-nav-right-btn" data-bind="click:refresh">
-                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
-                    </a>
-                </div>
-                <!--Contenu-->
-                <div class="content-container">
+                </a>
+                <span class="title">Vidéos</span>
+            </div>
+
+            <div class="right sliding">
+                <a href="#" class="button" onclick="javascript:Brazil.app.invokeOnPage('refresh');">
+                    <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
+                </a>
+            </div>
+        </div>
+    </div>
+
+
+    <div class="pages navbar-through">
+        <div data-page="videos" class="page">
+            <div class="page-content">
+                <div class="content-block">
                     <div data-bind="visible:isLoading() == false">
                         <div class="newsfeed" data-bind="visible : hasDatas() == false">
                             <div class="news-item">
@@ -41,18 +40,9 @@
                                 </a>
                             </div>
                         </div>
-
-
                     </div>
-
                 </div>
             </div>
         </div>
-
-        <!--Barre inférieure-->
-        <div data-type="widget" data-widget="BottomNav"></div>
-
-        <!--Loader de chargement-->
-        <div data-type="widget" data-widget="PageLoader"></div>
     </div>
-</script>
+</div>

@@ -115,6 +115,7 @@
     <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="app\app.js" />
     <Content Include="app\datas\BaseDataProvider.js" />
     <Content Include="app\datas\GroupDataProvider.js" />
     <Content Include="app\datas\GroupDetailDataProvider.js" />
@@ -129,8 +130,7 @@
     <Content Include="app\pages\GroupDetails.js" />
     <Content Include="app\pages\Groups.html" />
     <Content Include="app\pages\Groups.js" />
-    <Content Include="app\pages\Home.html" />
-    <Content Include="app\pages\Home.js" />
+    <Content Include="app\pages\_index.html" />
     <Content Include="app\pages\News.html" />
     <Content Include="app\pages\News.js" />
     <Content Include="app\pages\NewsDetails.html" />
@@ -148,11 +148,9 @@
     <Content Include="app\pages\_Dev.html" />
     <Content Include="app\pages\_Dev.js" />
     <Content Include="app\services\platform.js" />
+    <Content Include="app\viewmodels\AppVM.js" />
     <Content Include="app\viewmodels\MatchViewModel.js" />
     <Content Include="app\widgets\BottomNav.html" />
-    <Content Include="app\widgets\BottomNav.js" />
-    <Content Include="app\widgets\OffMenu.html" />
-    <Content Include="app\widgets\OffMenu.js" />
     <Content Include="app\widgets\PageLoader.html" />
     <Content Include="config.js" />
     <Content Include="config.xml">
@@ -208,6 +206,7 @@
     <Content Include="contents\icons\apple-touch-icon-precomposed.png" />
     <Content Include="contents\icons\favicon.ico" />
     <Content Include="contents\images\footer-calendar.png" />
+    <Content Include="contents\images\footer-home.png" />
     <Content Include="contents\images\footer-results.png" />
     <Content Include="contents\images\footer-videos.png" />
     <Content Include="contents\images\glyph-map-point.png" />
@@ -231,11 +230,7 @@
     <Content Include="scripts\components\classie.js" />
     <Content Include="scripts\components\duration.js" />
     <Content Include="scripts\components\guid.js" />
-    <Content Include="scripts\components\jquery.touchSwipe.js" />
     <Content Include="scripts\components\ko.bindinghandlers.js" />
-    <Content Include="scripts\components\modalEffects.js" />
-    <Content Include="scripts\components\pageTransitions.js" />
-    <Content Include="scripts\components\pushy.js" />
     <Content Include="scripts\cordova\device.js" />
     <Content Include="scripts\core\baseModal.js" />
     <Content Include="scripts\core\basePage.js" />
@@ -286,16 +281,14 @@
     <Content Include="res\screens\ios\screen-iphone-portrait-2x.png" />
     <Content Include="res\screens\windows8\splashscreen.png" />
     <Content Include="res\screens\wp8\screen-portrait.jpg" />
-    <Content Include="scripts\vendor\bootstrap.min.js" />
-    <Content Include="scripts\vendor\fastclick.js" />
-    <Content Include="scripts\vendor\idangerous.swiper-2.1.min.js" />
-    <Content Include="scripts\vendor\idangerous.swiper.scrollbar-2.1.js" />
+    <Content Include="scripts\vendor\framework7.js" />
+    <Content Include="scripts\vendor\framework7.min.js" />
     <Content Include="scripts\vendor\jquery-2.1.0.intellisense.js" />
     <Content Include="scripts\vendor\jquery-2.1.0.min.js" />
-    <Content Include="scripts\vendor\jquery.lazyload.js" />
     <Content Include="scripts\vendor\knockout-3.1.0.js" />
     <Content Include="scripts\vendor\modernizr-2.7.2.js" />
     <Content Include="scripts\vendor\moment-with-langs.min.js" />
+    <Content Include="styles\app\site-f7.css" />
     <Content Include="styles\app\site.css" />
     <Content Include="styles\app\site.css.map" />
     <Content Include="styles\app\site.fonts.css" />
@@ -321,8 +314,10 @@
     <Content Include="styles\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="styles\fonts\OpenSans300.ttf" />
     <Content Include="styles\fonts\OpenSans400.woff" />
+    <Content Include="styles\img\i-f7.png" />
     <Content Include="styles\vendor\bootstrap-theme.min.css" />
     <Content Include="styles\vendor\bootstrap.min.css" />
+    <Content Include="styles\vendor\framework7.min.css" />
     <Content Include="styles\vendor\idangerous.swiper.css" />
     <Content Include="styles\vendor\idangerous.swiper.scrollbar.css" />
     <Content Include="styles\vendor\pushy.min.css" />

@@ -4,9 +4,9 @@
     isLegacy: false,
     config: {
         remoteUrl: "",
-        debug:true
+        debug: true
     },
-  
+
     // Application Constructor
     initialize: function () {
         if (LudivineVersion != null)
@@ -56,20 +56,19 @@
     },
     onResume: function () {
         logger.log("App Resume");
-             
+
     },
 
 
     loadConfig: function () {
 
         logger.log("Chargement de la config...");
-        if (config == null)
-        {
+        if (config == null) {
             logger.error("Configuration introuvable");
             Brazil.fatal();
-            return; 
+            return;
         }
-        boot.config = config;     
+        boot.config = config;
         logger.log("Config chargée " + JSON.stringify(config));
 
     },
@@ -88,19 +87,23 @@
             boot.isLegacy = true;
         }
 
-        
-        
-        if (boot.isLegacy == true)
-        {
+
+
+        if (boot.isLegacy == true) {
             $("body").addClass("ludivine-legacy");
         }
+
 
         //Capacité du navigateur
         logger.info("Capacités du navigateur :" + $("html").attr("class"));
 
         logger.log("Initialisation de l'application");
         boot.loadConfig();
+
+
         Brazil.start();
+
+
     }
 
 };

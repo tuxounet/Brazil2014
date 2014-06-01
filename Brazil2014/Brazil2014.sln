@@ -5,6 +5,12 @@ VisualStudioVersion = 12.0.30501.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{262852C6-CD72-467D-83FE-5EEB1973A190}") = "Brazil2014", "Brazil2014\Brazil2014.jsproj", "{3234D057-89E1-444A-B32B-672ED2829DD9}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{A62751F5-6215-41D5-9F47-46962206A08A}"
+	ProjectSection(SolutionItems) = preProject
+		DeployExcludes.txt = DeployExcludes.txt
+		DeployMagenta.ps1 = DeployMagenta.ps1
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Android = Debug|Android

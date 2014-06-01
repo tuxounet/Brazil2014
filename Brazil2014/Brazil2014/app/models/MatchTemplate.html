@@ -1,41 +1,51 @@
-﻿<script type="text/template" id="MatchTemplate">
+﻿
 
-    <div class="container match">
-        <div class="row type">
-            <div class="col-xs-12" data-bind="if:Type=='Groupe'">
-                <a data-bind="attr:{ href : '#groupDetails/' + GroupName}">Groupe <span data-bind="text:GroupName"></span></a>
+
+<script type="text/template" id="MatchTemplate">
+
+    <li>
+
+        <div class="item-inner match">
+
+            <div class="row type no-gutter">
+                <div class="col-100" data-bind="if:Type=='Groupe'">
+                    <a data-bind="attr:{ href : 'GroupDetails.html?groupName=' + GroupName}">Groupe <span data-bind="text:GroupName"></span></a>
+                </div>
+                <div class="col-100" data-bind="ifnot:Type=='Groupe'">
+                    <span data-bind="text:Type"></span>
+                </div>
             </div>
-            <div class="col-xs-12" data-bind="ifnot:Type=='Groupe'">
-                <span data-bind="text:Type"></span>
-            </div>
-        </div>
-        <div class="row">
-            <div class="col-xs-offset-1 col-xs-3 team">
-                
-                    <img class="lazy img-responsive" data-bind="teamBinding:Team1, attr:{alt:Team1Name}" /><br />
+            <div class="row no-gutter">
+                <div class="col-33 team">
+                    <img data-bind="teamBinding:Team1, attr:{alt:Team1Name}" /><br />
                     <span data-bind="text:Team1Name"></span>
-                </p>
-            </div>
-            <div class="col-xs-4 time">
-                <span data-bind="text:moment(Hour, 'HH:mm:ss' ).format('HH:mm')"></span>
-            </div>
-            <div class="col-xs-3 team">
-                <p>
-                    <img class="img-responsive" data-bind="teamBinding:Team2, attr:{alt:Team2Name}" /><br />
+                </div>
+                <div class="col-33 time">
+                    <div data-bind="text:moment(Hour, 'HH:mm:ss' ).format('HH:mm')"></div>
+                </div>
+                <div class="col-33 team">
+                    <img data-bind="teamBinding:Team2, attr:{alt:Team2Name}" /><br />
                     <span data-bind="text:Team2Name"></span>
-                </p>
-            </div>
-        </div>
-        <div class="row stadium">
+                </div>
 
-            <div class="col-xs-offset-3 col-xs-9 stade">
-                <a data-bind="attr:{ href : '#stadium/' + Stadium }">
-                    <img src="contents/images/glyph-map-point.png" alt="" />
-                 
-                </a><span data-bind="text:StadiumName"></span>
             </div>
 
+
+            <div class="row no-gutter stadium">
+                <div class="col-20">&nbsp;</div>
+                <div class="col-60 stade">
+                    <a class="button" data-bind="attr:{ href : 'Stadium.html?id=' + Stadium }">
+                        <div>
+                            <img class="visual" src="../../contents/images/glyph-map-point.png" alt="" /><span data-bind="text:StadiumName"></span>
+                        </div>
+                    </a>
+                </div>
+                <div class="col-20"></div>
+            </div>
+
         </div>
-    </div>
+
+    </li>
+
 
 </script>

@@ -1,19 +1,17 @@
 ﻿/// <reference path="../../app/services/appClient.js" />
 window.Brazil = {
 
-    router: new routerClass("#container"),
-
+    router: null,
+    app : null, 
     start: function () {
 
         window.onerror = Brazil.onerror;
 
-        FastClick.attach(document.body);
+       
+        Brazil.app = new appClass();
+        Brazil.app.initalize();
 
-
-        //Router 
-        Brazil.router
-        Brazil.router.initialize();
-
+   
         moment.lang("fr");
 
         if (boot.isPhoneGap)
@@ -24,15 +22,18 @@ window.Brazil = {
         //Id de la platefrome 
         platform.fetchInfos();
 
+       
+
         logger.log("Navigation");
+
+
+
         //naivgation initiale
         if (location.hash != "") {
-            Brazil.router.navigate("#home");
             Brazil.load();
         }
         else {
             //Navigation sur l'acceuil
-            Brazil.router.navigate("#home");
             Brazil.load();
         }
 
@@ -53,6 +54,9 @@ window.Brazil = {
             $("#pageTemplates").append(Result);
         })
     },
+
+
+
     fetchWidget: function (widgetUrl) {
         $.ajax({
             url: widgetUrl,
@@ -63,6 +67,7 @@ window.Brazil = {
     },
 
     fetchTemplate: function (templateUrl) {
+        
         $.ajax({
             url: templateUrl,
             async: false
@@ -71,6 +76,16 @@ window.Brazil = {
         })
     },
 
+
+
+    fetchInto: function (pageUrl, target) {
+        $.ajax({
+            url: pageUrl,
+            async: false
+        }).done(function (Result) {
+            $(target).append(Result);
+        })
+    },
 
 
     load: function () {
@@ -114,20 +129,8 @@ window.Brazil = {
     },
 
     showLogs: function () {
-        $(".kernelLoader").show();
-        $(".kernelLoader").css("opacity", 1);
-        $(".kernelLoader .loader").hide();
-        $(".kernelLoader ._core_hidelogs").show();
+        Brazil.app.F7.popup('.popup-logs');  
     },
-
-    hideLogs: function () {
-        $(".kernelLoader").css("opacity", 0);
-        $(".kernelLoader").hide();
-        $(".kernelLoader .loader").show();
-        $(".kernelLoader ._core_hidelogs").hide();
-
-    },
-
 
     onerror: function (e) {
         var message = "Erreur : ";
@@ -150,15 +153,7 @@ window.Brazil = {
         }
         logger.error(message);
         alert(message);
-
-        //Mise en mode erreur de la page
-        if (Brazil.router.currentPage != null && Brazil.router.currentPage.pageFaulted !=null)
-        {
-            Brazil.router.currentPage.pageFaulted();
-        }
-        
-       
-        Brazil.router.goBack();
+           
     }
 };
 

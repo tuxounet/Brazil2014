@@ -18,8 +18,6 @@
     self.isLoading = ko.observable(true);
 
 
-
-
     self.load = function (uriParameters) {
 
         self.refresh(self.loadCompleted);
@@ -33,6 +31,7 @@
 
 
     self.refresh = function (callback) {
+        
         self.isLoading(true);
         var useCache = typeof (callback) == "function";
         self.loading();

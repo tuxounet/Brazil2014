@@ -1,12 +1,20 @@
-﻿<script type="text/template" id="widget_BottomNav">
-    <div class="bottom-nav three-items" data-bind="foreach:items">
-        <div class="entry" data-bind="css:{active:isActive}">
-            <a href="#calendar" data-bind="attr: { href: target}" style="display:block">
-                
-
-                <img data-bind="attr : { src: image, alt:title }" /><br />
-                <span data-bind="text:title"></span>
-            </a>
-        </div>
+﻿<div class="toolbar tabbar tabbar-labels bz-bottomNav">
+    <div class="toolbar-inner">
+        <a href="_index.html" class="tab-link active">
+            <img src="../../contents/images/footer-home.png" />
+            <span class="tabbar-label">Home</span>
+        </a>
+        <a href="Calendar.html" class="tab-link">
+            <img src="../../contents/images/footer-calendar.png" />
+            <span class="tabbar-label">Calendrier</span>
+        </a>
+        <a href="Results.html" class="tab-link">
+            <img src="../../contents/images/footer-results.png" />
+            <span class="tabbar-label">Résultats</span>
+        </a>
+        <a href="Videos.html" class="tab-link">
+            <img src="../../contents/images/footer-videos.png" />
+            <span class="tabbar-label">Vidéos</span>
+        </a>
     </div>
-</script>
+</div>

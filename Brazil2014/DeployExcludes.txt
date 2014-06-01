@@ -1,0 +1,3 @@
+\bld\
+\bin\
+\node_modules\
