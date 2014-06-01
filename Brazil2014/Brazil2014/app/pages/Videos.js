@@ -18,8 +18,6 @@
     self.isLoading = ko.observable(true);
 
 
-
-
     self.load = function (uriParameters) {
 
         self.refresh(self.loadCompleted);
@@ -33,10 +31,11 @@
 
 
     self.refresh = function (callback) {
+        debugger; 
         self.isLoading(true);
         var useCache = typeof (callback) == "function";
         self.loading();
-        new VideoDataProvider().fetchDatas(useCache, function (result) {
+        new VideoDataProvider().fetchDatas(false, function (result) {
             self.videos(result);
             if (typeof (callback) == "function") callback();
             self.loadCompleted();

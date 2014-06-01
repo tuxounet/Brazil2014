@@ -41,7 +41,7 @@ ko.bindingHandlers.teamBinding = {
         ko.applyBindingsToNode(element, {
             attr: {
               
-                src: "contents/datas/teams/" + result + ".png"
+                src: "../../contents/datas/teams/" + result + ".png"
             }
         }, viewModel);
      

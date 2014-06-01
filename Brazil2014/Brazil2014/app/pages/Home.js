@@ -1,4 +1,5 @@
-﻿var home_PageClass = function () {
+﻿
+window.home_PageClass = function () {
 
     //Heritage de la page de base
     BasePage.call(this)

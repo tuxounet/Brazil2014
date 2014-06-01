@@ -1,58 +1,45 @@
-﻿<script type="text/template" id="videos_page">
+﻿<div class="view navbar-fixed toolbar-fixed" id="videos">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding"><a href="index.html" class="back link"><i class="icon icon-back-blue"></i><span>Back</span></a></div>
+            <div class="center sliding">Vidéos</div>
+            <div class="right">
+                <a href="#" data-bind="click:refresh">
+                    <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
+                </a>
 
-    <div class="page">
-        <!--Menu-->
-        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
-        <!-- Site Overlay -->
-        <div class="site-overlay"></div>
-        <!-- Your Content -->
-        <div id="container">
-
-            <div class="scroller">
-                <div class="top-detail-nav">
-                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
-                        <img src="contents/images/nav-back-button.png" alt="retour" />
-                    </a>
-                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
-                        <img src="contents/images/nav-videos-visual.png" alt="vidéos" />
-                    </div>
-                    <div class="top-detail-nav-title">
-                        Vidéos
-                    </div>
-                    <a class="top-detail-nav-right-btn" data-bind="click:refresh">
-                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
-                    </a>
-                </div>
-                <!--Contenu-->
-                <div class="content-container">
-                    <div data-bind="visible:isLoading() == false">
-                        <div class="newsfeed" data-bind="visible : hasDatas() == false">
-                            <div class="news-item">
-                                <span class="title">Aucun vidéo disponible</span>
-                                <div class="content">Veuillez actualiser</div>
+            </div>
+        </div>
+        <div class="pages navbar-through">
+            <div data-page="videos" class="page">
+                <div class="page-content">
+                    <div class="content-block">
+                        <div data-bind="visible:isLoading() == false">
+                            <div class="newsfeed" data-bind="visible : hasDatas() == false">
+                                <div class="news-item">
+                                    <span class="title">Aucun vidéo disponible</span>
+                                    <div class="content">Veuillez actualiser</div>
+                                </div>
                             </div>
+
+                            <div class="videofeed" data-bind="foreach:videos,visible : hasDatas">
+                                <div class="video-item">
+                                    <span class="title" data-bind="text:Title"></span>
+                                    <a class="play-link" data-bind="attr : {href : '#VideosDetails/' + Id}">
+                                        <img class="play" src="contents/images/glyph-play-video.png" alt="lire" />
+                                    </a>
+                                </div>
+                            </div>
+
+
                         </div>
 
-                        <div class="videofeed" data-bind="foreach:videos,visible : hasDatas">
-                            <div class="video-item">
-                                <span class="title" data-bind="text:Title"></span>
-                                <a class="play-link" data-bind="attr : {href : '#VideosDetails/' + Id}">
-                                    <img class="play" src="contents/images/glyph-play-video.png" alt="lire" />
-                                </a>
-                            </div>
-                        </div>
-
-
                     </div>
+
 
                 </div>
             </div>
         </div>
 
-        <!--Barre inférieure-->
-        <div data-type="widget" data-widget="BottomNav"></div>
-
-        <!--Loader de chargement-->
-        <div data-type="widget" data-widget="PageLoader"></div>
     </div>
-</script>
+</div>
