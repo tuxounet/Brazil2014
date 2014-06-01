@@ -9,7 +9,7 @@
 
             <div class="row type no-gutter">
                 <div class="col-100" data-bind="if:Type=='Groupe'">
-                    <a data-bind="attr:{ href : 'GroupDetails.html?groupName=' + GroupName}">Groupe <span data-bind="text:GroupName"></span></a>
+                    <a data-bind="attr:{ href : 'GroupDetails.html?name=' + GroupName}">Groupe <span data-bind="text:GroupName"></span></a>
                 </div>
                 <div class="col-100" data-bind="ifnot:Type=='Groupe'">
                     <span data-bind="text:Type"></span>
