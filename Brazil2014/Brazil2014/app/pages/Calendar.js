@@ -10,7 +10,7 @@ window.calendar_PageClass = function () {
     self.groupedMatches = ko.observableArray();
 
     self.isLoading = ko.observable(true);
-    self.swiper = null;
+    self.slider = null; 
     self.load = function (uriParameters) {
 
         self.refresh(
@@ -85,7 +85,11 @@ window.calendar_PageClass = function () {
 
     };
 
+    self.goto = function () {
+        debugger;
 
+
+    }
     self.refresh = function (callback) {
         var useCache = typeof (callback) == "function";
 
@@ -98,14 +102,15 @@ window.calendar_PageClass = function () {
 
             self.isLoading(false);
             self.loadCompleted();
-            var mySlider = Brazil.app.F7.slider('.slider-container', {
+            self.slider = Brazil.app.F7.slider('.slider-container', {
                 pagination: '.slider-pagination'
             });
             if (typeof (callback) == "function") callback();
-
-
+        
 
         });
+
+     
 
     }
 };

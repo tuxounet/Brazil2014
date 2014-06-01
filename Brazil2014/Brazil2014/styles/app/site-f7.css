@@ -16,7 +16,14 @@ input {
 .button {
     border-color: #019340;
     color: #019340;
+    background-color:#ffffff;
 }
+
+.button.active {
+    background: #019340;
+    color: #ffffff;
+}
+
 
 .bz-main-menu {
     background-color: #019340;
@@ -63,7 +70,7 @@ input {
 
 .day-item-wrapper {
     height: 100%;
-    overflow-y: scroll;
+    overflow-y: auto;
 }
 
 .day-item .page-content {
