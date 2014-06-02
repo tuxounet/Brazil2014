@@ -1,0 +1,502 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="BRAZIL2014Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Libelle" Type="nvarchar" MaxLength="1" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Team1" Type="int" Nullable="false" />
+          <Property Name="Team2" Type="int" Nullable="false" />
+          <Property Name="Team1Goal" Type="int" />
+          <Property Name="Team2Goal" Type="int" />
+          <Property Name="IsExtraTime" Type="bit" Nullable="false" />
+          <Property Name="Team1Penalty" Type="int" />
+          <Property Name="Team2Penalty" Type="int" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="MatchTypeId" Type="int" Nullable="false" />
+          <Property Name="StadeId" Type="int" Nullable="false" />
+          <Property Name="Rank" Type="int" />
+          <Property Name="Hour" Type="time" Precision="7" />
+          <Property Name="MatchTime" Type="nvarchar" MaxLength="5" />
+          <Property Name="IdFIFA" Type="int" />
+        </EntityType>
+        <EntityType Name="MatchType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
+        </EntityType>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Stade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Libelle" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="City" Type="nvarchar" MaxLength="100" Nullable="false" />
+          <Property Name="Capacity" Type="int" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="int" Nullable="false" />
+          <Property Name="Libelle" Type="nvarchar" MaxLength="50" Nullable="false" />
+          <Property Name="Group" Type="nvarchar" MaxLength="1" Nullable="false" />
+          <Property Name="IdFIFA" Type="nvarchar(max)" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="Date" Type="datetime" Nullable="false" />
+          <Property Name="Title" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="VideoLink" Type="nvarchar" MaxLength="4000" Nullable="false" />
+        </EntityType>
+        <Association Name="FK_Match_0">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_2">
+          <End Role="MatchType" Type="Self.MatchType" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="MatchTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_3">
+          <End Role="Stade" Type="Self.Stade" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="StadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Function Name="Get_MatchsGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Groupkey" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="Get_TeamResultGroup" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="false" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="groupKey" Type="varchar" Mode="In" />
+        </Function>
+        <Function Name="TeamResultsGroup_Search" Aggregate="false" BuiltIn="false" NiladicFunction="false" IsComposable="true" ParameterTypeSemantics="AllowImplicitConversion" Schema="dbo">
+          <Parameter Name="Date" Type="datetime" Mode="In" />
+          <Parameter Name="groupKey" Type="varchar" Mode="In" />
+          <Parameter Name="isIn" Type="bit" Mode="In" />
+          <ReturnType>
+            <CollectionType>
+              <RowType>
+                <Property Name="TeamId" Type="int" />
+                <Property Name="RESULT" Type="int" />
+                <Property Name="BP" Type="int" />
+                <Property Name="BC" Type="int" />
+              </RowType>
+            </CollectionType>
+          </ReturnType>
+        </Function>
+        <EntityContainer Name="BRAZIL2014ModelStoreContainer">
+          <EntitySet Name="Group" EntityType="Self.Group" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Match" EntityType="Self.Match" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="MatchType" EntityType="Self.MatchType" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="News" EntityType="Self.News" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Stade" EntityType="Self.Stade" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Team" EntityType="Self.Team" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="Videos" EntityType="Self.Videos" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK_Match_0" Association="Self.FK_Match_0">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_1" Association="Self.FK_Match_1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_2" Association="Self.FK_Match_2">
+            <End Role="MatchType" EntitySet="MatchType" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_3" Association="Self.FK_Match_3">
+            <End Role="Stade" EntitySet="Stade" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="BRAZIL2014Model" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="Group">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+        </EntityType>
+        <EntityType Name="Match">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Team1" Type="Int32" Nullable="false" />
+          <Property Name="Team2" Type="Int32" Nullable="false" />
+          <Property Name="Team1Goal" Type="Int32" />
+          <Property Name="Team2Goal" Type="Int32" />
+          <Property Name="IsExtraTime" Type="Boolean" Nullable="false" />
+          <Property Name="Team1Penalty" Type="Int32" />
+          <Property Name="Team2Penalty" Type="Int32" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="MatchTypeId" Type="Int32" Nullable="false" />
+          <Property Name="StadeId" Type="Int32" Nullable="false" />
+          <Property Name="Rank" Type="Int32" />
+          <Property Name="Hour" Type="Time" Precision="7" />
+          <Property Name="MatchTime" Type="String" MaxLength="5" FixedLength="false" Unicode="true" />
+          <NavigationProperty Name="Team" Relationship="Self.FK_Match_0" FromRole="Match" ToRole="Team" />
+          <NavigationProperty Name="Team3" Relationship="Self.FK_Match_1" FromRole="Match" ToRole="Team" />
+          <NavigationProperty Name="MatchType" Relationship="Self.FK_Match_2" FromRole="Match" ToRole="MatchType" />
+          <NavigationProperty Name="Stade" Relationship="Self.FK_Match_3" FromRole="Match" ToRole="Stade" />
+          <Property Name="IdFIFA" Type="Int32" />
+        </EntityType>
+        <EntityType Name="MatchType">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_Match_2" FromRole="MatchType" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Stade">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="City" Type="String" MaxLength="100" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Capacity" Type="Int32" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_Match_3" FromRole="Stade" ToRole="Match" />
+        </EntityType>
+        <EntityType Name="Team">
+          <Key>
+            <PropertyRef Name="ID" />
+          </Key>
+          <Property Name="ID" Type="Int32" Nullable="false" />
+          <Property Name="Libelle" Type="String" MaxLength="50" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Group" Type="String" MaxLength="1" FixedLength="false" Unicode="true" Nullable="false" />
+          <NavigationProperty Name="Match" Relationship="Self.FK_Match_0" FromRole="Team" ToRole="Match" />
+          <NavigationProperty Name="Match1" Relationship="Self.FK_Match_1" FromRole="Team" ToRole="Match" />
+          <Property Name="IdFIFA" Type="String" Nullable="false" MaxLength="Max" Unicode="true" FixedLength="false" />
+        </EntityType>
+        <Association Name="FK_Match_0">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team1" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_1">
+          <End Role="Team" Type="Self.Team" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Team">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="Team2" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_2">
+          <End Role="MatchType" Type="Self.MatchType" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="MatchType">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="MatchTypeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK_Match_3">
+          <End Role="Stade" Type="Self.Stade" Multiplicity="1" />
+          <End Role="Match" Type="Self.Match" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="Stade">
+              <PropertyRef Name="ID" />
+            </Principal>
+            <Dependent Role="Match">
+              <PropertyRef Name="StadeId" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="BRAZIL2014Entities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="Group" EntityType="Self.Group" />
+          <EntitySet Name="Match" EntityType="Self.Match" />
+          <EntitySet Name="MatchType" EntityType="Self.MatchType" />
+          <EntitySet Name="Stade" EntityType="Self.Stade" />
+          <EntitySet Name="Team" EntityType="Self.Team" />
+          <AssociationSet Name="FK_Match_0" Association="Self.FK_Match_0">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_1" Association="Self.FK_Match_1">
+            <End Role="Team" EntitySet="Team" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_2" Association="Self.FK_Match_2">
+            <End Role="MatchType" EntitySet="MatchType" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <AssociationSet Name="FK_Match_3" Association="Self.FK_Match_3">
+            <End Role="Stade" EntitySet="Stade" />
+            <End Role="Match" EntitySet="Match" />
+          </AssociationSet>
+          <EntitySet Name="News" EntityType="BRAZIL2014Model.News" />
+          <EntitySet Name="Videos" EntityType="BRAZIL2014Model.Videos" />
+          <FunctionImport Name="TeamResultsGroup_Search" IsComposable="true" ReturnType="Collection(BRAZIL2014Model.TeamResultsGroup_Search_Result)">
+            <Parameter Name="Date" Mode="In" Type="DateTime" />
+            <Parameter Name="groupKey" Mode="In" Type="String" />
+            <Parameter Name="isIn" Mode="In" Type="Boolean" />
+          </FunctionImport>
+          <FunctionImport Name="Get_MatchsGroup" ReturnType="Collection(BRAZIL2014Model.Get_MatchsGroup_Result)">
+            <Parameter Name="Groupkey" Mode="In" Type="String" />
+          </FunctionImport>
+          <FunctionImport Name="Get_TeamResultGroup" ReturnType="Collection(BRAZIL2014Model.Get_TeamResultGroup_Result)">
+            <Parameter Name="groupKey" Mode="In" Type="String" />
+          </FunctionImport>
+        </EntityContainer>
+        <EntityType Name="News">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Guid" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <EntityType Name="Videos">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="VideoLink" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+        </EntityType>
+        <ComplexType Name="Get_MatchsGroup_Result">
+          <Property Type="Int32" Name="Id" Nullable="false" />
+          <Property Type="DateTime" Name="date" Nullable="false" Precision="23" />
+          <Property Type="Time" Name="Hour" Nullable="true" />
+          <Property Type="String" Name="MatchTime" Nullable="true" MaxLength="5" />
+          <Property Type="String" Name="Team1Id" Nullable="false" />
+          <Property Type="String" Name="Team1" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Team1Goal" Nullable="true" />
+          <Property Type="String" Name="Team2Id" Nullable="false" />
+          <Property Type="String" Name="Team2" Nullable="false" MaxLength="50" />
+          <Property Type="Int32" Name="Team2Goal" Nullable="true" />
+          <Property Type="Int32" Name="StadeId" Nullable="false" />
+          <Property Type="String" Name="StadeLibelle" Nullable="false" MaxLength="100" />
+          <Property Type="String" Name="Type" Nullable="false" MaxLength="5" />
+          <Property Type="String" Name="GroupName" Nullable="true" MaxLength="1" />
+        </ComplexType>
+        <ComplexType Name="Get_TeamResultGroup_Result" >
+          </ComplexType>
+        <ComplexType Name="TeamResultsGroup_Search_Result">
+          <Property Type="Int32" Name="TeamId" Nullable="true" />
+          <Property Type="Int32" Name="RESULT" Nullable="true" />
+          <Property Type="Int32" Name="BP" Nullable="true" />
+          <Property Type="Int32" Name="BC" Nullable="true" />
+        </ComplexType>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+    <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="BRAZIL2014ModelStoreContainer" CdmEntityContainer="BRAZIL2014Entities">
+    <EntitySetMapping Name="Group">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Group)">
+        <MappingFragment StoreEntitySet="Group">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Match">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Match)">
+        <MappingFragment StoreEntitySet="Match">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Team1" ColumnName="Team1" />
+          <ScalarProperty Name="Team2" ColumnName="Team2" />
+          <ScalarProperty Name="Team1Goal" ColumnName="Team1Goal" />
+          <ScalarProperty Name="Team2Goal" ColumnName="Team2Goal" />
+          <ScalarProperty Name="IsExtraTime" ColumnName="IsExtraTime" />
+          <ScalarProperty Name="Team1Penalty" ColumnName="Team1Penalty" />
+          <ScalarProperty Name="Team2Penalty" ColumnName="Team2Penalty" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="MatchTypeId" ColumnName="MatchTypeId" />
+          <ScalarProperty Name="StadeId" ColumnName="StadeId" />
+          <ScalarProperty Name="Rank" ColumnName="Rank" />
+          <ScalarProperty Name="Hour" ColumnName="Hour" />
+          <ScalarProperty Name="MatchTime" ColumnName="MatchTime" />
+          <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="MatchType">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.MatchType)">
+        <MappingFragment StoreEntitySet="MatchType">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Stade">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Stade)">
+        <MappingFragment StoreEntitySet="Stade">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="City" ColumnName="City" />
+          <ScalarProperty Name="Capacity" ColumnName="Capacity" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Team">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Team)">
+        <MappingFragment StoreEntitySet="Team">
+          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Libelle" ColumnName="Libelle" />
+          <ScalarProperty Name="Group" ColumnName="Group" />
+          <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="News">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.News)">
+        <MappingFragment StoreEntitySet="News">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="Content" ColumnName="Content" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Videos">
+      <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Videos)">
+        <MappingFragment StoreEntitySet="Videos">
+          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="Date" ColumnName="Date" />
+          <ScalarProperty Name="Title" ColumnName="Title" />
+          <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+          <FunctionImportMapping FunctionImportName="TeamResultsGroup_Search" FunctionName="BRAZIL2014Model.Store.TeamResultsGroup_Search">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BRAZIL2014Model.TeamResultsGroup_Search_Result">
+                <ScalarProperty Name="TeamId" ColumnName="TeamId" />
+                <ScalarProperty Name="RESULT" ColumnName="RESULT" />
+                <ScalarProperty Name="BP" ColumnName="BP" />
+                <ScalarProperty Name="BC" ColumnName="BC" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_MatchsGroup" FunctionName="BRAZIL2014Model.Store.Get_MatchsGroup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BRAZIL2014Model.Get_MatchsGroup_Result">
+                <ScalarProperty Name="Id" ColumnName="Id" />
+                <ScalarProperty Name="date" ColumnName="date" />
+                <ScalarProperty Name="Hour" ColumnName="Hour" />
+                <ScalarProperty Name="MatchTime" ColumnName="MatchTime" />
+                <ScalarProperty Name="Team1Id" ColumnName="Team1Id" />
+                <ScalarProperty Name="Team1" ColumnName="Team1" />
+                <ScalarProperty Name="Team1Goal" ColumnName="Team1Goal" />
+                <ScalarProperty Name="Team2Id" ColumnName="Team2Id" />
+                <ScalarProperty Name="Team2" ColumnName="Team2" />
+                <ScalarProperty Name="Team2Goal" ColumnName="Team2Goal" />
+                <ScalarProperty Name="StadeId" ColumnName="StadeId" />
+                <ScalarProperty Name="StadeLibelle" ColumnName="StadeLibelle" />
+                <ScalarProperty Name="Type" ColumnName="Type" />
+                <ScalarProperty Name="GroupName" ColumnName="GroupName" />
+              </ComplexTypeMapping>
+            </ResultMapping>
+          </FunctionImportMapping>
+          <FunctionImportMapping FunctionImportName="Get_TeamResultGroup" FunctionName="BRAZIL2014Model.Store.Get_TeamResultGroup">
+            <ResultMapping>
+              <ComplexTypeMapping TypeName="BRAZIL2014Model.Get_TeamResultGroup_Result" />
+            </ResultMapping>
+          </FunctionImportMapping>
+  </EntityContainerMapping>
+</Mapping></edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="False" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
