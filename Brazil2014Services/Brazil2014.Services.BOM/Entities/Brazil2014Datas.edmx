@@ -352,7 +352,15 @@
           <Property Type="String" Name="GroupName" Nullable="true" MaxLength="1" />
         </ComplexType>
         <ComplexType Name="Get_TeamResultGroup_Result" >
-          </ComplexType>
+          <Property Type="Int32" Name="BC" Nullable="true" />
+          <Property Type="Int32" Name="BP" Nullable="true" />
+          <Property Type="Int32" Name="G" Nullable="true" />
+          <Property Type="String" Name="Id" Nullable="false" />
+          <Property Type="String" Name="libelle" Nullable="false" />
+          <Property Type="Int32" Name="N" Nullable="true" />
+          <Property Type="Int32" Name="P" Nullable="true" />
+          <Property Type="Int32" Name="PTS" Nullable="true" />
+        </ComplexType>
         <ComplexType Name="TeamResultsGroup_Search_Result">
           <Property Type="Int32" Name="TeamId" Nullable="true" />
           <Property Type="Int32" Name="RESULT" Nullable="true" />

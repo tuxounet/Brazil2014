@@ -13,5 +13,13 @@ namespace C2S.Brazil2014.Services.BOM.Entities
     
     public partial class Get_TeamResultGroup_Result
     {
+        public Nullable<int> BC { get; set; }
+        public Nullable<int> BP { get; set; }
+        public Nullable<int> G { get; set; }
+        public string Id { get; set; }
+        public string libelle { get; set; }
+        public Nullable<int> N { get; set; }
+        public Nullable<int> P { get; set; }
+        public Nullable<int> PTS { get; set; }
     }
 }
