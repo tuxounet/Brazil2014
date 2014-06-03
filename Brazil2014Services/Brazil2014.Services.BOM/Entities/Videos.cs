@@ -18,5 +18,6 @@ namespace C2S.Brazil2014.Services.BOM.Entities
         public System.DateTime Date { get; set; }
         public string Title { get; set; }
         public string VideoLink { get; set; }
+        public string IdFIFA { get; set; }
     }
 }

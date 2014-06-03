@@ -4,7 +4,7 @@
   <edmx:Runtime>
     <!-- SSDL content -->
     <edmx:StorageModels>
-    <Schema Namespace="BRAZIL2014Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+    <Schema Namespace="BRAZIL2014Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012.Azure" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
         <EntityType Name="Group">
           <Key>
             <PropertyRef Name="ID" />
@@ -31,6 +31,8 @@
           <Property Name="Hour" Type="time" Precision="7" />
           <Property Name="MatchTime" Type="nvarchar" MaxLength="5" />
           <Property Name="IdFIFA" Type="int" />
+          <Property Name="Team1GoalsBy" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Team2GoalsBy" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <EntityType Name="MatchType">
           <Key>
@@ -47,6 +49,7 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="4000" Nullable="false" />
           <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdFIFA" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <EntityType Name="Stade">
           <Key>
@@ -74,6 +77,7 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="4000" Nullable="false" />
           <Property Name="VideoLink" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="IdFIFA" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <Association Name="FK_Match_0">
           <End Role="Team" Type="Self.Team" Multiplicity="1" />
@@ -203,6 +207,8 @@
           <NavigationProperty Name="MatchType" Relationship="Self.FK_Match_2" FromRole="Match" ToRole="MatchType" />
           <NavigationProperty Name="Stade" Relationship="Self.FK_Match_3" FromRole="Match" ToRole="Stade" />
           <Property Name="IdFIFA" Type="Int32" />
+          <Property Name="Team1GoalsBy" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Team2GoalsBy" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="MatchType">
           <Key>
@@ -311,10 +317,10 @@
             <Parameter Name="isIn" Mode="In" Type="Boolean" />
           </FunctionImport>
           <FunctionImport Name="Get_MatchsGroup" ReturnType="Collection(BRAZIL2014Model.Get_MatchsGroup_Result)">
-            <Parameter Name="Groupkey" Mode="In" Type="String" />
+          <Parameter Name="Groupkey" Mode="In" Type="String" />
           </FunctionImport>
           <FunctionImport Name="Get_TeamResultGroup" ReturnType="Collection(BRAZIL2014Model.Get_TeamResultGroup_Result)">
-            <Parameter Name="groupKey" Mode="In" Type="String" />
+          <Parameter Name="groupKey" Mode="In" Type="String" />
           </FunctionImport>
         </EntityContainer>
         <EntityType Name="News">
@@ -325,6 +331,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdFIFA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Videos">
           <Key>
@@ -334,6 +341,7 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="VideoLink" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="IdFIFA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
         <ComplexType Name="Get_MatchsGroup_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -384,7 +392,9 @@
     <EntitySetMapping Name="Match">
       <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Match)">
         <MappingFragment StoreEntitySet="Match">
-          <ScalarProperty Name="ID" ColumnName="ID" />
+          <ScalarProperty Name="Team2GoalsBy" ColumnName="Team2GoalsBy" />
+                <ScalarProperty Name="Team1GoalsBy" ColumnName="Team1GoalsBy" />
+                <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Team1" ColumnName="Team1" />
           <ScalarProperty Name="Team2" ColumnName="Team2" />
           <ScalarProperty Name="Team1Goal" ColumnName="Team1Goal" />
@@ -433,7 +443,8 @@
     <EntitySetMapping Name="News">
       <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.News)">
         <MappingFragment StoreEntitySet="News">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="Content" ColumnName="Content" />
@@ -443,7 +454,8 @@
     <EntitySetMapping Name="Videos">
       <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Videos)">
         <MappingFragment StoreEntitySet="Videos">
-          <ScalarProperty Name="Id" ColumnName="Id" />
+          <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
           <ScalarProperty Name="VideoLink" ColumnName="VideoLink" />
