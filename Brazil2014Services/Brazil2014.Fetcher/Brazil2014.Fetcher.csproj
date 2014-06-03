@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Jobs\FetchMatch.cs" />
+    <Compile Include="Jobs\FetchNews.cs" />
+    <Compile Include="Jobs\FetchVideos.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
