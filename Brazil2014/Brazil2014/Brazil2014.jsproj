@@ -148,6 +148,11 @@
     <Content Include="app\pages\_Dev.html" />
     <Content Include="app\pages\_Dev.js" />
     <Content Include="app\services\platform.js" />
+    <Content Include="app\storage\LocalStorage.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.init.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.init.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.js" />
     <Content Include="app\viewmodels\AppVM.js" />
     <Content Include="app\viewmodels\MatchViewModel.js" />
     <Content Include="app\widgets\BottomNav.html" />

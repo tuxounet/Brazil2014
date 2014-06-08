@@ -1,41 +1,57 @@
-﻿/// <reference path="../../app/services/appClient.js" />
+﻿
 window.Brazil = {
 
     router: null,
-    app : null, 
+    app: null,
+    localStorage : null,
     start: function () {
 
         window.onerror = Brazil.onerror;
 
-       
-        Brazil.app = new appClass();
-        Brazil.app.initalize();
-
-   
+        //Initalisation des libs
         moment.lang("fr");
 
+        //Tracage du contexte
         if (boot.isPhoneGap)
             logger.log("Mode PhoneGap");
         else
             logger.log("Mode Web");
 
-        //Id de la platefrome 
-        platform.fetchInfos();
 
-       
+        //Initialisation de la couche de données
+        this.localStorage = new LocalStorageClass();
+        this.localStorage.createIfNotExists(function () {
 
-        logger.log("Navigation");
+            //Initialisation terminée, on poursuis le démarrage
+
+            Brazil.app = new appClass();
+            Brazil.app.initalize();
 
 
 
-        //naivgation initiale
-        if (location.hash != "") {
-            Brazil.load();
-        }
-        else {
-            //Navigation sur l'acceuil
-            Brazil.load();
-        }
+            //Id de la platefrome 
+            platform.fetchInfos();
+
+
+
+            logger.log("Navigation");
+
+
+
+            //naivgation initiale
+            if (location.hash != "") {
+                Brazil.load();
+            }
+            else {
+                //Navigation sur l'acceuil
+                Brazil.load();
+            }
+
+
+
+        });
+
+
 
     },
 
@@ -67,7 +83,7 @@ window.Brazil = {
     },
 
     fetchTemplate: function (templateUrl) {
-        
+
         $.ajax({
             url: templateUrl,
             async: false
@@ -129,7 +145,7 @@ window.Brazil = {
     },
 
     showLogs: function () {
-        Brazil.app.F7.popup('.popup-logs');  
+        Brazil.app.F7.popup('.popup-logs');
     },
 
     onerror: function (e) {
@@ -145,7 +161,7 @@ window.Brazil = {
                 } catch (e) {
                     message = "Erreur : " + e;
                 }
-                
+
             }
         }
         else {
@@ -153,7 +169,7 @@ window.Brazil = {
         }
         logger.error(message);
         alert(message);
-           
+
     }
 };
 
