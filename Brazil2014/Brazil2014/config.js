@@ -1,4 +1,4 @@
 ﻿var config = {
-    remoteUrl: "http://c2sbrazilservices.azurewebsites.net/",
-    debug: false
+    remoteUrl: "http://localhost:7742/",
+    debug: true
 }

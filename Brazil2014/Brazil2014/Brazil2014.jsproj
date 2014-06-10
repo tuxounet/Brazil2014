@@ -148,6 +148,15 @@
     <Content Include="app\pages\_Dev.html" />
     <Content Include="app\pages\_Dev.js" />
     <Content Include="app\services\platform.js" />
+    <Content Include="app\storage\LocalStorage.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.init.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.fill.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.query.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.init.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.fill.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.query.js" />
     <Content Include="app\viewmodels\AppVM.js" />
     <Content Include="app\viewmodels\MatchViewModel.js" />
     <Content Include="app\widgets\BottomNav.html" />
@@ -156,6 +165,7 @@
     <Content Include="config.xml">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="contents\datas\repository.json" />
     <Content Include="contents\datas\stadiums\1.jpg" />
     <Content Include="contents\datas\stadiums\10.jpg" />
     <Content Include="contents\datas\stadiums\11.jpg" />

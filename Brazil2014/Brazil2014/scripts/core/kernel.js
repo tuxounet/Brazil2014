@@ -1,28 +1,54 @@
-﻿/// <reference path="../../app/services/appClient.js" />
+﻿
 window.Brazil = {
 
     router: null,
-    app : null, 
+    app: null,
+    storage: null,
     start: function () {
 
+        //Branchement du systeme d'erreur
         window.onerror = Brazil.onerror;
 
-       
-        Brazil.app = new appClass();
-        Brazil.app.initalize();
+        //Initialisation de la couche de données
+        Brazil.storage = new LocalStorageClass();
+        Brazil.storage.createIfNotExists(function (returnCode) {
+            //Initialisation terminée, on analyse le code de retour 
+            if (returnCode != "OK") {
+                //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
+                Brazil.storage.fillFromServer(true, function () {
+                    //Alimentation effectuée, démarrage
+                    Brazil.run();
+                });
+            }
+            else {
+                //Le contenu de la base de données est a jour 
+                Brazil.run();
+            }
+        });
+    },
 
-   
-        moment.lang("fr");
+    /* Lancement pur de l'application */
+    run: function () {
 
+        //Tracage du contexte
         if (boot.isPhoneGap)
             logger.log("Mode PhoneGap");
         else
             logger.log("Mode Web");
 
+
+        //Initalisation des libs
+        moment.lang("fr");
+
+        Brazil.app = new appClass();
+        Brazil.app.initalize();
+
+
+
         //Id de la platefrome 
         platform.fetchInfos();
 
-       
+
 
         logger.log("Navigation");
 
@@ -37,7 +63,9 @@ window.Brazil = {
             Brazil.load();
         }
 
+
     },
+
 
     restart: function () {
 
@@ -67,7 +95,7 @@ window.Brazil = {
     },
 
     fetchTemplate: function (templateUrl) {
-        
+
         $.ajax({
             url: templateUrl,
             async: false
@@ -129,7 +157,7 @@ window.Brazil = {
     },
 
     showLogs: function () {
-        Brazil.app.F7.popup('.popup-logs');  
+        Brazil.app.F7.popup('.popup-logs');
     },
 
     onerror: function (e) {
@@ -145,7 +173,7 @@ window.Brazil = {
                 } catch (e) {
                     message = "Erreur : " + e;
                 }
-                
+
             }
         }
         else {
@@ -153,7 +181,7 @@ window.Brazil = {
         }
         logger.error(message);
         alert(message);
-           
+
     }
 };
 

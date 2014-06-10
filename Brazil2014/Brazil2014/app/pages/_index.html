@@ -20,10 +20,8 @@
 <html>
 <head>
     <meta charset="utf-8" />
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-    <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes" />
     <meta name="apple-mobile-web-app-status-bar-style" content="black">
 
     <title>Brazil 2014</title>
@@ -40,6 +38,10 @@
     <link href="../../styles/vendor/framework7.min.css" rel="stylesheet" />
     <link href="../../styles/app/site.fonts.css" rel="stylesheet" />
     <link href="../../styles/app/site-f7.css" rel="stylesheet" />
+
+
+    <!--Vendor-->
+    <script src="../../scripts/vendor/modernizr-2.7.2.js"></script>
 
 </head>
 <body>
@@ -135,7 +137,7 @@
             </ul>
         </div>
     </div>
-    
+
     <!-- Views-->
     <div class="views">
         <div class="view view-main" id="master">
@@ -144,7 +146,7 @@
                     <div class="left">
                         <a href="#" class="link icon-only open-panel">
                             <img src="../../contents/images/menu-button.png" />
-                         
+
                         </a>
                     </div>
                 </div>
@@ -184,8 +186,6 @@
     <script src="../../cordova.js"></script>
     <script src="../../scripts/cordova/device.js"></script>
 
-    <!--Vendor-->
-    <script src="../../scripts/vendor/modernizr-2.7.2.js"></script>
     <script src="../../scripts/vendor/jquery-2.1.0.min.js"></script>
     <script src="../../scripts/vendor/knockout-3.1.0.js"></script>
     <script src="../../scripts/vendor/moment-with-langs.min.js"></script>
@@ -198,7 +198,7 @@
     <script src="../../app/services/platform.js"></script>
 
     <!--Pages-->
-    
+
     <script src="News.js"></script>
     <script src="NewsDetails.js"></script>
     <script src="Calendar.js"></script>
@@ -210,7 +210,7 @@
     <script src="Groups.js"></script>
 
 
-    <script src="Home.js" type="text/javascript"></script>
+
 
     <!--Datas-->
     <script src="../datas/BaseDataProvider.js"></script>
@@ -224,6 +224,18 @@
     <!--ViewModels -->
     <script src="../viewmodels/MatchViewModel.js"></script>
     <script src="../viewmodels/AppVM.js"></script>
+
+
+    <!-- Gestion des données locales -->
+    <script src="../storage/providers/WebSQLProvider.js"></script>
+    <script src="../storage/providers/WebSQLProvider.init.js"></script>
+    <script src="../storage/providers/WebSQLProvider.fill.js"></script>
+    <script src="../storage/providers/WebSQLProvider.query.js"></script>
+    <script src="../storage/providers/IndexedDBProvider.js"></script>
+    <script src="../storage/providers/IndexedDBProvider.init.js"></script>
+    <script src="../storage/providers/IndexedDBProvider.fill.js"></script>
+    <script src="../storage/providers/IndexedDBProvider.query.js"></script>
+    <script src="../storage/LocalStorage.js"></script>
 
     <!--Core -->
     <script src="../../config.js"></script>
