@@ -202,21 +202,32 @@
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\StadesController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\API\GroupController.cs" />
     <Compile Include="Controllers\API\GroupDetailController.cs" />
     <Compile Include="Controllers\API\MatchController.cs" />
     <Compile Include="Controllers\API\NewsController.cs" />
+    <Compile Include="Controllers\API\RepositoryController.cs" />
+    <Compile Include="Controllers\API\StadeController.cs" />
     <Compile Include="Controllers\API\StadiumController.cs" />
+    <Compile Include="Controllers\API\TeamController.cs" />
     <Compile Include="Controllers\API\VideoController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Entities\BMatch.cs" />
     <Compile Include="Models\API\GroupDetail.cs" />
     <Compile Include="Models\API\GroupedMatches.cs" />
+    <Compile Include="Models\API\CurrentRepository.cs" />
+    <Compile Include="Models\Entities\BMatchType.cs" />
+    <Compile Include="Models\Entities\BNews.cs" />
+    <Compile Include="Models\Entities\BStade.cs" />
+    <Compile Include="Models\Entities\BTeam.cs" />
+    <Compile Include="Models\Entities\BVideo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
@@ -247,6 +258,11 @@
     <Content Include="Areas\Admin\Views\Videos\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Videos\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Videos\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Stades\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Stades\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Stades\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Stades\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Stades\Index.cshtml" />
     <None Include="Properties\PublishProfiles\c2sbrazilservices.pubxml" />
     <None Include="Properties\PublishProfiles\DEV.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
