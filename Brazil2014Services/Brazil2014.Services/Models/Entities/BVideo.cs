@@ -19,7 +19,11 @@ namespace C2S.Brazil2014.Services.Models.Entities
         {
             return new BVideo()
             {
-
+                Id = p_entity.Id,
+                Date = p_entity.Date,
+                Title = p_entity.Title,
+                VideoLink = p_entity.VideoLink,
+                IdFIFA = p_entity.IdFIFA
             };
         }
 

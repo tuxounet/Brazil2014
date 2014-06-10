@@ -219,6 +219,7 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Models\AccountViewModels.cs" />
+    <Compile Include="Models\Entities\BGroup.cs" />
     <Compile Include="Models\Entities\BMatch.cs" />
     <Compile Include="Models\API\GroupDetail.cs" />
     <Compile Include="Models\API\GroupedMatches.cs" />

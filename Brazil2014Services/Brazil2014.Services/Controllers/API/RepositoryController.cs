@@ -25,7 +25,9 @@ namespace C2S.Brazil2014.Services.Controllers.API
             l_ret.Stades = db.Stade.OrderBy(p => p.ID).ToArray().Select(p => BStade.FromEntity(p));
             l_ret.Matchs = db.Match.OrderBy(p => p.ID).ToArray().Select(p => BMatch.FromEntity(p));
             l_ret.MatchTypes = db.MatchType.OrderBy(p => p.ID).ToArray().Select(p => BMatchType.FromEntity(p));
-
+            l_ret.Videos = db.Videos.OrderBy(p => p.Id).ToArray().Select(p => BVideo.FromEntity(p));
+            l_ret.News = db.News.OrderBy(p => p.Id).ToArray().Select(p => BNews.FromEntity(p));
+            l_ret.Groups = db.Group.OrderBy(p => p.ID).ToArray().Select(p => BGroup.FromEntity(p));
             return l_ret;
         }
 

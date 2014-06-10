@@ -15,10 +15,21 @@ namespace C2S.Brazil2014.Services.Models.API
 
         public DateTime Date { get; set; }
 
+
+
+        #region Données brutes
+
         public IEnumerable<BTeam> Teams { get; set; }
         public IEnumerable<BStade> Stades { get; set; }
         public IEnumerable<BMatch> Matchs { get; set; }
         public IEnumerable<BMatchType> MatchTypes { get; set; }
+        public IEnumerable<BVideo> Videos { get; set; }
+        public IEnumerable<BNews> News { get; set; }
+        public IEnumerable<BGroup> Groups { get; set; }
+        
+        #endregion
+
+
 
 
     }
