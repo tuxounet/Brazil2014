@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="fr.krux.mobile.apps.brazil2014" version="1.0.0.0" xmlns="http://www.w3.org/ns/widgets">
+<widget  xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="fr.krux.mobile.apps.brazil2014" version="1.0.0.0" xmlns="http://www.w3.org/ns/widgets">
   <name>Brazil 2014</name>
   <description>
     Cette app vous permet de suivre la coupe du monde de la FIFA 2014
@@ -26,8 +26,28 @@
   <preference name="android-installLocation" value="auto" />
   <preference name="splashScreen" value="screen" />
   <preference name="Fullscreen" value="false" />
-  <vs:features />
+  <vs:features>
+    <vs:feature>org.apache.cordova.splashscreen@0.3.0</vs:feature>
+    <vs:feature>org.apache.cordova.device@0.2.9</vs:feature>
+  </vs:features>
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows8" />
   </vs:platformSpecificValues>
+
+
+  <!-- Define app splash screen for each platform. -->
+  <gap:splash src="res/screen/android/screen-ldpi-portrait.png"  gap:platform="android" gap:density="ldpi" />
+  <gap:splash src="res/screen/android/screen-mdpi-portrait.png"  gap:platform="android" gap:density="mdpi" />
+  <gap:splash src="res/screen/android/screen-hdpi-portrait.png"  gap:platform="android" gap:density="hdpi" />
+  <gap:splash src="res/screen/android/screen-xhdpi-portrait.png" gap:platform="android" gap:density="xhdpi" />
+  <gap:splash src="res/screen/blackberry/screen-225.png"         gap:platform="blackberry" />
+  <gap:splash src="res/screen/ios/screen-iphone-portrait.png"    gap:platform="ios"     width="320" height="480" />
+  <gap:splash src="res/screen/ios/screen-iphone-portrait-2x.png" gap:platform="ios"     width="640" height="960" />
+  <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
+  <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
+  <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
+
+  <feature name="http://api.phonegap.com/1.0/device" />
+  
+  
 </widget>
