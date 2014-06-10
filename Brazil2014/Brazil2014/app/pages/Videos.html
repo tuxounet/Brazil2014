@@ -23,25 +23,44 @@
     <div class="pages navbar-through">
         <div data-page="videos" class="page">
             <div class="page-content">
-                <div class="content-block">
-                    <div data-bind="visible:isLoading() == false">
-                        <div class="newsfeed" data-bind="visible : hasDatas() == false">
-                            <div class="news-item">
-                                <span class="title">Aucun vidéo disponible</span>
-                                <div class="content">Veuillez actualiser</div>
-                            </div>
-                        </div>
 
-                        <div class="videofeed" data-bind="foreach:videos,visible : hasDatas">
-                            <div class="video-item">
-                                <span class="title" data-bind="text:Title"></span>
-                                <a class="play-link" data-bind="attr : {href : '#VideosDetails/' + Id}">
-                                    <img class="play" src="contents/images/glyph-play-video.png" alt="lire" />
-                                </a>
-                            </div>
+                <div data-bind="visible:isLoading() == false">
+                    <div class="newsfeed" data-bind="visible : hasDatas() == false">
+                        <div class="news-item">
+                            <span class="title">Aucun vidéo disponible</span>
+                            <div class="content">Veuillez actualiser</div>
                         </div>
                     </div>
+
+
+
+                    <div class="content-block-title" data-bind="visible : hasDatas">Les dernières vidéos</div>
+                    <div class="list-block" data-bind="visible : hasDatas">
+                        <ul data-bind="foreach:videos">
+
+                            <li>
+                                <a data-bind="attr : {href : 'VideosDetails.html?id=' + Id}" class="item-link item-content">
+                                    <div class="item-media"><img src="../../contents/images/glyph-play-video.png" ></div>
+                                    <div class="item-inner">
+                                        <div class="item-title-row">
+                                            <div class="item-title" data-bind="text:Title"></div>
+                                            <div class="item-text" data-bind="text:moment(Date).fromNow()"></div>
+                                            
+                                        </div>
+                                        
+                                    </div>
+                                </a>
+
+                            </li>
+
+
+                        </ul>
+                    </div>
+
+
+
                 </div>
+
             </div>
         </div>
     </div>

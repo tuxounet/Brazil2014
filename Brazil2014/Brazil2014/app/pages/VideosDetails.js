@@ -1,4 +1,4 @@
-﻿var VideosDetails_PageClass = function () {
+﻿window.videosDetails_PageClass = function () {
 
     //Heritage de la page de base
     BasePage.call(this)
@@ -9,9 +9,9 @@
     self.link = ko.observable();
     self.videoWidth = ko.observable("100%");
     self.videoHeight = ko.observable("100%");
-    self.load = function (uriParameters) {
-
-        new VideoDataProvider().fetchItem(uriParameters, true, function (result) {
+    self.load = function (datas) {
+     
+        new VideoDataProvider().fetchItem(datas.id, true, function (result) {
 
             if (result == null) {
                 Brazil.onerror("Impossible de trouver la vidéo demandé");

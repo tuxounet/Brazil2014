@@ -1,41 +1,34 @@
-﻿<script type="text/template" id="VideosDetails_page">
+﻿<div class="view navbar-fixed toolbar-fixed" id="videosDetails">
 
-    <div class="page video-detail">
-        <!--Menu-->
-        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
-        <!-- Site Overlay -->
-        <div class="site-overlay"></div>
-        <!-- Your Content -->
-        <div id="container">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding">
+                <a href="index.html" class="back link">
+                    <img src="../../contents/images/nav-back-button.png" />
+                    <img class="visual" src="../../contents/images/nav-videos-visual.png" />
 
-            <div class="scroller">
-                <div class="top-detail-nav">
-                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
-                        <img src="contents/images/nav-back-button.png" alt="retour" />
-                    </a>
-                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
-                        <img src="contents/images/nav-news-visual.png" alt="dernières news" />
-                    </div>
-                    <div class="top-detail-nav-title" data-bind="text:title">
+                </a>
+                <span class="title" data-bind="text:title">Vidéos</span>
+            </div>
 
-                    </div>
-                </div>
+            <div class="right sliding">
+                <a href="#" class="button" onclick="javascript:Brazil.app.invokeOnPage('refresh');">
+                    <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
+                </a>
+            </div>
+        </div>
+    </div>
 
-                <div class="content-container video-detail">
 
-                    <!--Contenu-->
-                    <iframe class="youtube-video" frameborder="0" data-bind="attr:{src:link}" allowfullscreen></iframe>
+    <div class="pages navbar-through">
+        <div data-page="videosDetails" class="page">
+            <div class="page-content">
 
-                </div>
+                <iframe class="youtube-video" frameborder="0" data-bind="attr:{src:link}" allowfullscreen></iframe>
 
 
             </div>
-
         </div>
-        <!--Barre inférieure-->
-        <div data-type="widget" data-widget="BottomNav"></div>
-
-        <!--Loader de chargement-->
-        <div data-type="widget" data-widget="PageLoader"></div>
     </div>
-</script>
+</div>
+

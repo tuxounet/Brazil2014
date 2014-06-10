@@ -60,8 +60,10 @@ function BasePage() {
 
 
     self.bind = function (domObject, datas) {
-        self.DOM = domObject;
 
+       
+        self.DOM = domObject;
+        
         self.loading();
 
         try {          

@@ -1,30 +1,4 @@
 ﻿var stadium_PageClass = function () {
-    var self = this;
-    self.DOM = null;
-    self.StadiumId = null; 
- 
-
-    self.load = function (domObject, params) {        
-        self.DOM = domObject; 
-        self.StadiumId = params.id;
-
-
-
-        debugger; 
-
-    }
-
-
-    self.unload = function () {
-        debugger; 
-
-    }
-
-}
-
-
-/*
-var stadium_PageClass = function () {
 
     //Heritage de la page de base
     BasePage.call(this)
@@ -48,8 +22,7 @@ var stadium_PageClass = function () {
 
     self.load = function (datas) {
         new StadiumDataProvider().fetchItem(datas.id, true, function (result) {
-            if (result == null)
-            {
+            if (result == null) {
                 Brazil.onerror("Impossible de trouver le stade demandé");
                 Brazil.router.goBack();
                 return;
@@ -65,10 +38,9 @@ var stadium_PageClass = function () {
     };
 
     self.unload = function () {
-
+        logger.log("UNLOAD");
     };
 
-   
+
 };
 
-*/

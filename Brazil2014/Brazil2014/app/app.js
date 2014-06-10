@@ -7,6 +7,86 @@
     self.currentPage = null;
 
 
+    self.onPreparePage = function (content, url) {
+        logger.log(url);
+        return content; 
+    };
+
+
+    self.navigate = function (target) {
+        self.mainView.loadPage(target);
+
+    }
+
+
+
+    self.onPageInit = function (e) {
+        logger.log("PAGE INIT:" +  e.detail.page.url);
+        //gestion du bottom app bar 
+        var targetUrl = e.detail.page.url;
+        $(".bz-bottomNav a").removeClass("active");
+        $(".bz-bottomNav a[href='" + targetUrl + "']").addClass("active");
+
+
+
+    }
+
+    self.onPageTransitionEnded = function (e) {
+       
+        var pageInstance = ko.dataFor(e.detail.page.container);
+
+
+        if (pageInstance instanceof AppVMClass) {
+            //La page est bindée sur le model générél
+            //Instanciation de la page
+            var targetClass = e.detail.page.name + "_PageClass";
+            if (eval("typeof " + targetClass + " == 'undefined'") == false) {
+                //Instanciation de la page          
+                self.currentPage = eval("new " + targetClass + "()");
+
+                if (self.currentPage.bind != null) {
+                    //Binding KnockOut
+                    self.currentPage.bind(e.detail.page.container, e.detail.page.query);
+                }
+              
+
+            }
+            else {
+                self.currentPage = null;
+            }
+        }
+        else {
+            //La page est déja bindée
+            self.currentPage = pageInstance;
+            return;
+        }
+  
+
+       
+    }
+
+
+
+    self.invokeOnPage = function (functionName) {
+        if (self.currentPage == null) {
+            logger.warn("Aucune instance de page associée");
+            return;
+        }
+
+        var func = self.currentPage[functionName];
+        if (func == null || typeof func != 'function') {
+            logger.warn("Invocation non autorisée");
+            return
+        }
+
+        func();
+
+
+    }
+
+
+
+
     self.initalize = function () {
         self.F7 = new Framework7({
             // Default title for modals
@@ -15,7 +95,7 @@
             swipeBackPage: false,
             // If it is webapp, we can enable hash navigation:
             pushState: true,
-
+            preprocess: self.onPreparePage,
             // Hide and show indicator during ajax requests
             onAjaxStart: function (xhr) {
                 self.F7.showIndicator();
@@ -42,67 +122,6 @@
 
 
     }
-
-    self.navigate = function (target) {
-        self.mainView.loadPage(target);
-
-    }
-
-    self.onPageInit = function (e) {
-        //gestion du bottom app bar 
-        var targetUrl = e.detail.page.url;
-        $(".bz-bottomNav a").removeClass("active");
-        $(".bz-bottomNav a[href='" + targetUrl + "']").addClass("active");
-
-
-
-    }
-
-    self.onPageTransitionEnded = function (e) {
-        
-
-        var targetClass = e.detail.page.name + "_PageClass";
-        if (eval("typeof " + targetClass + " == 'undefined'") == false) {
-            //Instanciation de la page          
-            self.currentPage = eval("new " + targetClass + "()");
-
-            
-            
-            if (self.currentPage.bind != null)
-            {
-                //Binding KnockOut
-                self.currentPage.bind(e.detail.page.container, e.detail.page.query);
-            }
-            else
-                self.currentPage.load(e.detail.page.container, e.detail.page.query);
-
-            
-            
-        }
-        else {
-            self.currentPage = null;
-        }
-    }
-
-
-
-    self.invokeOnPage = function (functionName) {
-        if (self.currentPage == null) {
-            logger.warn("Aucune instance de page associée");
-            return;
-        }
-
-        var func = self.currentPage[functionName];
-        if (func == null || typeof func != 'function') {
-            logger.warn("Invocation non autorisée");
-            return
-        }
-
-        func();
-
-
-    }
-
 
 
 
