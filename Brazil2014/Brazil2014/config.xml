@@ -1,5 +1,5 @@
 <?xml version='1.0' encoding='utf-8'?>
-<widget  xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="fr.krux.mobile.apps.brazil2014" version="1.0.0.0" xmlns="http://www.w3.org/ns/widgets">
+<widget  xmlns:gap = "http://phonegap.com/ns/1.0" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps" id="fr.krux.mobile.apps.brazil2014" version="1.0.1.0" xmlns="http://www.w3.org/ns/widgets">
   <name>Brazil 2014</name>
   <description>
     Cette app vous permet de suivre la coupe du monde de la FIFA 2014
