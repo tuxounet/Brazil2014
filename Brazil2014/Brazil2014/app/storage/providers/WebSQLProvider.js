@@ -8,7 +8,7 @@ var WebSQLProviderClass = function () {
 
 
     //#region Variables privées
-    var dbName = "Brazil2014Datas3";
+    var dbName = "Brazil2014Datas";
     var dbCurrentVersion = "1.0.2";
     var dbErrorVersion = "0.0";
     var dbDescrption = "Datas of Brazil2014";
@@ -39,7 +39,7 @@ var WebSQLProviderClass = function () {
                 function (tx) {
                     initer.performInit(db, function () {
                         logger.info("Initialisation réussie");
-                        if (callback) callback();
+                        if (callback) callback("CREATED");
                     },
                     function () {
                         logger.error("Initialisation échouée");
@@ -56,9 +56,9 @@ var WebSQLProviderClass = function () {
                            function (tx) {
                                initer.performInit(db, function () {
                                    logger.info("Migration réussie");
-                                   if (callback) callback();
+                                   if (callback) callback("MIGRATED");
                                },
-                               function () {
+                               function (e) {
                                    logger.error("Migration échoué");
                                    db.changeVersion(dbCurrentVersion, dbErrorVersion, function (tx) {
                                        logger.warn("Rollback de la version de la base");
@@ -75,14 +75,41 @@ var WebSQLProviderClass = function () {
             }
             else {
                 logger.info("Base de données à jour");
-                if (callback) callback();
+                if (callback) callback("OK");
             }
         }
     }
+
+
+    /* Alimente la base de donnée WebSQL a partir des données du serveur*/
+    self.fillFromServer = function (serverDatas, callback) {
+
+        //Récuperation de la base de données
+        var db = openDatabase(dbName, '', dbDescrption, dbSize);
+
+        if (!db) {
+            throw "Impossible d'ouvrir la base de données";
+        }
+
+
+        //Instanciation du remplisseur
+        var filler = new WebSQLProviderFillClass();
+        filler.fillFromServer(db, serverDatas,
+            function () {
+                logger.info("Remplissage effectué avec succès");
+                if (callback) callback();
+            }, function (e) {
+                logger.warn("Erreur lors du remplissage de la base de données");
+                console.dir(e);
+            });
+    }
+
+
 
     self.providerError = function (e) {
         console.dir(e);
         throw e;
     }
+
 
 }

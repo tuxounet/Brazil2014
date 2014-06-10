@@ -3,13 +3,32 @@ window.Brazil = {
 
     router: null,
     app: null,
-    localStorage : null,
+    storage: null,
     start: function () {
 
+        //Branchement du systeme d'erreur
         window.onerror = Brazil.onerror;
 
-        //Initalisation des libs
-        moment.lang("fr");
+        //Initialisation de la couche de données
+        Brazil.storage = new LocalStorageClass();
+        Brazil.storage.createIfNotExists(function (returnCode) {
+            //Initialisation terminée, on analyse le code de retour 
+            if (returnCode != "OK") {
+                //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
+                Brazil.storage.fillFromServer(true, function () {
+                    //Alimentation effectuée, démarrage
+                    Brazil.run();
+                });
+            }
+            else {
+                //Le contenu de la base de données est a jour 
+                Brazil.run();
+            }
+        });
+    },
+
+    /* Lancement pur de l'application */
+    run: function () {
 
         //Tracage du contexte
         if (boot.isPhoneGap)
@@ -18,42 +37,35 @@ window.Brazil = {
             logger.log("Mode Web");
 
 
-        //Initialisation de la couche de données
-        this.localStorage = new LocalStorageClass();
-        this.localStorage.createIfNotExists(function () {
+        //Initalisation des libs
+        moment.lang("fr");
 
-            //Initialisation terminée, on poursuis le démarrage
-
-            Brazil.app = new appClass();
-            Brazil.app.initalize();
+        Brazil.app = new appClass();
+        Brazil.app.initalize();
 
 
 
-            //Id de la platefrome 
-            platform.fetchInfos();
+        //Id de la platefrome 
+        platform.fetchInfos();
 
 
 
-            logger.log("Navigation");
+        logger.log("Navigation");
 
 
 
-            //naivgation initiale
-            if (location.hash != "") {
-                Brazil.load();
-            }
-            else {
-                //Navigation sur l'acceuil
-                Brazil.load();
-            }
-
-
-
-        });
-
+        //naivgation initiale
+        if (location.hash != "") {
+            Brazil.load();
+        }
+        else {
+            //Navigation sur l'acceuil
+            Brazil.load();
+        }
 
 
     },
+
 
     restart: function () {
 
