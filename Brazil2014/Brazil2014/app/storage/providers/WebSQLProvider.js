@@ -6,6 +6,8 @@ var WebSQLProviderClass = function () {
     /*Nom du provider*/
     self.name = "WebSQL";
 
+    /* Fournisseur de requete métiers */
+    self.queryProvider = null;
 
     //#region Variables privées
     var dbName = "Brazil2014Datas";
@@ -13,7 +15,6 @@ var WebSQLProviderClass = function () {
     var dbErrorVersion = "0.0";
     var dbDescrption = "Datas of Brazil2014";
     var dbSize = 2000000;
-
 
     //#endregion
 
@@ -102,6 +103,16 @@ var WebSQLProviderClass = function () {
                 logger.warn("Erreur lors du remplissage de la base de données");
                 console.dir(e);
             });
+    }
+
+    /* Obtient l'instance du gestionnaire de requete métier */
+    self.getQueryProvider = function () {
+        
+        if (self.queryProvider == null)
+            self.queryProvider = new WebSQLProviderQueryClass();
+       
+        return self.queryProvider;
+
     }
 
 

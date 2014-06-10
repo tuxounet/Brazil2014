@@ -26,8 +26,6 @@
         });
 
 
-
-
         self.mainView = self.F7.addView('.view-main', {
             // Enable Dynamic Navbar for this view
             dynamicNavbar: true
@@ -67,8 +65,19 @@
         if (eval("typeof " + targetClass + " == 'undefined'") == false) {
             //Instanciation de la page          
             self.currentPage = eval("new " + targetClass + "()");
-            //Binding KO
-            self.currentPage.bind(e.detail.page.container, e.detail.page.query);
+
+            
+            
+            if (self.currentPage.bind != null)
+            {
+                //Binding KnockOut
+                self.currentPage.bind(e.detail.page.container, e.detail.page.query);
+            }
+            else
+                self.currentPage.load(e.detail.page.container, e.detail.page.query);
+
+            
+            
         }
         else {
             self.currentPage = null;

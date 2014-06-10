@@ -1,4 +1,30 @@
 ﻿var stadium_PageClass = function () {
+    var self = this;
+    self.DOM = null;
+    self.StadiumId = null; 
+ 
+
+    self.load = function (domObject, params) {        
+        self.DOM = domObject; 
+        self.StadiumId = params.id;
+
+
+
+        debugger; 
+
+    }
+
+
+    self.unload = function () {
+        debugger; 
+
+    }
+
+}
+
+
+/*
+var stadium_PageClass = function () {
 
     //Heritage de la page de base
     BasePage.call(this)
@@ -45,3 +71,4 @@
    
 };
 
+*/

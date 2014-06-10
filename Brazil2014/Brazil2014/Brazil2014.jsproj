@@ -152,9 +152,11 @@
     <Content Include="app\storage\providers\IndexedDBProvider.init.js" />
     <Content Include="app\storage\providers\IndexedDBProvider.js" />
     <Content Include="app\storage\providers\IndexedDBProvider.fill.js" />
+    <Content Include="app\storage\providers\IndexedDBProvider.query.js" />
     <Content Include="app\storage\providers\WebSQLProvider.init.js" />
     <Content Include="app\storage\providers\WebSQLProvider.js" />
     <Content Include="app\storage\providers\WebSQLProvider.fill.js" />
+    <Content Include="app\storage\providers\WebSQLProvider.query.js" />
     <Content Include="app\viewmodels\AppVM.js" />
     <Content Include="app\viewmodels\MatchViewModel.js" />
     <Content Include="app\widgets\BottomNav.html" />
