@@ -15,7 +15,7 @@
 
             if (result == null) {
                 Brazil.onerror("Impossible de trouver la vidéo demandé");
-                Brazil.router.goBack();
+                
                 return;
             }
             self.video(result);

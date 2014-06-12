@@ -9,6 +9,9 @@ var WebSQLProviderClass = function () {
     /* Fournisseur de requete métiers */
     self.queryProvider = null;
 
+    /* Instance de la base de données WebSQL */
+    self.db = null; 
+
     //#region Variables privées
     var dbName = "Brazil2014Datas";
     var dbCurrentVersion = "1.0.4";
@@ -26,17 +29,17 @@ var WebSQLProviderClass = function () {
 
 
         //obtention de la base de données
-        var db = openDatabase(dbName, '', dbDescrption, dbSize);
+        self.db = openDatabase(dbName, '', dbDescrption, dbSize);
 
-        if (!db) {
+        if (!self.db) {
             throw "Impossible d'ouvrir la base de données";
         }
-        logger.info("Version actuelle de la base " + db.version);
+        logger.info("Version actuelle de la base " + self.db.version);
 
-        if (db.version === '') {
+        if (self.db.version === '') {
             logger.info("Initilalisation de la base de données");
             //Pas de version positionnée, la base de données n'est pas initialisée            
-            db.changeVersion(db.version, dbCurrentVersion,
+            self.db.changeVersion(self.db.version, dbCurrentVersion,
                 function (tx) {
                     initer.performInit(db, function () {
                         logger.info("Initialisation réussie");
@@ -49,19 +52,19 @@ var WebSQLProviderClass = function () {
                 }, self.providerError);
         }
         else {
-            if (db.version != dbCurrentVersion) {
-                logger.warn("Mirgration de base de donnée disponible!")
+            if (self.db.version != dbCurrentVersion) {
+                logger.warn("Migration de base de donnée disponible!")
                 try {
                     //Une migration est dispobibe
-                    db.changeVersion(db.version, dbCurrentVersion,
+                    self.db.changeVersion(self.db.version, dbCurrentVersion,
                            function (tx) {
-                               initer.performInit(db, function () {
+                               initer.performInit(self.db, function () {
                                    logger.info("Migration réussie");
                                    if (callback) callback("MIGRATED");
                                },
                                function (e) {
                                    logger.error("Migration échoué");
-                                   db.changeVersion(dbCurrentVersion, dbErrorVersion, function (tx) {
+                                   self.db.changeVersion(dbCurrentVersion, dbErrorVersion, function (tx) {
                                        logger.warn("Rollback de la version de la base");
                                    }, self.providerError, function () {
                                        logger.info("Rollabck de la version de la base terminée");
@@ -109,7 +112,7 @@ var WebSQLProviderClass = function () {
     self.getQueryProvider = function () {
         
         if (self.queryProvider == null)
-            self.queryProvider = new WebSQLProviderQueryClass();
+            self.queryProvider = new WebSQLProviderQueryClass(self);
        
         return self.queryProvider;
 

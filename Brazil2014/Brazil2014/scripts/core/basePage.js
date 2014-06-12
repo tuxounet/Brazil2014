@@ -54,29 +54,30 @@ function BasePage() {
 
     }
 
-    self.goBack = function () {
-        Brazil.router.goBack();
-    }
-
-
     self.bind = function (domObject, datas) {
 
-       
+
         self.DOM = domObject;
-        
+
         self.loading();
 
-        try {          
+        try {
             //Branchement du ViewModel
             ko.applyBindings(self, self.DOM);
 
         } catch (e) {
             logger.error(e);
-            return; 
+            return;
         }
 
-        if (self.load != null)
+        if (self.load != null) {
+            //Affichage de l'indicateur de chargement 
+            Brazil.app.F7.showIndicator();
+
+            //Chargement de la page 
             self.load(datas);
+        }
+
 
 
     }
@@ -105,6 +106,8 @@ function BasePage() {
 
     self.loadCompleted = function () {
         self.isLoaded(true);
+        //On masque l'indictauer de chargement
+        Brazil.app.F7.hideIndicator(); 
 
 
     }

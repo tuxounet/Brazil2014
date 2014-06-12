@@ -21,18 +21,26 @@
 
 
     self.load = function (datas) {
-        new StadiumDataProvider().fetchItem(datas.id, true, function (result) {
-            if (result == null) {
-                Brazil.onerror("Impossible de trouver le stade demandé");
-                Brazil.router.goBack();
-                return;
-            }
-            self.stadiumId(datas.id);
-            self.stadium(result);
-            self.stadiumName(result.Name);
-            self.loadCompleted();
 
-        });
+        var stadeId = datas.id;
+
+        new StadiumDataProvider().getStade(stadeId,
+            function (stade) {
+                //Récupération du stade OK
+                self.stadiumId(stadeId);
+
+                self.stadium(stade);
+                self.stadiumName(stade.Libelle);
+
+                self.loadCompleted();
+
+            },
+            function () {
+                //Erreur de récuperation de stade
+                Brazil.onerror("Impossible de trouver le stade demandé");
+            });
+
+
 
 
     };
