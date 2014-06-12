@@ -103,6 +103,7 @@ var WebSQLProviderClass = function () {
                 logger.info("Remplissage effectué avec succès");
                 if (callback) callback();
             }, function (e) {
+                
                 logger.warn("Erreur lors du remplissage de la base de données");
                 console.dir(e);
             });

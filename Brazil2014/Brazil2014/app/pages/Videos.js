@@ -20,28 +20,30 @@
 
     self.load = function (uriParameters) {
 
-        self.refresh(self.loadCompleted);
 
+
+        new VideoDataProvider().getVideos(
+            function (videos) {
+                //Récuperation des videos OK
+                self.videos(videos);
+                self.loadCompleted();
+
+            },
+            function (err) {
+                if (err != null) logger.error(err);
+                //Erreur de récuperation de stade
+                Brazil.onerror("Impossible de charger la liste des vidéos");
+                Brazil.app.mainView.goBack();
+            });
     };
 
     self.unload = function () {
-
+        logger.info("UNLOAD QUERY")
     };
+    
 
-
-
-    self.refresh = function (callback) {
-        
-        self.isLoading(true);
-        var useCache = typeof (callback) == "function";
-        self.loading();
-        new VideoDataProvider().fetchDatas(useCache, function (result) {
-            self.videos(result);
-            if (typeof (callback) == "function") callback();
-            self.loadCompleted();
-            self.isLoading(false);
-        });
-
+    self.refresh = function () {
+        logger.info("REFRESH QUERY")
     }
 };
 

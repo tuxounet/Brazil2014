@@ -20,7 +20,13 @@
 
     /*Aliemnte le contenu de la base de données a partir des données du serveur*/
     self.fillFromServer = function (isInitial, callback) {
+        Brazil.app.F7.showIndicator();
+        function completed() {
+            Brazil.app.F7.hideIndicator()
+            if (callback) callback(); 
+        }
 
+        
         //Récupération du provider courant
         if (self.currentDataProvider == null)
             self.currentDataProvider = new getAvailableDataProvider();
@@ -31,12 +37,12 @@
 
         $.ajax({
             cache: false,
-            timeout: 2000,
+            timeout: 10000,
             url: boot.config.remoteUrl + "/API/Repository"
         })
         .done(function (datas) {
             logger.info("Récuperation de l'état de la base de données effectuée");
-            self.currentDataProvider.fillFromServer(datas, callback);
+            self.currentDataProvider.fillFromServer(datas, completed);
         })
         .fail(function (e) {
             logger.error("Erreur lors de la récuperation de l'état de la base de données depuis le serveur");
@@ -50,7 +56,7 @@
                 }).done(function (datas) {
                     //Les données locales ont été trouvées, on les charges 
                     logger.log("Chargement des données de l'etat initial local");
-                    self.currentDataProvider.fillFromServer(datas, callback);
+                    self.currentDataProvider.fillFromServer(datas, completed);
                 }).fail(function (e) {
                     logger.error("Echec de récuparation des données de l'etat inital local");
                     throw e;
