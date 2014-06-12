@@ -41,7 +41,7 @@ var WebSQLProviderClass = function () {
             //Pas de version positionnée, la base de données n'est pas initialisée            
             self.db.changeVersion(self.db.version, dbCurrentVersion,
                 function (tx) {
-                    initer.performInit(db, function () {
+                    initer.performInit(self.db, function () {
                         logger.info("Initialisation réussie");
                         if (callback) callback("CREATED");
                     },
@@ -89,16 +89,16 @@ var WebSQLProviderClass = function () {
     self.fillFromServer = function (serverDatas, callback) {
 
         //Récuperation de la base de données
-        var db = openDatabase(dbName, '', dbDescrption, dbSize);
+        self.db = openDatabase(dbName, '', dbDescrption, dbSize);
 
-        if (!db) {
+        if (!self.db) {
             throw "Impossible d'ouvrir la base de données";
         }
 
 
         //Instanciation du remplisseur
         var filler = new WebSQLProviderFillClass();
-        filler.fillFromServer(db, serverDatas,
+        filler.fillFromServer(self.db, serverDatas,
             function () {
                 logger.info("Remplissage effectué avec succès");
                 if (callback) callback();
