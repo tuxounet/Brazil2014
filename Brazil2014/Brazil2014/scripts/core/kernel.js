@@ -181,6 +181,9 @@ window.Brazil = {
         }
         logger.error(message);
         alert(message);
+        //On masque l'indictauer de chargement
+        if (Brazil.app != null && Brazil.app.F7 != null)
+            Brazil.app.F7.hideIndicator();
 
     }
 };

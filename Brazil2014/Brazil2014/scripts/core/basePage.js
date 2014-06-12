@@ -93,23 +93,15 @@ function BasePage() {
     }
 
     self.loading = function () {
-
-        var $loader = null;
-        $loader = $(".page-loading", self.DOM);
-
-
-        //Affichage        
-        $loader.removeClass("page-loading-invisible");
-        $loader.addClass("page-loading-visible");
-        $loader.show();
+        self.isLoaded(false);
+        //On masque l'indictauer de chargement
+        Brazil.app.F7.showIndicator();        
     }
 
     self.loadCompleted = function () {
         self.isLoaded(true);
         //On masque l'indictauer de chargement
         Brazil.app.F7.hideIndicator(); 
-
-
     }
 
     self.unloading = function () {

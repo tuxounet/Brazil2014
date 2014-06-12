@@ -26,8 +26,16 @@
     };
 
 
-    self.syncAllDatas =  function(){
-        Brazil.storage.fillFromServer(true);     
+    self.syncAllDatas = function () {
+
+    //Reinitialisation de la base
+        Brazil.storage.createIfNotExists(function () {
+           
+            //Remplisaage initial
+            Brazil.storage.fillFromServer(true);
+        })
+
+        
     }   
     
     

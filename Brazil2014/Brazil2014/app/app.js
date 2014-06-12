@@ -9,7 +9,7 @@
 
     self.onPreparePage = function (content, url) {
         logger.log(url);
-        return content; 
+        return content;
     };
 
 
@@ -21,7 +21,7 @@
 
 
     self.onPageInit = function (e) {
-        logger.log("PAGE INIT:" +  e.detail.page.url);
+        logger.log("PAGE INIT:" + e.detail.page.url);
         //gestion du bottom app bar 
         var targetUrl = e.detail.page.url;
         $(".bz-bottomNav a").removeClass("active");
@@ -32,7 +32,7 @@
     }
 
     self.onPageTransitionEnded = function (e) {
-       
+
         var pageInstance = ko.dataFor(e.detail.page.container);
 
 
@@ -48,7 +48,7 @@
                     //Binding KnockOut
                     self.currentPage.bind(e.detail.page.container, e.detail.page.query);
                 }
-              
+
 
             }
             else {
@@ -58,11 +58,10 @@
         else {
             //La page est déja bindée
             self.currentPage = pageInstance;
-            return;
         }
-  
 
-       
+
+
     }
 
 

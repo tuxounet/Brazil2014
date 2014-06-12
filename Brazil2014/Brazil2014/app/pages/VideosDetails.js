@@ -10,37 +10,38 @@
     self.videoWidth = ko.observable("100%");
     self.videoHeight = ko.observable("100%");
     self.load = function (datas) {
-     
-        new VideoDataProvider().fetchItem(datas.id, true, function (result) {
 
-            if (result == null) {
-                Brazil.onerror("Impossible de trouver la vidéo demandé");
-                
-                return;
-            }
-            self.video(result);
-            self.title(result.Title);
-            self.link(result.VideoLink);
-            self.loadCompleted();            
-        });
+        var videoId = datas.id;
 
-        
-   };
+        new VideoDataProvider().getVideo(videoId,
+            function (video) {
+                //Récupération du stade OK
 
-    self.resize = function () {
-        if (window.innerHeight > window.innerWidth) {
-            //Landscape 
-            
-        }
-        else {
-            //portrait 
-              
-        }
+                self.title(video.Title);
+                self.link(video.VideoLink);
+                self.loadCompleted();
+
+            },
+            function (err) {
+                if (err != null) {
+                    logger.error(err);
+                    //Erreur de récuperation de stade
+                    Brazil.onerror("Impossible de trouver la vidéo demandée");
+                    Brazil.app.mainView.goBack();
+                }
+            });
+
 
     };
+
 
     self.unload = function () {
-
+        logger.info("UNLOAD QUERY")
     };
+
+
+    self.refresh = function () {
+        logger.info("REFRESH QUERY")
+    }
 };
 

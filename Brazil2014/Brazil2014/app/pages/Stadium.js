@@ -18,7 +18,7 @@
             return null;
     });
 
-
+    
 
     self.load = function (datas) {
 
@@ -26,6 +26,7 @@
 
         new StadiumDataProvider().getStade(stadeId,
             function (stade) {
+
                 //Récupération du stade OK
                 self.stadiumId(stadeId);
 
@@ -42,6 +43,9 @@
                 Brazil.app.mainView.goBack(); 
             });
     };
+
+
+
 
     self.unload = function () {
         logger.log("UNLOAD");
