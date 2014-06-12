@@ -26,6 +26,10 @@
     };
 
 
+    self.syncAllDatas =  function(){
+        Brazil.storage.fillFromServer(true);     
+    }   
+    
     
 
 

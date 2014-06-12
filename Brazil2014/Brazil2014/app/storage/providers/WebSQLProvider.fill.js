@@ -107,7 +107,7 @@
         ret.push("DELETE FROM News;");
         for (var i = 0; i < valArray.length; i++) {
             var item = valArray[i];
-            ret.push('INSERT INTO Video (ID, Date, Title, Content, IdFIFA) VALUES ("' + item.ID + '", "' + item.Date + '", "' + Item.Title + '", "' + item.Content + '", "' + item.IdFIFA + '");');
+            ret.push('INSERT INTO Video (ID, Date, Title, Content, IdFIFA) VALUES ("' + item.ID + '", "' + item.Date + '", "' + item.Title + '", "' + item.Content + '", "' + item.IdFIFA + '");');
         }
 
     };
@@ -118,7 +118,7 @@
         ret.push("DELETE FROM Video;");
         for (var i = 0; i < valArray.length; i++) {
             var item = valArray[i];
-            ret.push('INSERT INTO Video (ID, Date, Title, VideoLink, IdFIFA) VALUES ("' + item.ID + '", "' + item.Date + '", "' + Item.Title + '", "' + item.VideoLink + '", "' + item.IdFIFA + '");');
+            ret.push('INSERT INTO Video (ID, Date, Title, VideoLink, IdFIFA) VALUES ("' + item.ID + '", "' + item.Date + '", "' + item.Title + '", "' + item.VideoLink + '", "' + item.IdFIFA + '");');
         }
 
     };
