@@ -45,15 +45,13 @@
 
   <vs:features>
     <vs:feature>org.apache.cordova.splashscreen@0.3.0</vs:feature>
-    <vs:feature>org.apache.cordova.device@0.2.9</vs:feature>
   </vs:features>
   <vs:platformSpecificValues>
     <vs:platformSpecificWidget platformName="windows8" />
   </vs:platformSpecificValues>
 
 
-  <!-- Plugins can also be added here. -->
-  <gap:plugin name="org.apache.cordova.device" version="0.2.8" />
+  <!-- Plugins can also be added here. -->  
   <gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" />
 
   <preference name="SplashScreen" value="splash" />
@@ -89,8 +87,6 @@
   <gap:splash src="res/screen/ios/screen-ipad-portrait.png"      gap:platform="ios"     width="768" height="1024" />
   <gap:splash src="res/screen/ios/screen-ipad-landscape.png"     gap:platform="ios"     width="1024" height="768" />
   <gap:splash src="res/screen/windows-phone/screen-portrait.jpg" gap:platform="winphone" />
-
-  <feature name="http://api.phonegap.com/1.0/device" />
 
   <gap:platform name="ios" />
   <gap:platform name="android" />

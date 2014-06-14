@@ -83,11 +83,11 @@
     //#region Méthodes privées
 
     function getAvailableDataProvider() {
-        if (Modernizr.websqldatabase == true) {
+        if (window.openDatabase) {
             //Mode WebSQL 
             return new WebSQLProviderClass();
         }
-        if (Modernizr.indexeddb == true) {
+        if (window.indexedDB) {
             //Mode IndexDB
             return new IndexedDBProviderClass();
         }

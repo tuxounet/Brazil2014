@@ -10,7 +10,7 @@ window.Brazil = {
         window.onerror = Brazil.onerror;
 
         Brazil.run(function () {
-           
+
             //Initialisation de la couche de données une fois l'application démarrée
             Brazil.storage = new LocalStorageClass();
             Brazil.storage.createIfNotExists(function (returnCode) {
@@ -21,13 +21,13 @@ window.Brazil = {
                         //Alimentation effectuée, démarrage
                         logger.info("Chargement des données terminée");
                     });
-                }                
+                }
             });
 
         });
 
-        
-     
+
+
     },
 
     /* Lancement pur de l'application */
@@ -45,17 +45,8 @@ window.Brazil = {
 
         Brazil.app = new appClass();
         Brazil.app.initalize();
-
-
-
-        //Id de la platefrome 
-        platform.fetchInfos();
-
-
-
+        
         logger.log("Navigation");
-
-
 
         //naivgation initiale
         if (location.hash != "") {
@@ -92,34 +83,13 @@ window.Brazil = {
 
         //Départ différé pour afficher correctement le splash
         setTimeout(function () {
-            if (boot.isLegacy == false) {
-                var transEndEventNames = {
-                    'WebkitTransition': 'webkitTransitionEnd',// Saf 6, Android Browser
-                    'MozTransition': 'transitionend',      // only for FF < 15
-                    'transition': 'transitionend'       // IE10, Opera, Chrome, FF 15+, Saf 7+
-                };
-                transEndEventName = transEndEventNames[Modernizr.prefixed('transition')];
 
-                $(".kernelLoader").on(transEndEventName, function (e) {
-                    $(".kernelLoader").off(transEndEventName);
-                    $(e.target).hide();
-
-                });
-
-                //Affichage du loader
-                $(".kernelLoader").css("opacity", 0);
-            }
-            else {
-                $(".kernelLoader").hide();
-
-                //Affichage du loader
-                $(".kernelLoader").css("opacity", 0);
-
-            }
+            if (navigator.splashscreen)
+                navigator.splashscreen.hide();
 
             if (callback) callback();
 
-        }, 1000);
+        }, 2000);
 
 
     },

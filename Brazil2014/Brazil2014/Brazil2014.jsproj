@@ -145,7 +145,6 @@
     <Content Include="app\pages\VideosDetails.js" />
     <Content Include="app\pages\_Dev.html" />
     <Content Include="app\pages\_Dev.js" />
-    <Content Include="app\services\platform.js" />
     <Content Include="app\storage\LocalStorage.js" />
     <Content Include="app\storage\providers\IndexedDBProvider.init.js" />
     <Content Include="app\storage\providers\IndexedDBProvider.js" />
@@ -223,7 +222,6 @@
     <Content Include="contents\images\glyph-map-point.png" />
     <Content Include="contents\images\glyph-play-video.png" />
     <Content Include="contents\images\home-background.png" />
-    <Content Include="contents\images\image-load.png" />
     <Content Include="contents\images\loader.gif" />
     <Content Include="contents\images\menu-button.png" />
     <Content Include="contents\images\nav-back-button.png" />
@@ -236,7 +234,6 @@
     <Content Include="contents\images\nav-tournament-visual.png" />
     <Content Include="contents\images\nav-videos-visual.png" />
     <Content Include="contents\images\page-transition.png" />
-    <Content Include="contents\images\pull-icon.png" />
     <Content Include="icon.png" />
     <Content Include="index.html" />
     <Content Include="res\icons\blackberry\icon-80.png" />
@@ -285,7 +282,6 @@
     <Content Include="scripts\vendor\jquery-2.1.0.intellisense.js" />
     <Content Include="scripts\vendor\jquery-2.1.0.min.js" />
     <Content Include="scripts\vendor\knockout-3.1.0.js" />
-    <Content Include="scripts\vendor\modernizr-2.7.2.js" />
     <Content Include="scripts\vendor\moment-with-langs.min.js" />
     <Content Include="styles\app\site-f7.css" />
     <Content Include="styles\app\site.css" />

@@ -77,33 +77,9 @@
     startup: function () {
         logger.log("Démarrage");
 
-        //Mode leagcy ? 
-        if (Modernizr.csstransforms3d == true && Modernizr.csstransforms == true) {
-            logger.info("Mode Nominal - avec transformation CSS3/3D")
-            boot.isLegacy = false;
-        }
-        else {
-            logger.warn("Mode dégradé - sans transformation CSS3/3D");
-            boot.isLegacy = true;
-        }
-
-
-
-        if (boot.isLegacy == true) {
-            $("body").addClass("ludivine-legacy");
-        }
-
-
-        //Capacité du navigateur
-        logger.info("Capacités du navigateur :" + $("html").attr("class"));
-
-        logger.log("Initialisation de l'application");
         boot.loadConfig();
 
-
         Brazil.start();
-
-
     }
 
 };
