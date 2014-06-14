@@ -25,23 +25,14 @@
         <div data-page="groups" class="page">
             <div class="page-content">
 
-
-                <div class="newsfeed" data-bind="visible : hasGroups == false">
-                    <div class="news-item">
-                        <span class="title">Aucun groupe disponible</span>
-                        <div class="content">Veuillez actualiser</div>
-                    </div>
+                <div class="content-block" data-bind="visible : hasGroups == false">
+                    <span class="title">Aucun groupe disponible</span>
+                    <div class="content">Veuillez actualiser</div>
                 </div>
 
                 <div class="list-block">
                     <ul class="groups-list" data-bind="visible : hasGroups"></ul>
-                 
-
-
-
                 </div>
-
-
             </div>
         </div>
     </div>

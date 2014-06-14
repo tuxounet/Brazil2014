@@ -17,6 +17,7 @@
             tx.executeSql("DROP TABLE IF EXISTS News");
             tx.executeSql("DROP TABLE IF EXISTS MatchType");
             tx.executeSql("DROP TABLE IF EXISTS [Group]");
+            tx.executeSql("DROP TABLE IF EXISTS GroupResult");
 
 
             //Creation de la structure
@@ -27,6 +28,7 @@
             tx.executeSql("CREATE TABLE IF NOT EXISTS News(ID TEXT unique, Date DATETIME, Title TEXT, Content TEXT, IdFIFA TEXT);")
             tx.executeSql("CREATE TABLE IF NOT EXISTS MatchType(ID INTEGER unique, Libelle TEXT);")
             tx.executeSql("CREATE TABLE IF NOT EXISTS [Group](ID INTEGER unique, Libelle TEXT);")
+            tx.executeSql("CREATE TABLE IF NOT EXISTS GroupResult(ID INTEGER unique, Libelle TEXT, [Group] INTEGER, GroupName TEXT, G INTEGER, P INTEGER, N INTEGER, BC INTEGER, BP INTEGER, PTS INTEGER);")
 
 
         }, errorCB, successCB);

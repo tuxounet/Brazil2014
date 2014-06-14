@@ -18,6 +18,7 @@
         getValuesUpdateScriptForGroup(datas.Groups, updateInstructions);
         getValuesUpdateScriptForVideos(datas.Videos, updateInstructions);
         getValuesUpdateScriptForNews(datas.News, updateInstructions);
+        getValuesUpdateScriptForGroupResults(datas.GroupResults, updateInstructions);
 
         db.transaction(function (tx) {
             logger.info("Execution des scripts de mise a jour");
@@ -123,7 +124,16 @@
 
     };
 
+    function getValuesUpdateScriptForGroupResults(valArray, ret) {
+        //si pas de valeurs, alors, pas concernée 
+        if (valArray == null) return;
+        ret.push("DELETE FROM GroupResult;");
+        for (var i = 0; i < valArray.length; i++) {
+            var item = valArray[i];          
+            ret.push('INSERT INTO GroupResult (ID, Libelle,[Group], GroupName, G, P , N , BC, BP, PTS) VALUES ("' + item.Id + '", "' + item.Libelle + '", "' + item.Group + '", "' + item.GroupName + '", "' + item.G + '", "' + item.P + '", "' + item.N + '", "' + item.BC + '", "' + item.BP + '", "' + item.PTS + '");');
+        }
 
+    };
 
     //#endregion
 

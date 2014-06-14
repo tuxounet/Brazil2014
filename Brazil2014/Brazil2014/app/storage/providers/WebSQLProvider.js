@@ -14,7 +14,7 @@ var WebSQLProviderClass = function () {
 
     //#region Variables privées
     var dbName = "Brazil2014Datas";
-    var dbCurrentVersion = "1.0.8";
+    var dbCurrentVersion = "1.0.9";
     var dbErrorVersion = "0.0";
     var dbDescrption = "Datas of Brazil2014";
     var dbSize = 2000000;

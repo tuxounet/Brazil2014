@@ -45,6 +45,8 @@
         logger.log("Device ready");
         document.addEventListener("pause", boot.onPause, false);
         document.addEventListener("resume", boot.onResume, false);
+        document.addEventListener("backbutton", boot.onBackButton, false);
+        document.addEventListener("menubutton", boot.onMenuButton, false);
         boot.startup();
     },
 
@@ -59,6 +61,14 @@
 
     },
 
+    onBackButton : function(){
+        logger.log("BackButton");
+    
+    },
+    onMenuButton : function(){
+        logger.log("Menu button");
+
+    },
 
     loadConfig: function () {
 
