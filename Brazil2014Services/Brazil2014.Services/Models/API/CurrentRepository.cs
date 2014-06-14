@@ -26,7 +26,8 @@ namespace C2S.Brazil2014.Services.Models.API
         public IEnumerable<BVideo> Videos { get; set; }
         public IEnumerable<BNews> News { get; set; }
         public IEnumerable<BGroup> Groups { get; set; }
-        
+        public IEnumerable<BTeamResultGroup> GroupResults { get; set; }
+
         #endregion
 
 

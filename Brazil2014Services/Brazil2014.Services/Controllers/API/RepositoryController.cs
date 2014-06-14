@@ -28,6 +28,14 @@ namespace C2S.Brazil2014.Services.Controllers.API
             l_ret.Videos = db.Videos.OrderBy(p => p.Id).ToArray().Select(p => BVideo.FromEntity(p));
             l_ret.News = db.News.OrderBy(p => p.Id).ToArray().Select(p => BNews.FromEntity(p));
             l_ret.Groups = db.Group.OrderBy(p => p.ID).ToArray().Select(p => BGroup.FromEntity(p));
+
+            var gResults = new List<BTeamResultGroup>();
+            foreach (var group in db.Group)
+            {
+                gResults.AddRange(db.Get_TeamResultGroup(group.Libelle).Select(p => BTeamResultGroup.FromEntity(group, p)));
+            }
+            l_ret.GroupResults = gResults;
+
             return l_ret;
         }
 

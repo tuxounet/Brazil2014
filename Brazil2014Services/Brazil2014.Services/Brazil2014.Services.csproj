@@ -228,6 +228,7 @@
     <Compile Include="Models\Entities\BNews.cs" />
     <Compile Include="Models\Entities\BStade.cs" />
     <Compile Include="Models\Entities\BTeam.cs" />
+    <Compile Include="Models\Entities\BTeamResultGroup.cs" />
     <Compile Include="Models\Entities\BVideo.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
