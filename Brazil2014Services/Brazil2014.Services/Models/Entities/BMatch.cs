@@ -12,7 +12,9 @@ namespace C2S.Brazil2014.Services.Models.Entities
 
         public int ID { get; set; }
         public int Team1 { get; set; }
+        public string Team1Name { get; set; }
         public int Team2 { get; set; }
+        public string Team2Name { get; set; }
         public Nullable<int> Team1Goal { get; set; }
         public Nullable<int> Team2Goal { get; set; }
         public bool IsExtraTime { get; set; }
@@ -36,10 +38,12 @@ namespace C2S.Brazil2014.Services.Models.Entities
             {
                 ID = p_entity.ID,
                 Team1 = p_entity.Team1,
+                Team1Name = p_entity.Team.Libelle,
                 Team1Goal = p_entity.Team1Goal,
                 Team1GoalsBy = p_entity.Team1GoalsBy,
                 Team1Penalty = p_entity.Team1Penalty,
                 Team2 = p_entity.Team2,
+                Team2Name = p_entity.Team3.Libelle,
                 Team2Goal = p_entity.Team2Goal,
                 Team2GoalsBy = p_entity.Team1GoalsBy,
                 Team2Penalty = p_entity.Team1Penalty,
