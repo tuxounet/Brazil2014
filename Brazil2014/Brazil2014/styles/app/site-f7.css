@@ -50,9 +50,16 @@ input {
 
 .bz-bottomNav {
     background-color: #019340;
+    height: 20px;
 }
 
-    .bz-bottomNav .tabbar-label {
+    .bz-bottomNav .bz-bottomNav-menu {
+        width : 30px !important ;
+        right:11px !important;  
+        position: absolute !important;
+    }
+
+    /*.bz-bottomNav .tabbar-label {
         color: #ffffff;
         font-weight: normal;
     }
@@ -64,7 +71,7 @@ input {
         .bz-bottomNav .tab-link.active .tabbar-label {
             color: #019340;
             font-weight: bold;
-        }
+        }*/
 
 
 
@@ -165,8 +172,7 @@ input {
     }
 
 .stadium .image {
-    width:100%;
-
+    width: 100%;
 }
 
 

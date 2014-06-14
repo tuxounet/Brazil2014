@@ -24,7 +24,7 @@
     bindEvents: function () {
 
 
-        if (window.location.protocol == "file:") {
+        if (window.location.origin != "http://localhost:8080") {
             boot.isPhoneGap = true;
             //Mode phoneGap
             document.addEventListener('deviceready', this.onDeviceReady, false);

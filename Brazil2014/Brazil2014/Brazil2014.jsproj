@@ -107,15 +107,12 @@
     <Folder Include="merges\wp8\" />
     <Folder Include="res\icons\android\" />
     <Folder Include="res\icons\ios\" />
-    <Folder Include="res\icons\wp8\" />
-    <Folder Include="res\icons\windows8\" />
     <Folder Include="res\screens\android\" />
     <Folder Include="res\screens\ios\" />
-    <Folder Include="res\screens\windows8\" />
-    <Folder Include="res\screens\wp8\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="app\app.js" />
+    <Content Include="app\boot.js" />
     <Content Include="app\datas\BaseDataProvider.js" />
     <Content Include="app\datas\GroupDataProvider.js" />
     <Content Include="app\datas\GroupDetailDataProvider.js" />
@@ -123,6 +120,7 @@
     <Content Include="app\datas\NewsDataProvider.js" />
     <Content Include="app\datas\StadiumDataProvider.js" />
     <Content Include="app\datas\VideosDataProvider.js" />
+    <Content Include="app\kernel.js" />
     <Content Include="app\models\MatchTemplate.html" />
     <Content Include="app\pages\Calendar.html" />
     <Content Include="app\pages\Calendar.js" />
@@ -160,7 +158,8 @@
     <Content Include="app\viewmodels\AppVM.js" />
     <Content Include="app\viewmodels\MatchViewModel.js" />
     <Content Include="app\widgets\BottomNav.html" />
-    <Content Include="app\widgets\PageLoader.html" />
+    <Content Include="app\widgets\BottomNavMenu.html" />
+    <Content Include="app\widgets\SwipeMenu.html" />
     <Content Include="config.js" />
     <Content Include="config.xml">
       <SubType>Designer</SubType>
@@ -215,8 +214,10 @@
     <Content Include="contents\icons\apple-touch-icon-72x72-precomposed.png" />
     <Content Include="contents\icons\apple-touch-icon-precomposed.png" />
     <Content Include="contents\icons\favicon.ico" />
+    <Content Include="contents\images\background-transparent.png" />
     <Content Include="contents\images\footer-calendar.png" />
     <Content Include="contents\images\footer-home.png" />
+    <Content Include="contents\images\footer-menu-button.png" />
     <Content Include="contents\images\footer-results.png" />
     <Content Include="contents\images\footer-videos.png" />
     <Content Include="contents\images\glyph-map-point.png" />
@@ -236,7 +237,14 @@
     <Content Include="contents\images\nav-videos-visual.png" />
     <Content Include="contents\images\page-transition.png" />
     <Content Include="contents\images\pull-icon.png" />
+    <Content Include="icon.png" />
     <Content Include="index.html" />
+    <Content Include="res\icons\blackberry\icon-80.png" />
+    <Content Include="res\icons\webos\icon-64.png" />
+    <Content Include="res\icons\windows-phone\icon-173.png" />
+    <Content Include="res\icons\windows-phone\icon-48.png" />
+    <Content Include="res\screens\blackberry\screen-225.png" />
+    <Content Include="res\screens\windows-phone\screen-portrait.jpg" />
     <Content Include="scripts\components\classie.js" />
     <Content Include="scripts\components\duration.js" />
     <Content Include="scripts\components\guid.js" />
@@ -245,8 +253,6 @@
     <Content Include="scripts\core\baseModal.js" />
     <Content Include="scripts\core\basePage.js" />
     <Content Include="scripts\core\baseWidget.js" />
-    <Content Include="scripts\core\boot.js" />
-    <Content Include="scripts\core\kernel.js" />
     <Content Include="scripts\core\logger.js" />
     <Content Include="scripts\core\router.js" />
     <Content Include="css\index.css" />
@@ -255,25 +261,10 @@
     <Content Include="res\icons\android\icon-48-mdpi.png" />
     <Content Include="res\icons\android\icon-72-hdpi.png" />
     <Content Include="res\icons\android\icon-96-xhdpi.png" />
-    <Content Include="res\icons\ios\icon-40.png" />
-    <Content Include="res\icons\ios\icon-40-2x.png" />
-    <Content Include="res\icons\ios\icon-50.png" />
-    <Content Include="res\icons\ios\icon-50-2x.png" />
     <Content Include="res\icons\ios\icon-57.png" />
     <Content Include="res\icons\ios\icon-57-2x.png" />
-    <Content Include="res\icons\ios\icon-60.png" />
-    <Content Include="res\icons\ios\icon-60-2x.png" />
     <Content Include="res\icons\ios\icon-72.png" />
     <Content Include="res\icons\ios\icon-72-2x.png" />
-    <Content Include="res\icons\ios\icon-76.png" />
-    <Content Include="res\icons\ios\icon-76-2x.png" />
-    <Content Include="res\icons\ios\icon-small.png" />
-    <Content Include="res\icons\ios\icon-small-2x.png" />
-    <Content Include="res\icons\windows8\logo.png" />
-    <Content Include="res\icons\windows8\smalllogo.png" />
-    <Content Include="res\icons\windows8\storelogo.png" />
-    <Content Include="res\icons\wp8\icon-62-tile.png" />
-    <Content Include="res\icons\wp8\icon-173-tile.png" />
     <Content Include="res\screens\android\screen-hdpi-landscape.png" />
     <Content Include="res\screens\android\screen-hdpi-portrait.png" />
     <Content Include="res\screens\android\screen-ldpi-landscape.png" />
@@ -289,8 +280,6 @@
     <Content Include="res\screens\ios\screen-iphone-568h-2x.png" />
     <Content Include="res\screens\ios\screen-iphone-portrait.png" />
     <Content Include="res\screens\ios\screen-iphone-portrait-2x.png" />
-    <Content Include="res\screens\windows8\splashscreen.png" />
-    <Content Include="res\screens\wp8\screen-portrait.jpg" />
     <Content Include="scripts\vendor\framework7.js" />
     <Content Include="scripts\vendor\framework7.min.js" />
     <Content Include="scripts\vendor\jquery-2.1.0.intellisense.js" />
@@ -324,7 +313,6 @@
     <Content Include="styles\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="styles\fonts\OpenSans300.ttf" />
     <Content Include="styles\fonts\OpenSans400.woff" />
-    <Content Include="styles\img\i-f7.png" />
     <Content Include="styles\vendor\bootstrap-theme.min.css" />
     <Content Include="styles\vendor\bootstrap.min.css" />
     <Content Include="styles\vendor\framework7.min.css" />

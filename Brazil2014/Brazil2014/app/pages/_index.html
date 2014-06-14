@@ -17,7 +17,7 @@
     specific language governing permissions and limitations
     under the License.
 -->
-<html>
+<html class="with-statusbar-overlay">
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
@@ -45,107 +45,16 @@
 
 </head>
 <body>
-    <script src="../../version.js"></script>
-
-
     <!-- Status bar overlay for fullscreen mode-->
     <div class="statusbar-overlay"></div>
+
+
     <!-- Panels overlay-->
     <div class="panel-overlay"></div>
 
     <!-- Left panel with reveal effect-->
-    <div class="panel panel-left panel-reveal bz-main-menu">
-        <div class="list-block">
-            <ul>
-                <li>
-                    <div class="item-content">
-                        <div class="item-inner">
-                            <div class="item-title">Menu</div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <a href="Calendar.html" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Prochain match</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="News.html" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Les dernières news</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="Groups.html" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Les groupes</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="Videos.html" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Les plus belles actions</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="_Dev.html" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">DEV</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-bind="click:showLogs" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Logs</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-bind="click:syncAllDatas" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Mettre à jour les données</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-                <li>
-                    <a href="#" data-bind="click:restart" class="close-panel item-link">
-                        <div class="item-content">
-                            <div class="item-media"><i class="icon icon-f7"></i></div>
-                            <div class="item-inner">
-                                <div class="item-title">Redémarrer</div>
-                            </div>
-                        </div>
-                    </a>
-                </li>
-            </ul>
-        </div>
+    <div class="panel panel-left panel-reveal bz-main-menu" id="swipeMenu">
+
     </div>
 
     <!-- Views-->
@@ -175,9 +84,6 @@
 
 
 
-
-    <!-- Bottom Toolbar-->
-
     <div class="popup popup-logs">
         <div class="content-block-title">Logs</div>
         <div class="content-block">
@@ -185,8 +91,12 @@
             <p><div id="_core-debug"></div></p>
         </div>
     </div>
+    <!-- Bottom Toolbar-->
+
+    <div id="popovers">
 
 
+    </div>
 
     <div id="templates"></div>
 
@@ -248,6 +158,7 @@
     <script src="../storage/LocalStorage.js"></script>
 
     <!--Core -->
+    <script src="../../version.js"></script>
     <script src="../../config.js"></script>
 
     <script src="../../scripts/core/logger.js"></script>
@@ -255,13 +166,17 @@
     <script src="../../scripts/core/baseModal.js"></script>
     <script src="../../scripts/core/baseWidget.js"></script>
     <script src="../../scripts/core/router.js"></script>
-    <script src="../../scripts/core/kernel.js"></script>
-
-    <script src="../../scripts/core/boot.js"></script>
+    <script src="../kernel.js"></script>
     <script src="../app.js"></script>
+    <script src="../boot.js"></script>
+
+
+
     <script type="text/javascript">
-        Brazil.fetchTemplate("../models/MatchTemplate.html");
-        Brazil.fetchInto("../widgets/BottomNav.html", "#master")
+        Brazil.fetchInto("../models/MatchTemplate.html", "#templates");
+        Brazil.fetchInto("../widgets/BottomNav.html", "#master");
+        Brazil.fetchInto("../widgets/BottomNavMenu.html", "#popovers");
+        Brazil.fetchInto("../widgets/SwipeMenu.html", "#swipeMenu")
         boot.initialize();
     </script>
 

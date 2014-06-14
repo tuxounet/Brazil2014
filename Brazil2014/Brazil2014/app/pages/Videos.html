@@ -1,5 +1,5 @@
 ﻿<div class="view navbar-fixed toolbar-fixed" id="videos">
-
+ 
     <div class="navbar">
         <div class="navbar-inner">
             <div class="left sliding">
@@ -29,17 +29,19 @@
                     <div class="content">Veuillez actualiser</div>
                 </div>
                 <div class="content-block-title" data-bind="visible : hasDatas">Les dernières vidéos</div>
-                <div class="list-block" data-bind="visible : hasDatas">
+                <div class="list-block media-list" data-bind="visible : hasDatas">
                     <ul data-bind="foreach:videos">
 
                         <li>
+
                             <a data-bind="attr : {href : 'VideosDetails.html?id=' + ID}" class="item-link item-content">
-                                <div class="item-media"><img src="../../contents/images/glyph-play-video.png"></div>
+                                <div class="item-media"><img src="../../contents/images/glyph-play-video.png" width="40"></div>
                                 <div class="item-inner">
                                     <div class="item-title-row">
                                         <div class="item-title" data-bind="text:Title"></div>
-                                        <div class="item-text" data-bind="text:moment(Date).fromNow()"></div>
+
                                     </div>
+                                    <div class="item-text" data-bind="text:moment(Date).fromNow()"></div>
                                 </div>
                             </a>
                         </li>

@@ -9,26 +9,29 @@ window.Brazil = {
         //Branchement du systeme d'erreur
         window.onerror = Brazil.onerror;
 
-        //Initialisation de la couche de données
-        Brazil.storage = new LocalStorageClass();
-        Brazil.storage.createIfNotExists(function (returnCode) {
-            //Initialisation terminée, on analyse le code de retour 
-            if (returnCode != "OK") {
-                //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
-                Brazil.storage.fillFromServer(true, function () {
-                    //Alimentation effectuée, démarrage
-                    Brazil.run();
-                });
-            }
-            else {
-                //Le contenu de la base de données est a jour 
-                Brazil.run();
-            }
+        Brazil.run(function () {
+           
+            //Initialisation de la couche de données une fois l'application démarrée
+            Brazil.storage = new LocalStorageClass();
+            Brazil.storage.createIfNotExists(function (returnCode) {
+                //Initialisation terminée, on analyse le code de retour 
+                if (returnCode != "OK") {
+                    //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
+                    Brazil.storage.fillFromServer(true, function () {
+                        //Alimentation effectuée, démarrage
+                        logger.info("Chargement des données terminée");
+                    });
+                }                
+            });
+
         });
+
+        
+     
     },
 
     /* Lancement pur de l'application */
-    run: function () {
+    run: function (callback) {
 
         //Tracage du contexte
         if (boot.isPhoneGap)
@@ -56,11 +59,11 @@ window.Brazil = {
 
         //naivgation initiale
         if (location.hash != "") {
-            Brazil.load();
+            Brazil.load(callback);
         }
         else {
             //Navigation sur l'acceuil
-            Brazil.load();
+            Brazil.load(callback);
         }
 
 
@@ -74,37 +77,6 @@ window.Brazil = {
 
     },
 
-    fetchPage: function (pageUrl) {
-        $.ajax({
-            url: pageUrl,
-            async: false
-        }).done(function (Result) {
-            $("#pageTemplates").append(Result);
-        })
-    },
-
-
-
-    fetchWidget: function (widgetUrl) {
-        $.ajax({
-            url: widgetUrl,
-            async: false
-        }).done(function (Result) {
-            $("#widgetTemplates").append(Result);
-        })
-    },
-
-    fetchTemplate: function (templateUrl) {
-
-        $.ajax({
-            url: templateUrl,
-            async: false
-        }).done(function (Result) {
-            $("#templates").append(Result);
-        })
-    },
-
-
 
     fetchInto: function (pageUrl, target) {
         $.ajax({
@@ -116,7 +88,7 @@ window.Brazil = {
     },
 
 
-    load: function () {
+    load: function (callback) {
 
         //Départ différé pour afficher correctement le splash
         setTimeout(function () {
@@ -144,6 +116,8 @@ window.Brazil = {
                 $(".kernelLoader").css("opacity", 0);
 
             }
+
+            if (callback) callback();
 
         }, 1000);
 
