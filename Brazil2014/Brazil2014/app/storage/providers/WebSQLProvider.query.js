@@ -71,6 +71,53 @@
         }, failedCB);
 
     }
+
+
+
+
+    self.getMatchDates = function (successCB, failedCB)
+    {
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT DISTINCT Date FROM Match ORDER BY Date ASC", [], function (tx, results) {
+
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                //Retour des resultats 
+                var ret = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                    ret.push(results.rows.item(i));
+                }
+                successCB(ret);
+
+            }, failedCB);
+        }, failedCB);
+
+    }
+    self.getMatchAtDate = function (date, successCB, failedCB)
+    {
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM Match WHERE Date = ? ORDER BY Date ASC ", [date], function (tx, results) {
+   
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                //Retour des resultats 
+                var ret = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                    ret.push(results.rows.item(i));
+                }
+                successCB(ret);
+                
+            }, failedCB);
+        }, failedCB);
+
+    }
+    
 }
 
 

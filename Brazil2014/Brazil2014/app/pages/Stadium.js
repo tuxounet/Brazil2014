@@ -18,7 +18,7 @@
             return null;
     });
 
-    
+
 
     self.load = function (datas) {
 
@@ -36,11 +36,11 @@
                 self.loadCompleted();
 
             },
-            function (err) {
+            function (tx, err) {
                 if (err != null) logger.error(err);
                 //Erreur de récuperation de stade
                 Brazil.onerror("Impossible de trouver le stade demandé");
-                Brazil.app.mainView.goBack(); 
+                Brazil.app.mainView.goBack();
             });
     };
 

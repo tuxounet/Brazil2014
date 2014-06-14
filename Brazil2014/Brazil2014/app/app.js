@@ -87,13 +87,18 @@
 
 
     self.initalize = function () {
+
+        //Généralisation du selecteur F7
+        window.$$ = Framework7.$;
+
+
         self.F7 = new Framework7({
             // Default title for modals
             modalTitle: 'Brazil 2014',
             swipePanel: 'left',
             swipeBackPage: false,
             // If it is webapp, we can enable hash navigation:
-            pushState: true,
+            pushState: false,
             preprocess: self.onPreparePage,
             // Hide and show indicator during ajax requests
             onAjaxStart: function (xhr) {

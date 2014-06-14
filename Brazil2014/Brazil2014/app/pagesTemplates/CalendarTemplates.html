@@ -1,0 +1,13 @@
+﻿
+
+<!--Templates-->
+<script type="text/template" id="calendar_day_tmpl">
+    <div class="slider-slide" data-id="<%=moment(Date).unix()%>">
+        <div class="day-item-wrapper">
+            <div class="content-block-title"><%=moment(Date).format('dddd Do MMMM') %></div>
+            <div class="list-block media-list">
+                <ul class="matchs"></ul>
+            </div>
+        </div>
+    </div>
+</script>

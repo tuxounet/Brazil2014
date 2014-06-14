@@ -58,32 +58,29 @@ input {
     }
 
     .bz-bottomNav .bz-bottomNav-menu {
-        width: 30px !important;      
+        width: 30px !important;
         right: 11px !important;
         position: absolute !important;
     }
 
 
-      .bz-bottomNav .bz-bottomNav-menu img {      
-        top: 3px !important;      
-        position: absolute !important;
+        .bz-bottomNav .bz-bottomNav-menu img {
+            top: 3px !important;
+            position: absolute !important;
+        }
+
+
+.toolbar-through .page-content {
+    padding-bottom: 20px;
+}
+
+.popover-links {
+    background-color: #4F81BD;
+}
+
+    .popover-links .item-link {
+        color: #fff !important;
     }
-
-/*.bz-bottomNav .tabbar-label {
-        color: #ffffff;
-        font-weight: normal;
-    }
-
-    .bz-bottomNav .tab-link.active {
-        background-color: #FFF402;
-    }
-
-        .bz-bottomNav .tab-link.active .tabbar-label {
-            color: #019340;
-            font-weight: bold;
-        }*/
-
-
 
 .day-item-wrapper {
     height: 100%;

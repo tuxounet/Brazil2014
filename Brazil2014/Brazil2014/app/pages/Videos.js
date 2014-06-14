@@ -28,7 +28,7 @@
                 
 
             },
-            function (err) {
+            function (tx, err) {
                 self.loadCompleted();
                 if (err != null) {
                     logger.error(err);

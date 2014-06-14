@@ -16,5 +16,43 @@
     };
 
 
+    self.getMatchDates = function (successCB, errorCB) {
+
+
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getMatchDates(successCB, errorCB);
+
+    }
+
+    self.getMatchAtDate = function (date, successCB, errorCB) {
+
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getMatchAtDate(date, successCB, errorCB);
+
+    }
+
+     
+    self.getCalendarMatches = function (successCB, errorCB) {
+
+
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getCalendarMatches(successCB, errorCB);
+
+    }
 
 }

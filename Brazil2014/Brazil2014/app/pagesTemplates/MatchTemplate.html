@@ -1,0 +1,55 @@
+﻿
+
+
+<script type="text/template" id="MatchTemplate">
+
+    <li>
+
+        <div class="item-inner match">
+
+            <div class="row type no-gutter">
+                <div class="col-100"></div>
+                <% if(MatchType == 1) { %>
+                <a href="<%= 'GroupDetails.html?name=' + MatchGroup%>">Groupe <%=MatchGroup%></a>
+                <% }else { %>
+                <span><%=MatchTypeName%></span>
+                <%}%>
+            </div>
+
+            <div class="row no-gutter">
+                <div class="col-33 team">
+                    <img src="<%=mth_getTeamImage(Team1IdFIFA)%>" width="32" /><br />
+                    <span> <%=Team1Name%></span>
+                </div>
+                <div class="col-33 time">
+                    <%=moment(Hour, 'HH:mm:ss' ).format('HH:mm')%>
+                </div>
+                <div class="col-33 team">
+                    <img src="<%=mth_getTeamImage(Team2IdFIFA)%>" width="32" /><br />
+                    <span> <%=Team2Name%></span>
+                </div>
+
+            </div>
+
+
+            <div class="row no-gutter stadium">
+                <div class="col-20">&nbsp;</div>
+                <div class="col-15">
+                    <a class="button" href="<%= 'Stadium.html?id=' + Stade%>">
+                        <img class="visual" src="../../contents/images/glyph-map-point.png" alt="" /> 
+                    </a>
+                </div>
+                <div class="col-5">&nbsp;</div>
+                <div class="col-60"><%=StadeName%></div>
+                
+            </div>
+
+
+
+
+        </div>
+
+    </li>
+
+
+</script>

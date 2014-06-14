@@ -121,7 +121,8 @@
     <Content Include="app\datas\StadiumDataProvider.js" />
     <Content Include="app\datas\VideosDataProvider.js" />
     <Content Include="app\kernel.js" />
-    <Content Include="app\models\MatchTemplate.html" />
+    <Content Include="app\pagesTemplates\CalendarTemplates.html" />
+    <Content Include="app\pagesTemplates\MatchTemplate.html" />
     <Content Include="app\pages\Calendar.html" />
     <Content Include="app\pages\Calendar.js" />
     <Content Include="app\pages\GroupDetails.html" />
@@ -155,7 +156,6 @@
     <Content Include="app\storage\providers\WebSQLProvider.fill.js" />
     <Content Include="app\storage\providers\WebSQLProvider.query.js" />
     <Content Include="app\viewmodels\AppVM.js" />
-    <Content Include="app\viewmodels\MatchViewModel.js" />
     <Content Include="app\widgets\BottomNav.html" />
     <Content Include="app\widgets\BottomNavMenu.html" />
     <Content Include="app\widgets\SwipeMenu.html" />
@@ -246,7 +246,7 @@
     <Content Include="scripts\components\duration.js" />
     <Content Include="scripts\components\guid.js" />
     <Content Include="scripts\components\ko.bindinghandlers.js" />
-    <Content Include="scripts\cordova\device.js" />
+    <Content Include="scripts\components\microtemplate.helpers.js" />
     <Content Include="scripts\core\baseModal.js" />
     <Content Include="scripts\core\basePage.js" />
     <Content Include="scripts\core\baseWidget.js" />
@@ -282,6 +282,7 @@
     <Content Include="scripts\vendor\jquery-2.1.0.intellisense.js" />
     <Content Include="scripts\vendor\jquery-2.1.0.min.js" />
     <Content Include="scripts\vendor\knockout-3.1.0.js" />
+    <Content Include="scripts\vendor\microtemplate.js" />
     <Content Include="scripts\vendor\moment-with-langs.min.js" />
     <Content Include="styles\app\site-f7.css" />
     <Content Include="styles\app\site.css" />

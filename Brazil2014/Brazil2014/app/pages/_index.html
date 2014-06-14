@@ -31,7 +31,8 @@
     <link href="../../styles/app/site.fonts.css" rel="stylesheet" />
     <link href="../../styles/app/site-f7.css" rel="stylesheet" />
 
-
+    <!--Cordova-->
+    <script src="../../cordova.js"></script>
 </head>
 <body>
     <!-- Status bar overlay for fullscreen mode-->
@@ -82,25 +83,17 @@
 
     <div id="templates"></div>
 
-
-
-    <!--Cordova-->
-    <script src="../../cordova.js"></script>
-    <script src="../../scripts/cordova/device.js"></script>
-
     <script src="../../scripts/vendor/jquery-2.1.0.min.js"></script>
     <script src="../../scripts/vendor/knockout-3.1.0.js"></script>
     <script src="../../scripts/vendor/moment-with-langs.min.js"></script>
+    <script src="../../scripts/vendor/microtemplate.js"></script>
     <script src="../../scripts/vendor/framework7.js"></script>
 
     <!--Composants-->
     <script src="../../scripts/components/ko.bindinghandlers.js"></script>
-
-    <!--App-->
-    <script src="../../app/services/platform.js"></script>
+    <script src="../../scripts/components/microtemplate.helpers.js"></script>
 
     <!--Pages-->
-
     <script src="News.js"></script>
     <script src="NewsDetails.js"></script>
     <script src="Calendar.js"></script>
@@ -110,7 +103,7 @@
     <script src="Videos.js"></script>
     <script src="VideosDetails.js"></script>
     <script src="Groups.js"></script>
-    
+
     <!--Datas-->
     <script src="../datas/BaseDataProvider.js"></script>
     <script src="../datas/NewsDataProvider.js"></script>
@@ -121,7 +114,6 @@
     <script src="../datas/VideosDataProvider.js"></script>
 
     <!--ViewModels -->
-    <script src="../viewmodels/MatchViewModel.js"></script>
     <script src="../viewmodels/AppVM.js"></script>
 
 
@@ -152,10 +144,12 @@
 
 
     <script type="text/javascript">
-        Brazil.fetchInto("../models/MatchTemplate.html", "#templates");
+        Brazil.fetchInto("../pagesTemplates/MatchTemplate.html", "#templates");
+        Brazil.fetchInto("../pagesTemplates/CalendarTemplates.html", "#templates")
         Brazil.fetchInto("../widgets/BottomNav.html", "#master");
         Brazil.fetchInto("../widgets/BottomNavMenu.html", "#popovers");
         Brazil.fetchInto("../widgets/SwipeMenu.html", "#swipeMenu")
+
         boot.initialize();
     </script>
 

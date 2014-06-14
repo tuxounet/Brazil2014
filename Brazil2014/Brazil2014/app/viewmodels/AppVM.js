@@ -9,7 +9,7 @@
 
 
     self.unbind = function () {
-        
+
         ko.cleanNode(document.body);
     }
 
@@ -28,21 +28,21 @@
 
     self.syncAllDatas = function () {
 
-    //Reinitialisation de la base
+        //Reinitialisation de la base
         Brazil.storage.createIfNotExists(function () {
-           
+
             //Remplisaage initial
             Brazil.storage.fillFromServer(true);
         })
 
-        
-    }   
-    
-    
 
-
-    self.onTabChanged = function () {
-        debugger;
     }
+
+
+    self.closeBottomNav = function () {
+        Brazil.app.F7.closeModal(".popover-links");
+    };
+
+
 
 }

@@ -67,7 +67,7 @@
         ret.push("DELETE FROM Match;");
         for (var i = 0; i < valArray.length; i++) {
             var item = valArray[i];
-            ret.push('INSERT INTO Match(ID, Date, Hour, IdFIFA, IsExtraTime, MatchTime, MatchType, Rank, Stade, Team1, Team1Goal, Team1GoalsBy, Team1Penalty, Team2, Team2Goal, Team2GoalsBy, Team2Penalty) VALUES ("' + item.ID + '", "' + item.Date + '", "' + item.Hour + '", "' + item.IdFIFA + '", "' + (item.IsExtraTime ? 1 : 0) + '", "' + item.MatchTime + '", "' + item.MatchTypeId + '", "' + item.Rank + '", "' + item.StadeId + '", "' + item.Team1 + '", "' + item.Team1Goal + '", "' + item.Team1GoalsBy + '", "' + item.Team1Penalty + '", "' + item.Team2 + '", "' + item.Team2Goal + '", "' + item.Team2GoalsBy + '", "' + item.Team2Penalty + '");');
+            ret.push('INSERT INTO Match(ID, Date, Hour, IdFIFA, IsExtraTime, MatchTime, MatchType, MatchTypeName, MatchGroup, Rank, Stade, StadeName, Team1, Team1Name, Team1IdFIFA, Team1Goal, Team1GoalsBy, Team1Penalty, Team2, Team2Name, Team2IdFIFA,Team2Goal, Team2GoalsBy, Team2Penalty) VALUES ("' + item.ID + '", "' + item.Date + '", "' + item.Hour + '", "' + item.IdFIFA + '", "' + (item.IsExtraTime ? 1 : 0) + '", "' + item.MatchTime + '", "' + item.MatchTypeId + '", "' + item.MatchTypeName + '", "' + item.MatchGroup + '", "' + item.Rank + '", "' + item.StadeId + '", "' + item.StadeName + '", "' + item.Team1 + '", "' + item.Team1Name + '", "' + item.Team1IdFIFA + '", "' + item.Team1Goal + '", "' + item.Team1GoalsBy + '", "' + item.Team1Penalty + '", "' + item.Team2 + '", "' + item.Team2Name + '", "' + item.Team2IdFIFA + '", "' + item.Team2Goal + '", "' + item.Team2GoalsBy + '", "' + item.Team2Penalty + '");');
         }
 
         //Retour de la valeur
