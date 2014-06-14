@@ -72,8 +72,47 @@
 
     }
 
+    self.getAllGroups = function (successCB, failedCB) {
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM [Group] ORDER BY Libelle ASC", [], function (tx, results) {
+
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                var ret = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                    ret.push(results.rows.item(i));
+                }
+                successCB(ret);
+
+            }, failedCB);
+        }, failedCB);
+
+    }
 
 
+
+    self.getTeamGroup = function (id, successCB, failedCB) {
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM Team WHERE [Group] = ?", [id], function (tx, results) {
+
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                var ret = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                    ret.push(results.rows.item(i));
+                }
+                successCB(ret);
+
+            }, failedCB);
+        }, failedCB);
+
+    }
 
     self.getMatchDates = function (successCB, failedCB)
     {

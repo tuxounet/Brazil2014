@@ -27,7 +27,7 @@ window.calendar_PageClass = function () {
                var result = "";
                for (var i = 0; i < dates.length; i++) {
                    var item = dates[i];
-                   result += daysTmpl(dates[i]);
+                   result += daysTmpl(item);
                }
                //Ajout du résultat au dom 
                $(".calendar-days-wrapper", self.DOM).html(result);
@@ -129,7 +129,7 @@ window.calendar_PageClass = function () {
               //Templating des matcgs
               for (var i = 0; i < matchs.length; i++) {
                   var item = matchs[i];
-                  ret += self.matchTemplate(matchs[i]);
+                  ret += self.matchTemplate(item);
               }
 
               //Ajout du markup au DOM 

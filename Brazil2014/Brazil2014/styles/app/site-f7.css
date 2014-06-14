@@ -82,6 +82,10 @@ input {
         color: #fff !important;
     }
 
+    .popover-links .popover-angle::after {
+        background: #4F81BD !important;
+    }
+
 .day-item-wrapper {
     height: 100%;
     overflow-y: auto;
@@ -186,4 +190,10 @@ input {
 .youtube-video {
     height: 100%;
     width: 100%;
+}
+
+
+.team-flag {
+    margin-right: 5px;
+    border: #ccc solid 1px;
 }

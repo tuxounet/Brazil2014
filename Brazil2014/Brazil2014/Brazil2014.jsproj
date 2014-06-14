@@ -122,6 +122,7 @@
     <Content Include="app\datas\VideosDataProvider.js" />
     <Content Include="app\kernel.js" />
     <Content Include="app\pagesTemplates\CalendarTemplates.html" />
+    <Content Include="app\pagesTemplates\GroupTemplates.html" />
     <Content Include="app\pagesTemplates\MatchTemplate.html" />
     <Content Include="app\pages\Calendar.html" />
     <Content Include="app\pages\Calendar.js" />

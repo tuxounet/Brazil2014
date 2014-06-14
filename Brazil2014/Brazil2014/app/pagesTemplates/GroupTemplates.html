@@ -1,0 +1,19 @@
+﻿<!--Templates-->
+<script type="text/template" id="groups_group_tmpl">
+    <li data-id="<%=Libelle%>">
+        <a class="item-link item-content" href="GroupDetails.html?group=<%=ID%>">
+
+            <div class="item-inner">
+                <div class="item-title">
+                    Groupe <span><%=Libelle%></span>
+                </div>
+                <div class="item-after teams">                    
+                </div>
+            </div>
+        </a>
+    </li>
+</script>
+
+<script type="text/template" id="team_group_tmpl">
+    <img src="<%=mth_getTeamImage(IdFIFA)%>" height="25" class="team-flag"/>    
+</script>
