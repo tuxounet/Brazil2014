@@ -7,7 +7,7 @@
                 <div class="item-title">
                     Groupe <span><%=Libelle%></span>
                 </div>
-                <div class="item-after teams">                    
+                <div class="item-after teams">
                 </div>
             </div>
         </a>
@@ -15,5 +15,20 @@
 </script>
 
 <script type="text/template" id="team_group_tmpl">
-    <img src="<%=mth_getTeamImage(IdFIFA)%>" height="25" class="team-flag"/>    
+    <img src="<%=mth_getTeamImage(IdFIFA)%>" height="25" class="team-flag" />
 </script>
+
+
+
+<script type="text/template" id="group_score_tmpl">
+    <div class="row no-gutter score-item">
+        <div class="col-40"><img src="<%=mth_getTeamImage(ID)%>" width="25" class="team-flag" />    <span><%=Libelle%></span></div>
+        <div class="col-10"><%=G%></div>
+        <div class="col-10"><%=N%></div>
+        <div class="col-10"><%=P%></div>
+        <div class="col-10"><%=BP%></div>
+        <div class="col-10"><%=BC%></div>
+        <div class="col-10"><%=PTS%></div>
+    </div>
+</script>
+

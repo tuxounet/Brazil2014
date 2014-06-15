@@ -20,85 +20,55 @@
     <div class="pages navbar-through">
         <div data-page="results" class="page results">
             <div class="page-content">
-                <div class="slider-container">
+
+                <div class="content-block">
+                    <p class="buttons-row">
+                        <a href="#" class="button active">Pool</a>
+                        <a href="#" class="button" data-bind="click:slideToEighth">1/8</a>
+                        <a href="#" class="button" data-bind="click:slideToQuarter">1/4</a>
+                        <a href="#" class="button" data-bind="click:slideToSemi">1/2</a>
+                        <a href="#" class="button" data-bind="click:slideToFinal">Final</a>
+                    </p>
+                </div>
+
+                <div class="slider-container slider-init" data-speed="400" data-spacebetween="40" data-pagination=".slider-pagination">
                     <div class="slider-wrapper">
                         <div class="slider-slide">
-                            <div class="day-item-wrapper">                              
-                                <div class="content-block">
-                                    <p class="buttons-row">
-                                        <a href="#" class="button active">Pool</a>
-                                        <a href="#" class="button" data-bind="click:slideToEighth">1/8</a>
-                                        <a href="#" class="button" data-bind="click:slideToQuarter">1/4</a>
-                                        <a href="#" class="button" data-bind="click:slideToSemi">1/2</a>
-                                        <a href="#" class="button" data-bind="click:slideToFinal">Final</a>                                        
-                                    </p>
-                                </div>
+                            <div class="day-item-wrapper">
                                 <div class="list-block media-list">
-                                    <ul data-bind="template : { name:'MatchTemplate', foreach:groups}"></ul>
+                                    <ul class="groups"></ul>
                                 </div>
                             </div>
                         </div>
                         <div class="slider-slide">
                             <div class="day-item-wrapper">
-                                <div class="content-block">
-                                    <p class="buttons-row">
-                                        <a href="#" class="button" data-bind="click:slideToGroups">Pool</a>
-                                        <a href="#" class="button active">1/8</a>
-                                        <a href="#" class="button" data-bind="click:slideToQuarter">1/4</a>
-                                        <a href="#" class="button" data-bind="click:slideToSemi">1/2</a>
-                                        <a href="#" class="button" data-bind="click:slideToFinal">Final</a>
-                                    </p>
-                                </div>
+
                                 <div class="list-block media-list">
-                                    <ul data-bind="template : { name:'MatchTemplate', foreach:eighth}"></ul>
+                                    <ul class="eighth"></ul>
                                 </div>
                             </div>
                         </div>
                         <div class="slider-slide">
                             <div class="day-item-wrapper">
-                                <div class="content-block">
-                                    <p class="buttons-row">
-                                        <a href="#" class="button" data-bind="click:slideToGroups">Pool</a>
-                                        <a href="#" class="button" data-bind="click:slideToEighth">1/8</a>
-                                        <a href="#" class="button active">1/4</a>
-                                        <a href="#" class="button" data-bind="click:slideToSemi">1/2</a>
-                                        <a href="#" class="button" data-bind="click:slideToFinal">Final</a>
-                                    </p>
-                                </div>
+
                                 <div class="list-block media-list">
-                                    <ul data-bind="template : { name:'MatchTemplate', foreach:quarter}"></ul>
+                                    <ul class="quarter"></ul>
                                 </div>
                             </div>
                         </div>
                         <div class="slider-slide">
                             <div class="day-item-wrapper">
-                                <div class="content-block">
-                                    <p class="buttons-row">
-                                        <a href="#" class="button" data-bind="click:slideToGroups">Pool</a>
-                                        <a href="#" class="button" data-bind="click:slideToEighth">1/8</a>
-                                        <a href="#" class="button" data-bind="click:slideToQuarter">1/4</a>
-                                        <a href="#" class="button active">1/2</a>
-                                        <a href="#" class="button" data-bind="click:slideToFinal">Final</a>
-                                    </p>
-                                </div>
+
                                 <div class="list-block media-list">
-                                    <ul data-bind="template : { name:'MatchTemplate', foreach:semi}"></ul>
+                                    <ul class="semi"></ul>
                                 </div>
                             </div>
                         </div>
                         <div class="slider-slide">
                             <div class="day-item-wrapper">
-                                <div class="content-block">
-                                    <p class="buttons-row">
-                                        <a href="#" class="button" data-bind="click:slideToGroups">Pool</a>
-                                        <a href="#" class="button" data-bind="click:slideToEighth">1/8</a>
-                                        <a href="#" class="button" data-bind="click:slideToQuarter">1/4</a>
-                                        <a href="#" class="button" data-bind="click:slideToSemi">1/2</a>
-                                        <a href="#" class="button active">Final</a>
-                                    </p>
-                                </div>
+
                                 <div class="list-block media-list">
-                                    <ul data-bind="template : { name:'MatchTemplate', foreach:final}"></ul>
+                                    <ul class="final"></ul>
                                 </div>
                             </div>
                         </div>

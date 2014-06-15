@@ -15,47 +15,77 @@
         return "Groupe " + self.groupName();
 
     });
+
+    self.matchTemplate = null;
     self.load = function (datas) {
-        
-        
+    
         self.groupName(datas.group);
         $(".page-on-center .title").text(self.title());
-        self.refresh(self.loadCompleted);
 
 
+        //Récuperation des scores
+        new GroupDataProvider().getGroupScores(datas.group,
+           function (scores) {
+               //Generation du slider par date
+               var scoretmpl = tmpl("group_score_tmpl");
+               var result = "";
+               for (var i = 0; i < scores.length; i++) {
+                   var item = scores[i];
+                   result += scoretmpl(item);
+               }
+               //Ajout du résultat au dom 
+               $(".group-score-details", self.DOM).html(result);
+
+               self.loadCompleted();
+           },
+           function (tx, err) {
+               self.loadCompleted();
+               if (err != null) {
+                   logger.error(err);
+                   //Erreur de récuperation de stade
+                   Brazil.onerror("Impossible de charger la liste des scores");                   
+               }
+           });
+
+
+             //Récuperation des matchs
+        new MatchDataProvider().getMatchForGroupId(datas.group,
+           function (matchs) {
+               //Generation du slider par date
+               var matchtmpl = tmpl("MatchTemplate");
+               var result = "";
+               for (var i = 0; i < matchs.length; i++) {
+                   var item = matchs[i];
+                   result += matchtmpl(item);
+               }
+               //Ajout du résultat au dom 
+               $(".matchs", self.DOM).html(result);
+
+               self.loadCompleted();
+           },
+           function (tx, err) {
+               self.loadCompleted();
+               if (err != null) {
+                   logger.error(err);
+                   //Erreur de récuperation de stade
+                   Brazil.onerror("Impossible de charger la liste des scores");                   
+               }
+           });
+
+     
 
     };
+
 
     self.unload = function () {
-
+        logger.info("UNLOAD QUERY")
     };
 
 
-    self.refresh = function (callback) {
-
-        var useCache = typeof (callback) == "function";
-        self.isLoading(true);
-        self.loading();
-
-
-        new GroupDetailDataProvider(self.groupName()).fetchItem(false, function (result) {
-            self.group(result);
-
-            if (typeof (callback) == "function") callback();
-            self.isLoading(false);
-            self.loadCompleted();
-        });     
-    };
-
-    var parentFault = self.pageFaulted;
-    self.pageFaulted = function () {
-
-        //Suppression de l'entrée du cache
-        new GroupDetailDataProvider(self.groupName()).clearCache();
-
-        //Appel au parent 
-        parentFault();
+    self.refresh = function () {
+        logger.info("REFRESH QUERY")
     }
+    
 
 };
 

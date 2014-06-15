@@ -72,8 +72,7 @@
         
         var provider = getAvailableQueryProvider();
 
-        logger.log("Provider de requete séléctionné : " + provider.name);
-
+       
         return provider;
     }
 

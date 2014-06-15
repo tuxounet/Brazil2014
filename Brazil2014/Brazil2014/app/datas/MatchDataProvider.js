@@ -16,7 +16,7 @@
     };
 
 
-    self.getMatchDates = function (successCB, errorCB) {
+    self.getMatchForGroupId = function (successCB, errorCB) {
 
 
         //Obtention d'un objet query sur l'abstraction
@@ -25,7 +25,7 @@
             throw "Le composant de requete n'est pas disponible pour cette plateforme";
 
         //invocation de la demande
-        query.getMatchDates(successCB, errorCB);
+        query.getMatchForGroupId(successCB, errorCB);
 
     }
 
@@ -38,6 +38,18 @@
 
         //invocation de la demande
         query.getMatchAtDate(date, successCB, errorCB);
+
+    }
+
+    self.getMatchForType = function (group, successCB, errorCB) {
+
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getMatchForType(group, successCB, errorCB);
 
     }
 

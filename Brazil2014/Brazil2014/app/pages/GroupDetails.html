@@ -26,9 +26,7 @@
         <div data-page="groupDetails" class="page">
             <div class="page-content">
                 <div class="content-block-title">Scores</div>
-                <div class="scores content-block" data-bind="with:group">
-
-
+                <div class="scores content-block">
                     <div class="row no-gutter header">
                         <div class="col-40">&nbsp;</div>
                         <div class="col-10">G</div>
@@ -37,30 +35,19 @@
                         <div class="col-10">BP</div>
                         <div class="col-10">BC</div>
                         <div class="col-10">Pts</div>
+                    </div>              
+
+                    <div class="group-score-details" >
+                       
                     </div>
-
-
-                    <div class="group-score-details" data-bind="foreach:Results">
-                        <div class="row no-gutter item">
-                            <div class="col-40"> <img class="img-responsive" data-bind="teamBinding:Id" /> <span data-bind="text:libelle"></span></div>
-                            <div class="col-10" data-bind="text:G"></div>
-                            <div class="col-10" data-bind="text:N"></div>
-                            <div class="col-10" data-bind="text:P"></div>
-                            <div class="col-10" data-bind="text:BP"></div>
-                            <div class="col-10" data-bind="text:BC"></div>
-                            <div class="col-10" data-bind="text:PTS"></div>
-                        </div>
-                    </div>
-
                 </div>
 
 
-
                 <div class="content-block-title">Matchs</div>
-                <div class="list-block" data-bind="with:group">
+                <div class="list-block ">
 
                     <div class="list-block media-list">
-                        <ul data-bind="template : { name:'MatchTemplate', foreach:Matches}"></ul>
+                        <ul class="matchs"></ul>
                     </div>
                 </div>
 

@@ -55,9 +55,7 @@
 
     self.fetchGroup = function (groupName)
     {
-        console.log(groupName);
-
-        //Compilation du template de match
+            //Compilation du template de match
         if (self.teamGroupTemplate == null) self.teamGroupTemplate = tmpl("team_group_tmpl");
 
         new GroupDataProvider().getTeamGroup(groupName,
