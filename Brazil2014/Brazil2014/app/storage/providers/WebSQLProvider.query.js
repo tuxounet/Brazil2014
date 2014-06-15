@@ -117,6 +117,28 @@
         //OBtention de la base de données 
         var db = getDb();
         db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM GroupResult WHERE GroupName = ?", [id], function (tx, results) {
+
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                var ret = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                    ret.push(results.rows.item(i));
+                }
+                successCB(ret);
+
+            }, failedCB);
+        }, failedCB);
+
+    }
+
+
+
+    self.getGroupScoresById = function (id, successCB, failedCB) {
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
             tx.executeSql("SELECT * FROM GroupResult WHERE [Group] = ?", [id], function (tx, results) {
 
                 //Si pas de résultat
@@ -174,7 +196,28 @@
         }, failedCB);
 
     }
-    self.getMatchForGroupId = function (group, successCB, failedCB) {
+    self.getMatchForGroupName = function (group, successCB, failedCB) {
+        
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM Match WHERE MatchGroup = ? ORDER BY Date ASC ", [group], function (tx, results) {
+                
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                //Retour des resultats 
+                var ret = [];
+                for (var i = 0; i < results.rows.length; i++) {
+                    ret.push(results.rows.item(i));
+                }
+                successCB(ret);
+
+            }, failedCB);
+        }, failedCB);
+
+    }
+      self.getMatchForGroupId = function (group, successCB, failedCB) {
         
         //OBtention de la base de données 
         var db = getDb();
@@ -195,14 +238,13 @@
         }, failedCB);
 
     }
-    
 
     self.getMatchForType = function (type, successCB, failedCB) {
 
         //OBtention de la base de données 
         var db = getDb();
         db.transaction(function (tx) {
-            tx.executeSql("SELECT * FROM Match  WHERE MatchType  = ? ORDER BY Date ASC ", [type], function (tx, results) {
+            tx.executeSql("SELECT * FROM Match  WHERE MatchTypeName  = ? ORDER BY Date ASC ", [type], function (tx, results) {
 
                 //Si pas de résultat
                 if (results.rows.length == 0) { failedCB(null); return; }

@@ -48,4 +48,14 @@
         query.getGroupScores(id, successCB, errorCB);
     }
 
+    self.getGroupScoresById = function (id, successCB, errorCB) {
+
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getGroupScoresById(id, successCB, errorCB);
+    }
 }

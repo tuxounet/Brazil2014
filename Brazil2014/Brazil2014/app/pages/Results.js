@@ -16,21 +16,37 @@
 
     self.load = function (uriParameters) {
 
-
         self.slider = $$('.slider-container', self.DOM)[0].f7Slider;
 
+        self.bindNavigation();
+
+        //self.slider.onSlideChangeEnd(slider)
         self.loadForGroup("Groupe", ".groups");
         self.loadForGroup("Huitièmes de finale", ".eighth");
         self.loadForGroup("Quarts de finale", ".quarter");
         self.loadForGroup("Demi-finales", ".semi");
         self.addInGroup("Match pour la troisième place", ".final", function () {
-            self.addInGroup("Demi-finales", ".final");
+            self.addInGroup("Finale", ".final");
         });
 
 
         self.loadCompleted();
     };
 
+    self.bindNavigation = function () {
+
+        var oldCallback = self.slider.onSlideChangeEnd;
+        self.slider.onSlideChangeEnd =function () {
+
+            $(".nav a", self.DOM).removeClass("active");
+            var current = self.slider.activeSlideIndex;
+            $($(".nav a", self.DOM)[current]).addClass("active")
+            
+
+           if(oldCallback) oldCallback()
+
+        };
+    }
 
 
     self.loadForGroup = function (groupName, targetArray, callback) {
