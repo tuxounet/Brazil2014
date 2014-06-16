@@ -201,6 +201,7 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Areas\Admin\AdminAreaRegistration.cs" />
+    <Compile Include="Areas\Admin\Controllers\MatchesController.cs" />
     <Compile Include="Areas\Admin\Controllers\NewsController.cs" />
     <Compile Include="Areas\Admin\Controllers\StadesController.cs" />
     <Compile Include="Areas\Admin\Controllers\VideosController.cs" />
@@ -265,6 +266,11 @@
     <Content Include="Areas\Admin\Views\Stades\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Stades\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Stades\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Matches\Create.cshtml" />
+    <Content Include="Areas\Admin\Views\Matches\Delete.cshtml" />
+    <Content Include="Areas\Admin\Views\Matches\Details.cshtml" />
+    <Content Include="Areas\Admin\Views\Matches\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\Matches\Index.cshtml" />
     <None Include="Properties\PublishProfiles\c2sbrazilservices.pubxml" />
     <None Include="Properties\PublishProfiles\DEV.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />
@@ -310,6 +316,7 @@
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Models\" />
+    <Folder Include="Areas\Admin\Views\Matchs\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

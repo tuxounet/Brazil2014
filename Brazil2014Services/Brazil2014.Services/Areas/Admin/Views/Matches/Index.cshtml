@@ -1,0 +1,129 @@
+﻿@model IEnumerable<C2S.Brazil2014.Services.BOM.Entities.Match>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Team1Goal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team2Goal)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IsExtraTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team1Penalty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team2Penalty)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Date)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Rank)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Hour)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchTime)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.IdFIFA)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team1GoalsBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team2GoalsBy)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Broadcaster)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team.Libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Team3.Libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.MatchType.Libelle)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Stade.Libelle)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model.OrderBy(p=>p.ID)) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1Goal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team2Goal)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IsExtraTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1Penalty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team2Penalty)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Date)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Rank)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Hour)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchTime)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.IdFIFA)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team1GoalsBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team2GoalsBy)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Broadcaster)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team.Libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Team3.Libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.MatchType.Libelle)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Stade.Libelle)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.ID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.ID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.ID })
+        </td>
+    </tr>
+}
+
+</table>

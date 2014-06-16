@@ -33,6 +33,7 @@
           <Property Name="IdFIFA" Type="int" />
           <Property Name="Team1GoalsBy" Type="nvarchar" MaxLength="4000" />
           <Property Name="Team2GoalsBy" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Broadcaster" Type="int" />
         </EntityType>
         <EntityType Name="MatchType">
           <Key>
@@ -212,6 +213,7 @@
           <Property Name="IdFIFA" Type="Int32" />
           <Property Name="Team1GoalsBy" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="Team2GoalsBy" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Broadcaster" Type="Int32" />
         </EntityType>
         <EntityType Name="MatchType">
           <Key>
@@ -398,7 +400,8 @@
     <EntitySetMapping Name="Match">
       <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Match)">
         <MappingFragment StoreEntitySet="Match">
-          <ScalarProperty Name="Team2GoalsBy" ColumnName="Team2GoalsBy" />
+          <ScalarProperty Name="Broadcaster" ColumnName="Broadcaster" />
+                <ScalarProperty Name="Team2GoalsBy" ColumnName="Team2GoalsBy" />
                 <ScalarProperty Name="Team1GoalsBy" ColumnName="Team1GoalsBy" />
                 <ScalarProperty Name="ID" ColumnName="ID" />
           <ScalarProperty Name="Team1" ColumnName="Team1" />

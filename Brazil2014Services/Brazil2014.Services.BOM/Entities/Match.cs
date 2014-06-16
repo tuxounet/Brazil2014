@@ -31,6 +31,7 @@ namespace C2S.Brazil2014.Services.BOM.Entities
         public Nullable<int> IdFIFA { get; set; }
         public string Team1GoalsBy { get; set; }
         public string Team2GoalsBy { get; set; }
+        public Nullable<int> Broadcaster { get; set; }
     
         public virtual Team Team { get; set; }
         public virtual Team Team3 { get; set; }
