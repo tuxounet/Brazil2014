@@ -82,9 +82,13 @@ input {
         color: #fff !important;
     }
 
-    .popover-links .popover-angle::after {
-        background: #4F81BD !important;
+    .popover-links .popover-angle {
+        height: 12px;
     }
+
+        .popover-links .popover-angle::after {
+            background: #4F81BD !important;
+        }
 
 .day-item-wrapper {
     height: 100%;
@@ -131,7 +135,7 @@ input {
     padding-top: 11px;
 }
 
-    .match .stadium img,
+
     .match .stadium span {
         float: left;
     }

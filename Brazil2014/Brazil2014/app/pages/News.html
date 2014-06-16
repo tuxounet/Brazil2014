@@ -1,6 +1,4 @@
-﻿
-<div class="view navbar-fixed toolbar-fixed" id="news">
-
+﻿<div class="view navbar-fixed toolbar-fixed" id="news">
     <div class="navbar">
         <div class="navbar-inner">
             <div class="left sliding">
@@ -20,102 +18,35 @@
         </div>
     </div>
 
-
     <div class="pages navbar-through">
         <div data-page="news" class="page">
             <div class="page-content">
-                <div class="content-block">
-                    <div data-bind="visible:isLoading() == false">
 
-                        <div class="newsfeed" data-bind="visible : news().length == 0">
-                            <div class="news-item">
-                                <span class="title">Aucun article disponible</span>
-                                <div class="content">Veuillez actualiser</div>
-                            </div>
-                        </div>
+                <div class="content-block" data-bind="visible : hasDatas() == false">
+                    <span class="title">Aucun news disponible</span>
+                    <div class="content">Veuillez actualiser</div>
+                </div>
+                <div class="content-block-title" data-bind="visible : hasDatas">Les dernières News</div>
+                <div class="list-block media-list" data-bind="visible : hasDatas">
+                    <ul data-bind="foreach:news">
 
+                        <li>
 
-                        <div class="newsfeed" data-bind="disable:isLoading, foreach:news, visible : news().length > 0">
-                            <a class="news-item" data-bind="attr : {href:'#newsDetails/' + Id}">
-                                <div><span class="title" data-bind="text:Title"></span> <small class="when">(<span data-bind="text:moment(Date).fromNow()"></span>)</small></div>
-                                <div class="content" data-bind="trimText: Content, trimTextLength: 200"></div>
+                            <a data-bind="attr : {href : 'NewsDetails.html?id=' + ID}" class="item-link item-content">
+                                <div class="item-media"><img src="../../contents/images/glyph-play-video.png" width="40"></div>
+                                <div class="item-inner">
+                                    <div class="item-title-row">
+                                        <div class="item-title" data-bind="html:Title"></div>
+
+                                    </div>
+                                    <div class="item-text" data-bind="text:moment(Date).fromNow()"></div>
+                                </div>
                             </a>
-                        </div>
-
-                    </div>
-
+                        </li>
+                    </ul>
                 </div>
-
-
             </div>
+
         </div>
     </div>
-
 </div>
-
-
-
-<script type="text/template" id="news_page">
-
-    <div class="page">
-
-        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
-
-        <!-- Site Overlay -->
-        <div class="site-overlay"></div>
-        <!-- Your Content -->
-        <div id="container">
-
-      
-            <div class="scroller">
-
-                <div class="top-detail-nav">
-                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
-                        <img src="contents/images/nav-back-button.png" alt="retour" />
-                    </a>
-
-                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
-                        <img src="contents/images/nav-news-visual.png" alt="dernières news" />
-                    </div>
-
-                    <div class="top-detail-nav-title">
-                        Les dernières news
-                    </div>
-
-                    <a class="top-detail-nav-right-btn" data-bind="click:refresh">
-                        <img src="contents/images/nav-refresh-button.png" alt="actualiser" />
-                    </a>
-                </div>
-
-                <div class="content-container">
-
-
-                    <div class="newsfeed" data-bind="visible : news().length == 0">
-                        <div class="news-item">
-                            <span class="title">   Aucun article disponible</span>
-                            <div class="content">Glissez vers le bas pour actualiser</div>
-                        </div>
-                    </div>
-
-
-                    <div class="newsfeed" data-bind="disable:isLoading, foreach:news, visible : news().length > 0">
-                        <a class="news-item" data-bind="attr : {href:'#newsDetails/' + Id}">
-                            <div><span class="title" data-bind="text:Title"></span> <small class="when">(<span data-bind="text:moment(Date).fromNow()"></span>)</small></div>
-                            <div class="content" data-bind="trimText: Content, trimTextLength: 200"></div>
-                        </a>
-                    </div>
-
-                </div>
-
-
-            </div>
-
-        </div>
-
-        <!--Barre inférieure-->
-        <div data-type="widget" data-widget="BottomNav"></div>
-
-        <!--Loader de chargement-->
-        <div data-type="widget" data-widget="PageLoader"></div>
-    </div>
-</script>

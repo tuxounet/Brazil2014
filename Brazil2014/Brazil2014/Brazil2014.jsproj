@@ -145,8 +145,6 @@
     <Content Include="app\pages\Videos.js" />
     <Content Include="app\pages\VideosDetails.html" />
     <Content Include="app\pages\VideosDetails.js" />
-    <Content Include="app\pages\_Dev.html" />
-    <Content Include="app\pages\_Dev.js" />
     <Content Include="app\storage\LocalStorage.js" />
     <Content Include="app\storage\providers\IndexedDBProvider.init.js" />
     <Content Include="app\storage\providers\IndexedDBProvider.js" />

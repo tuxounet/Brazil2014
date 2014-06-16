@@ -2,42 +2,48 @@
 
     //Heritage de la page de base
     BasePage.call(this)
-
     var self = this;
-
-
-    self.isLoading = ko.observable(false);
-
     self.news = ko.observableArray();
+    self.hasDatas = ko.computed(function () {
+
+        if (self.news == null || self.news() == null) {
+            return false;
+        }
+        if (self.news().length < 1) {
+            return false;
+        }
+        return true;
+    });
+
+
 
     self.load = function (uriParameters) {
-        self.isLoading(true);
 
-        self.refresh(self.loadCompleted);
+        new NewsDataProvider().getNews(
+            function (news) {
+                //Récuperation des videos OK
+                self.news(news);
+                self.loadCompleted();
 
 
+            },
+            function (tx, err) {
+                self.loadCompleted();
+                if (err != null) {
+                    logger.error(err);
+                    //Erreur de récuperation de stade
+                    Brazil.onerror("Impossible de charger la liste des news");
+                    Brazil.app.mainView.goBack();
+                }
+            });
     };
-
     self.unload = function () {
-
-
+        logger.info("UNLOAD QUERY")
     };
 
 
-    self.refresh = function (callback) {
-        var useCache = typeof (callback) == "function";
-        self.isLoading(true);
-        self.loading();
-
-
-        new NewsDataProvider().fetchDatas(useCache, function (result) {
-            self.news(result);
-
-            if (typeof (callback) == "function") callback();
-            self.isLoading(false);
-            self.loadCompleted();
-        });
-
+    self.refresh = function () {
+        logger.info("REFRESH QUERY")
     }
 
 

@@ -16,6 +16,15 @@
 
     };
 
+    self.getNews = function (successCB, errorCB) {
 
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getNews(successCB, errorCB);
+    }
 
 }
