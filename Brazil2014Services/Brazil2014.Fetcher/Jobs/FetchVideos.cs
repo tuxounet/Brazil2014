@@ -22,7 +22,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
             {
 
 
-                var r = XmlReader.Create("http://gdata.youtube.com/feeds/base/users/FIFATV/uploads?client=ytapi-youtube-rss-redirect&alt=rss&orderby=updated&v=2");
+                var r = XmlReader.Create("https://gdata.youtube.com/feeds/api/playlists/PLw6_k1B5dz6AxiiSl4g61CKzD1KI_vdFZ?v=2");
                 var albums = SyndicationFeed.Load(r);
                 r.Close();
 
@@ -51,11 +51,16 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                         video.Id = counter;
                         counter++;
                         video.Title = album.Title.Text;
-                        video.Date = album.LastUpdatedTime.DateTime;
-                        var embedId = idFifa.Split(':').Last().Trim();
-                        video.VideoLink = "http://www.youtube.com/embed/" + embedId;
-                        video.IdFIFA = idFifa;
+                        video.Date = album.PublishDate.DateTime;
 
+
+                        var embedId = (album.Content as UrlSyndicationContent).Url.ToString().Split('?').First().Split('/').Last().Trim();
+                        var playlistId = album.Id.Split(':')[3];
+                        //var embedId = idFifa.Split(':').Last().Trim();
+                        video.VideoLink = "http://www.youtube.com/embed/" + embedId + "?list="+  playlistId;
+                        video.ThumbLink = "https://i1.ytimg.com/vi/" + embedId + "/default.jpg";
+                        video.IdFIFA = idFifa;
+                      
                         db.Videos.Add(video);
 
                         db.SaveChanges();

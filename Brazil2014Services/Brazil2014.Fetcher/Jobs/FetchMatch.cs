@@ -20,7 +20,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
 
             try
             {
-                var matchsDocumentsUrl = "http://fr.fifa.com/worldcup/matches/index.html";
+                var matchsDocumentsUrl = "http://fr.m.fifa.com/worldcup/matches/index.html";
                 var doc = new HtmlAgilityPack.HtmlDocument();
                 using (var wc = new WebClient())
                 {
@@ -30,7 +30,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
 
 
                 //Doc chargé, analyse 
-                var matchs = doc.DocumentNode.SelectNodes("//div[@class='mu fixture']");
+                var matchs = doc.DocumentNode.SelectNodes("//div[@class='mu fixture' or @class ='mu result']");
 
                 using (var db = new C2S.Brazil2014.Services.BOM.Entities.BRAZIL2014Entities())
                 {
@@ -41,7 +41,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                     int groupCounter = db.Group.Any() ? db.Group.Max(p => p.ID) + 1 : 1;
                     foreach (var match in matchs)
                     {
-                        var s_id = match.GetAttributeValue("id", null);
+                        var s_id = match.GetAttributeValue("data-id", null);
                         if (s_id == null)
                         {
                             log.Warn("Impossible de lire l'id du noeud du match");
@@ -65,8 +65,10 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                             matchCounter++;
                             l_match.IdFIFA = l_id;
                             l_match.Date = DateTime.Parse(match.SelectSingleNode(".//div[@class='mu-i-date']").InnerText);
-                            l_match.Hour = TimeSpan.Parse(match.SelectSingleNode(".//div[@class='mu-i-datetime']").InnerText.Split('-').Last().Trim().Split(' ').First().Trim());
-
+                            if (match.Attributes["class"].Value == "mu fixture")
+                                l_match.Hour = TimeSpan.Parse(match.SelectSingleNode(".//div[@class='s-score s-date-HHmm']").Attributes["data-timeutc"].Value);
+                            else
+                                l_match.Hour = null;
                             //Recherche de l'equipe
                             var l_team1IdFifa = match.SelectSingleNode(".//div[@class='t home']/div/span/img").Attributes["src"].Value.Split('/').Last().Split('.').First().Trim();
                             if (l_team1IdFifa == "void")
@@ -80,7 +82,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                                 teamCounter++;
                                 l_team1.IdFIFA = l_team1IdFifa;
                                 l_team1.Libelle = match.SelectSingleNode(".//div[@class='t home']/div[@class='t-n']/span").InnerText;
-                                
+
 
                                 var group = match.SelectSingleNode(".//div[@class='mu-i-group']").InnerText;
                                 if (group.StartsWith("Groupe"))
@@ -109,7 +111,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                                 teamCounter++;
                                 l_team2.IdFIFA = l_team2IdFifa;
                                 l_team2.Libelle = match.SelectSingleNode(".//div[@class='t away']/div[@class='t-n']/span").InnerText;
-                                
+
 
 
                                 var group = match.SelectSingleNode(".//div[@class='mu-i-group']").InnerText;
@@ -130,17 +132,17 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                             var grp = match.SelectSingleNode(".//div[@class='mu-i-group']").InnerText;
                             if (grp.StartsWith("Groupe"))
                             {
-                                var groupName = grp.Split(' ').Last().Trim(); 
-                                if(!db.Group.Any(p=>p.Libelle ==  groupName))
+                                var groupName = grp.Split(' ').Last().Trim();
+                                if (!db.Group.Any(p => p.Libelle == groupName))
                                 {
                                     var g = new Group();
-                                    g.ID =  groupCounter; 
+                                    g.ID = groupCounter;
                                     groupCounter++;
-                                    g.Libelle = groupName; 
+                                    g.Libelle = groupName;
                                     db.Group.Add(g);
                                 }
                             }
-                          
+
 
 
                             var typeName = match.SelectSingleNode(".//div[@class='mu-i-group']").InnerText;

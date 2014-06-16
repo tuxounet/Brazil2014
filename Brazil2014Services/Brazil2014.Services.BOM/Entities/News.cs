@@ -19,5 +19,7 @@ namespace C2S.Brazil2014.Services.BOM.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public string IdFIFA { get; set; }
+        public string Summary { get; set; }
+        public string ThumbUrl { get; set; }
     }
 }

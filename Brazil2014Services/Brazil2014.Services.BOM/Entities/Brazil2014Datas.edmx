@@ -48,8 +48,10 @@
           <Property Name="Id" Type="uniqueidentifier" Nullable="false" />
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="4000" Nullable="false" />
-          <Property Name="Content" Type="nvarchar(max)" Nullable="false" />
-          <Property Name="IdFIFA" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Summary" Type="nvarchar(max)" Nullable="false" />
+          <Property Name="IdFIFA" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ThumbUrl" Type="nvarchar" MaxLength="4000" />
+          <Property Name="Content" Type="nvarchar(max)" />
         </EntityType>
         <EntityType Name="Stade">
           <Key>
@@ -77,7 +79,8 @@
           <Property Name="Date" Type="datetime" Nullable="false" />
           <Property Name="Title" Type="nvarchar" MaxLength="4000" Nullable="false" />
           <Property Name="VideoLink" Type="nvarchar" MaxLength="4000" Nullable="false" />
-          <Property Name="IdFIFA" Type="nvarchar" MaxLength="4000" />
+          <Property Name="IdFIFA" Type="nvarchar" MaxLength="4000" Nullable="false" />
+          <Property Name="ThumbLink" Type="nvarchar" MaxLength="4000" />
         </EntityType>
         <Association Name="FK_Match_0">
           <End Role="Team" Type="Self.Team" Multiplicity="1" />
@@ -330,8 +333,10 @@
           <Property Name="Id" Type="Guid" Nullable="false" />
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
-          <Property Name="Content" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
-          <Property Name="IdFIFA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="Content" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="IdFIFA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="Summary" Type="String" Nullable="false" MaxLength="Max" FixedLength="false" Unicode="true" />
+          <Property Name="ThumbUrl" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
         <EntityType Name="Videos">
           <Key>
@@ -341,7 +346,8 @@
           <Property Name="Date" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="Title" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
           <Property Name="VideoLink" Type="String" Nullable="false" MaxLength="4000" FixedLength="false" Unicode="true" />
-          <Property Name="IdFIFA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
+          <Property Name="IdFIFA" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" Nullable="false" />
+          <Property Name="ThumbLink" Type="String" MaxLength="4000" FixedLength="false" Unicode="true" />
         </EntityType>
         <ComplexType Name="Get_MatchsGroup_Result">
           <Property Type="Int32" Name="Id" Nullable="false" />
@@ -443,7 +449,9 @@
     <EntitySetMapping Name="News">
       <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.News)">
         <MappingFragment StoreEntitySet="News">
-          <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
+          <ScalarProperty Name="ThumbUrl" ColumnName="ThumbUrl" />
+                <ScalarProperty Name="Summary" ColumnName="Summary" />
+                <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
@@ -454,7 +462,8 @@
     <EntitySetMapping Name="Videos">
       <EntityTypeMapping TypeName="IsTypeOf(BRAZIL2014Model.Videos)">
         <MappingFragment StoreEntitySet="Videos">
-          <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
+          <ScalarProperty Name="ThumbLink" ColumnName="ThumbLink" />
+                <ScalarProperty Name="IdFIFA" ColumnName="IdFIFA" />
                 <ScalarProperty Name="Id" ColumnName="Id" />
           <ScalarProperty Name="Date" ColumnName="Date" />
           <ScalarProperty Name="Title" ColumnName="Title" />
