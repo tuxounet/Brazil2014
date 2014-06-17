@@ -19,7 +19,7 @@
     }
 
     /*Aliemnte le contenu de la base de données a partir des données du serveur*/
-    self.fillFromServer = function (isInitial, callback) {
+    self.fillFromServer = function (isInitial, entityName,  callback) {
         Brazil.app.F7.showIndicator();
         function completed() {
             Brazil.app.F7.hideIndicator()
@@ -34,11 +34,18 @@
 
         logger.log("Récuperation des données depuis le serveur")
 
+        var targetUrl = boot.config.remoteUrl + "/API/Repository";
+
+        //Modification de l'url pour un remplissage selectif
+        if (entityName == null)
+            boot.config.remoteUrl + "/API/Repository?entityName=" + entityName;
+
+
 
         $.ajax({
             cache: false,
             timeout: 10000,
-            url: boot.config.remoteUrl + "/API/Repository"
+            url:targetUrl
         })
         .done(function (datas) {
             logger.info("Récuperation de l'état de la base de données effectuée");
@@ -46,7 +53,7 @@
         })
         .fail(function (e) {
             logger.error("Erreur lors de la récuperation de l'état de la base de données depuis le serveur");
-            console.dir(e);
+            logger.error(e);
             if (isInitial) {
                 logger.log("Tentative de chargement des données depuis l'état initial");
 
@@ -59,7 +66,7 @@
                     self.currentDataProvider.fillFromServer(datas, completed);
                 }).fail(function (e) {
                     logger.error("Echec de récuparation des données de l'etat inital local");
-                    throw e;
+                    logger.error(e);
                 });
             }
         });

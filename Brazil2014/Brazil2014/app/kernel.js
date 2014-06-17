@@ -17,7 +17,7 @@ window.Brazil = {
                 //Initialisation terminée, on analyse le code de retour 
                 if (returnCode != "OK") {
                     //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
-                    Brazil.storage.fillFromServer(true, function () {
+                    Brazil.storage.fillFromServer(true, null, function () {
                         //Alimentation effectuée, démarrage
                         logger.info("Chargement des données terminée");
                     });
