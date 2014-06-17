@@ -52,7 +52,7 @@
     };
 
     self.refresh = function () {
-        logger.log("REFRESH QUERY");
+        Brazil.storage.fillEntityFromServer("Stades", function () { self.reload() });
     }
 
 

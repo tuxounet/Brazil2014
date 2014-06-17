@@ -89,7 +89,7 @@
 
     self.refresh = function () {
 
-        Brazil.storage.fillEntityFromServer("Teams", function () { self.load() });
+        Brazil.storage.fillEntityFromServer("Teams", function () { self.reload() });
 
     }
 

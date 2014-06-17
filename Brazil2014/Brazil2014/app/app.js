@@ -85,7 +85,6 @@
 
 
 
-
     self.initalize = function () {
 
         //Généralisation du selecteur F7
@@ -110,10 +109,15 @@
         });
 
 
+
         self.mainView = self.F7.addView('.view-main', {
             // Enable Dynamic Navbar for this view
             dynamicNavbar: true
         });
+        self.mainView.hideNavbar();
+        self.mainView.hideToolbar();
+        self.F7.showIndicator();
+
         // Expose Internal DOM library
         var $$ = Framework7.$;
         // Events for specific pages when it initialized
@@ -127,6 +131,16 @@
 
     }
 
+    self.started = function () {
+     
+        $(".bz-bottomNav").show();
+        $(".navbar").show();
+        self.mainView.showNavbar();
+        self.mainView.showToolbar();
+        self.F7.hideIndicator();
+
+
+    };
 
 
 

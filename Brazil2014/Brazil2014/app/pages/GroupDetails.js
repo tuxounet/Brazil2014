@@ -140,7 +140,7 @@
 
     self.refresh = function () {
         Brazil.storage.fillEntityFromServer("Matchs", function () {
-            Brazil.storage.fillEntityFromServer("GroupResults", function () { self.load() });
+            Brazil.storage.fillEntityFromServer("GroupResults", function () { self.reload() });
         });
 
     }

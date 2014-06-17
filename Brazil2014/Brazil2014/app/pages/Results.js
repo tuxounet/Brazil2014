@@ -133,7 +133,7 @@
 
 
     self.refresh = function () {
-        Brazil.storage.fillEntityFromServer("Matchs", function () { self.load() });
+        Brazil.storage.fillEntityFromServer("Matchs", function () { self.reload() });
     }
 
 

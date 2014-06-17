@@ -45,7 +45,7 @@
 
 
     self.refresh = function () {
-        Brazil.storage.fillEntityFromServer("Videos", function () { self.load() });
+        Brazil.storage.fillEntityFromServer("Videos", function () { self.reload() });
     }
 };
 

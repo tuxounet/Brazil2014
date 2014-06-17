@@ -11,19 +11,8 @@ window.Brazil = {
 
         Brazil.run(function () {
 
-            //Initialisation de la couche de données une fois l'application démarrée
-            Brazil.storage = new LocalStorageClass();
-            Brazil.storage.createIfNotExists(function (returnCode) {
-                //Initialisation terminée, on analyse le code de retour 
-                if (returnCode != "OK") {
-                    //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
-                    Brazil.storage.fillFromServer(true, null, function () {
-                        //Alimentation effectuée, démarrage
-                        logger.info("Chargement des données terminée");
-                    });
-                }
-            });
-
+            //Indique que le chargement est terminé
+            Brazil.started();
         });
 
 
@@ -45,19 +34,22 @@ window.Brazil = {
 
         Brazil.app = new appClass();
         Brazil.app.initalize();
-        
+
         logger.log("Navigation");
 
-        //naivgation initiale
-        if (location.hash != "") {
-            Brazil.load(callback);
-        }
-        else {
-            //Navigation sur l'acceuil
-            Brazil.load(callback);
-        }
+        Brazil.load(function () {
+            if (navigator.splashscreen)
+                navigator.splashscreen.hide();
+            if (callback) callback();
+        });
 
 
+    },
+
+    started: function () {
+
+
+        Brazil.app.started();
     },
 
 
@@ -81,15 +73,24 @@ window.Brazil = {
 
     load: function (callback) {
 
-        //Départ différé pour afficher correctement le splash
-        setTimeout(function () {
-
-            if (navigator.splashscreen)
-                navigator.splashscreen.hide();
-
+        //Initialisation de la couche de données une fois l'application démarrée
+        Brazil.storage = new LocalStorageClass();
+        Brazil.storage.createIfNotExists(function (returnCode) {
+            //Initialisation terminée, on analyse le code de retour 
+            if (returnCode != "OK") {
+                //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
+                Brazil.storage.fillFromServer(true, null, function () {
+                    //Alimentation effectuée, démarrage
+                    logger.info("Chargement des données terminée");
+                });
+            }
             if (callback) callback();
 
-        }, 2000);
+           
+        });
+
+     
+
 
 
     },

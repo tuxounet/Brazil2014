@@ -5,12 +5,12 @@ function BasePage() {
 
     self.DOM = null;
     self.isLoaded = ko.observable(false);
-    
+    self.uriDatas  = null; 
     self.bind = function (domObject, datas) {
 
 
         self.DOM = domObject;
-
+        self.uriDatas = datas; 
         self.loading();
 
         try {
@@ -33,7 +33,13 @@ function BasePage() {
 
 
     }
+    self.reload = function () {
 
+        if (self.load)
+        {
+            self.load(self.uriDatas);
+        }
+    }
     self.unbind = function () {
     
         ko.cleanNode(self.DOM);

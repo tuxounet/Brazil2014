@@ -36,7 +36,7 @@
 
 
     self.refresh = function () {
-        Brazil.storage.fillEntityFromServer("News", function () { self.load() });
+        Brazil.storage.fillEntityFromServer("News", function () { self.reload() });
     }
 
 
