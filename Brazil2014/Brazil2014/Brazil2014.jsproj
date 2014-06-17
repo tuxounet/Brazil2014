@@ -241,6 +241,7 @@
     <Content Include="res\icons\windows-phone\icon-48.png" />
     <Content Include="res\screens\blackberry\screen-225.png" />
     <Content Include="res\screens\windows-phone\screen-portrait.jpg" />
+    <Content Include="splash.png" />
     <Content Include="scripts\components\classie.js" />
     <Content Include="scripts\components\duration.js" />
     <Content Include="scripts\components\guid.js" />
