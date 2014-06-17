@@ -271,6 +271,7 @@
     <Content Include="Areas\Admin\Views\Matches\Details.cshtml" />
     <Content Include="Areas\Admin\Views\Matches\Edit.cshtml" />
     <Content Include="Areas\Admin\Views\Matches\Index.cshtml" />
+    <None Include="Properties\PublishProfiles\c2sbrazilservices %282%29.pubxml" />
     <None Include="Properties\PublishProfiles\c2sbrazilservices.pubxml" />
     <None Include="Properties\PublishProfiles\DEV.pubxml" />
     <None Include="Scripts\jquery-2.1.0.intellisense.js" />

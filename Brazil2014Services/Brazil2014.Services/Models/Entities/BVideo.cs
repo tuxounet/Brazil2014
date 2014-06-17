@@ -14,6 +14,7 @@ namespace C2S.Brazil2014.Services.Models.Entities
         public string Title { get; set; }
         public string VideoLink { get; set; }
         public string IdFIFA { get; set; }
+        public string ThumbLink { get; set; }
 
         public static BVideo FromEntity(Videos p_entity)
         {
@@ -23,7 +24,8 @@ namespace C2S.Brazil2014.Services.Models.Entities
                 Date = p_entity.Date,
                 Title = p_entity.Title,
                 VideoLink = p_entity.VideoLink,
-                IdFIFA = p_entity.IdFIFA
+                IdFIFA = p_entity.IdFIFA,
+                ThumbLink = p_entity.ThumbLink
             };
         }
 

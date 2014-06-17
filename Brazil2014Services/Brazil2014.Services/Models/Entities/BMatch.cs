@@ -34,6 +34,7 @@ namespace C2S.Brazil2014.Services.Models.Entities
         public Nullable<int> IdFIFA { get; set; }
         public string Team1GoalsBy { get; set; }
         public string Team2GoalsBy { get; set; }
+        public int? Broadcaster { get; set;  }
 
         public static BMatch FromEntity(Match p_entity)
         {
@@ -62,7 +63,8 @@ namespace C2S.Brazil2014.Services.Models.Entities
                 IdFIFA = p_entity.IdFIFA,
                 Hour = p_entity.Hour,
                 Rank = p_entity.Rank,
-                MatchTime = p_entity.MatchTime
+                MatchTime = p_entity.MatchTime,
+                Broadcaster = p_entity.Broadcaster
             };
         }
     }

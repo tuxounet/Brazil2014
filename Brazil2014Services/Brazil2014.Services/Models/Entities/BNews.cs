@@ -15,6 +15,9 @@ namespace C2S.Brazil2014.Services.Models.Entities
         public string Title { get; set; }
         public string Content { get; set; }
         public string IdFIFA { get; set; }
+        public string Summary { get; set; }
+        public string ThumbUrl { get; set; }
+
 
         public static BNews FromEntity(News p_entity)
         {
@@ -24,7 +27,9 @@ namespace C2S.Brazil2014.Services.Models.Entities
                 Date = p_entity.Date,
                 Content = p_entity.Content,
                 Title = p_entity.Title,
-                IdFIFA = p_entity.IdFIFA
+                Summary = p_entity.Summary,
+                IdFIFA = p_entity.IdFIFA,
+                ThumbUrl = p_entity.ThumbUrl
             };
         }
 
