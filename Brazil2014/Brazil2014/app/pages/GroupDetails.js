@@ -23,10 +23,9 @@
         $(".page-on-center .title").text(self.title());
 
 
-     
 
-        if (datas.id != null)
-        {
+
+        if (datas.id != null) {
             //Récuperation des scores
             new GroupDataProvider().getGroupScoresById(datas.id,
                function (scores) {
@@ -77,8 +76,7 @@
 
         }
 
-        if (datas.group != null)
-        {
+        if (datas.group != null) {
 
             //Récuperation des scores
             new GroupDataProvider().getGroupScores(datas.group,
@@ -129,7 +127,7 @@
                });
 
         }
-      
+
 
 
     };
@@ -141,7 +139,10 @@
 
 
     self.refresh = function () {
-        logger.info("REFRESH QUERY")
+        Brazil.storage.fillEntityFromServer("Matchs", function () {
+            Brazil.storage.fillEntityFromServer("GroupResults", function () { self.load() });
+        });
+
     }
 
 

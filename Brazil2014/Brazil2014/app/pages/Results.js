@@ -133,7 +133,7 @@
 
 
     self.refresh = function () {
-        logger.info("REFRESH QUERY")
+        Brazil.storage.fillEntityFromServer("Matchs", function () { self.load() });
     }
 
 

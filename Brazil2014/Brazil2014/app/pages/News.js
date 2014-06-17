@@ -43,7 +43,7 @@
 
 
     self.refresh = function () {
-        logger.info("REFRESH QUERY")
+        Brazil.storage.fillEntityFromServer("News", function () { self.load() });
     }
 
 

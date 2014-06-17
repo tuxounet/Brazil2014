@@ -18,6 +18,11 @@
         self.currentDataProvider.createIfNotExists(callback);
     }
 
+    /* Alimente une partie de la base de donnée a partir du serveur*/
+    self.fillEntityFromServer = function (entityName, callback) {
+        self.fillFromServer(false, entityName, callback);
+    };
+
     /*Aliemnte le contenu de la base de données a partir des données du serveur*/
     self.fillFromServer = function (isInitial, entityName,  callback) {
         Brazil.app.F7.showIndicator();
@@ -37,10 +42,8 @@
         var targetUrl = boot.config.remoteUrl + "/API/Repository";
 
         //Modification de l'url pour un remplissage selectif
-        if (entityName == null)
-            boot.config.remoteUrl + "/API/Repository?entityName=" + entityName;
-
-
+        if (entityName != null)
+            targetUrl = boot.config.remoteUrl + "/API/Repository?entityName=" + entityName;
 
         $.ajax({
             cache: false,

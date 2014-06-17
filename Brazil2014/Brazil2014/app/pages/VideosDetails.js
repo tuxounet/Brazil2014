@@ -41,7 +41,7 @@
 
 
     self.refresh = function () {
-        logger.info("REFRESH QUERY")
+        Brazil.storage.fillEntityFromServer("Videos", function () { self.load() });
     }
 };
 

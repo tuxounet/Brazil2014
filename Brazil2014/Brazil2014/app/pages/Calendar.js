@@ -121,7 +121,7 @@ window.calendar_PageClass = function () {
         if (self.matchTemplate == null) self.matchTemplate = tmpl("MatchTemplate");
 
         var dateUnix = moment(date).unix();
-      
+
         new MatchDataProvider().getMatchAtDate(date,
           function (matchs) {
               var ret = "";
@@ -151,7 +151,7 @@ window.calendar_PageClass = function () {
 
 
     self.refresh = function () {
-        logger.info("REFRESH QUERY")
+        Brazil.storage.fillEntityFromServer("Matchs", function () { self.load() });
     }
 
 };

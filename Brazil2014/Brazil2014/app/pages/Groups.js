@@ -53,9 +53,8 @@
     };
 
 
-    self.fetchGroup = function (groupName)
-    {
-            //Compilation du template de match
+    self.fetchGroup = function (groupName) {
+        //Compilation du template de match
         if (self.teamGroupTemplate == null) self.teamGroupTemplate = tmpl("team_group_tmpl");
 
         new GroupDataProvider().getTeamGroup(groupName,
@@ -81,7 +80,7 @@
 
 
     }
-  
+
 
     self.unload = function () {
         logger.info("UNLOAD QUERY")
@@ -89,7 +88,9 @@
 
 
     self.refresh = function () {
-        logger.info("REFRESH QUERY")
+
+        Brazil.storage.fillEntityFromServer("Teams", function () { self.load() });
+
     }
 
 
