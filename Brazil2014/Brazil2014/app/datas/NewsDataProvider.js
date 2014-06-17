@@ -27,4 +27,15 @@
         query.getNews(successCB, errorCB);
     }
 
+    self.getNewsById = function (id, successCB, errorCB) {
+
+        //Obtention d'un objet query sur l'abstraction
+        var query = Brazil.storage.getQuery();
+        if (query == null)
+            throw "Le composant de requete n'est pas disponible pour cette plateforme";
+
+        //invocation de la demande
+        query.getNewsById(id, successCB, errorCB);
+    }
+
 }

@@ -1,55 +1,33 @@
-﻿<script type="text/template" id="newsDetails_page">
+﻿<div class="view navbar-fixed toolbar-fixed" id="newsDetails">
 
-    <div class="page">
+    <div class="navbar">
+        <div class="navbar-inner">
+            <div class="left sliding">
+                <a href="index.html" class="back link">
+                    <img src="../../contents/images/nav-back-button.png" />
+                    <img class="visual" src="../../contents/images/nav-news-visual.png" />
 
-        <div data-type="widget" data-widget="OffMenu" class="OffMenuWidget"></div>
-
-        <!-- Site Overlay -->
-        <div class="site-overlay"></div>
-        <!-- Your Content -->
-        <div id="container">
-
-           
-            <div class="scroller">
-
-                <div class="top-detail-nav">
-                    <a class="top-detail-nav-left-btn" data-bind="click:goBack">
-                        <img src="contents/images/nav-back-button.png" alt="précédent" />
-                    </a>
-
-                    <div class="top-detail-nav-left-visual" data-bind="click:goBack">
-                        <img src="contents/images/nav-news-visual.png" alt="dernières news" />
-                    </div>
-
-                    <div class="top-detail-nav-title">
-                        Les dernières news
-                    </div>
-
-
-                </div>
-
-                <div class="content-container">
-
-
-                    <div class="news-detail-wrapper">
-                        <div class="news-detail" data-bind="with:news">
-                            <div class="title" data-bind="text:Title"></div>
-
-                            <div class="content" data-bind="html:Content"></div>
-
-                        </div>
-                    </div>
-
-                </div>
+                </a>
+                <span class="title">Les dernières News</span>
             </div>
 
+            <div class="right sliding">
+                <a href="#" class="button" onclick="javascript:Brazil.app.invokeOnPage('refresh');">
+                    <img src="../../contents/images/nav-refresh-button.png" alt="actualiser" />
+                </a>
+            </div>
         </div>
-
-        <!--Barre inférieure-->
-        <div data-type="widget" data-widget="BottomNav"></div>
-
-        <!--Loader de chargement-->
-        <div data-type="widget" data-widget="PageLoader"></div>
-
     </div>
-</script>
+
+    <div class="pages navbar-through">
+        <div data-page="newsDetails" class="page">
+            <div class="page-content" >
+
+                <iframe class="youtube-video" frameborder="0" data-bind="attr:{src:link}" allowfullscreen></iframe>
+
+
+            </div>
+        </div>
+    </div>
+</div>
+

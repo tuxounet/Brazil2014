@@ -282,6 +282,24 @@
         }, failedCB);
 
     }
+
+    self.getNewsById = function (id, successCB, failedCB) {
+
+        //OBtention de la base de données 
+        var db = getDb();
+        db.transaction(function (tx) {
+            tx.executeSql("SELECT * FROM News WHERE id = ?  ", [id], function (tx, results) {
+
+                //Si pas de résultat
+                if (results.rows.length == 0) { failedCB(null); return; }
+
+                //Retour du premier résultat 
+                successCB(results.rows.item(0));
+
+            }, failedCB);
+        }, failedCB);
+
+    }
 }
 
 
