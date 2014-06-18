@@ -8,11 +8,21 @@
         <div class="item-inner match">
 
             <div class="row type no-gutter">
-                <div class="col-100"></div>
+
                 <% if(MatchType == 1) { %>
-                <a href="<%= 'GroupDetails.html?group=' + MatchGroup%>">Groupe <%=MatchGroup%></a>
+                <div class="col-20">
+                    <a class="button" href="<%= 'GroupDetails.html?group=' + MatchGroup%>">
+                        <img class="visual" src="../../contents/images/glyph-groups.png" alt="" />
+                    </a>
+                </div>
+                <div class="col-5">&nbsp;</div>
+                <div class="col-75">Groupe <%=MatchGroup%></div>
+
                 <% }else { %>
-                <span><%=MatchTypeName%></span>
+                <div class="col-100">
+                    <span><%=MatchTypeName%></span>
+                </div>
+
                 <%}%>
             </div>
 
@@ -22,11 +32,21 @@
                     <span> <%=Team1Name%></span>
                 </div>
                 <div class="col-33 time">
-                    <%=moment(Hour +'Z', 'HH:mm:ssZ' ).format('HH:mm')%>
+                    <%if(Hour == 'null') {%>
+                    <span><%=mth_getMatchPastDate(Date, Hour)%></span>
+                    <span><%=Team1Goal%></span> - <span><%=Team2Goal%></span>
+                    <%} else {%>
+                    <%if(MatchTime != 'null') {%>
+                    <span><%=MatchTime%></span><br />
+                    <span><%=Team1Goal%></span> - <span><%=Team2Goal%></span>
+                    <%} else {%>
+                    <span><%=mth_getMatchHour(Date, Hour)%></span>
+                    <%}%>
+                    <%}%>
                 </div>
                 <div class="col-33 team">
                     <img src="<%=mth_getTeamImage(Team2IdFIFA)%>" width="32" class="team-flag" /><br />
-                    <span> <%=Team2Name%></span>
+                    <span><%=Team2Name%></span>
                 </div>
 
             </div>
@@ -36,12 +56,12 @@
                 <div class="col-20">&nbsp;</div>
                 <div class="col-15">
                     <a class="button" href="<%= 'Stadium.html?id=' + Stade%>">
-                        <img class="visual" src="../../contents/images/glyph-map-point.png" alt="" /> 
+                        <img class="visual" src="../../contents/images/glyph-map-point.png" alt="" />
                     </a>
                 </div>
                 <div class="col-5">&nbsp;</div>
                 <div class="col-60"><%=StadeName%></div>
-                
+
             </div>
 
 

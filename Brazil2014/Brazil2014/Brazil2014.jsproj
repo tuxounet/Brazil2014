@@ -225,6 +225,7 @@
     <Content Include="contents\images\menu-button.png" />
     <Content Include="contents\images\nav-back-button.png" />
     <Content Include="contents\images\nav-calendar-visual.png" />
+    <Content Include="contents\images\glyph-groups.png" />
     <Content Include="contents\images\nav-groups-visual.png" />
     <Content Include="contents\images\nav-news-visual.png" />
     <Content Include="contents\images\nav-next-button.png" />

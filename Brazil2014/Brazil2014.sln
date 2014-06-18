@@ -9,6 +9,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Deploy", "Deploy", "{A62751
 	ProjectSection(SolutionItems) = preProject
 		DeployExcludes.txt = DeployExcludes.txt
 		DeployMagenta.ps1 = DeployMagenta.ps1
+		StartIISExpress.cmd = StartIISExpress.cmd
 		StartNodeServer.ps1 = StartNodeServer.ps1
 	EndProjectSection
 EndProject
