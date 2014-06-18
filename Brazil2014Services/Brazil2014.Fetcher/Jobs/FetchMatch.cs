@@ -30,7 +30,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
 
 
                 //Doc chargé, analyse 
-                var matchs = doc.DocumentNode.SelectNodes("//div[@class='mu fixture' or @class ='mu result']");
+                var matchs = doc.DocumentNode.SelectNodes("//div[@class='mu fixture' or @class ='mu result'or  @class ='mu live'] ");
 
                 using (var db = new C2S.Brazil2014.Services.BOM.Entities.BRAZIL2014Entities())
                 {
@@ -68,7 +68,17 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                             if (match.Attributes["class"].Value == "mu fixture")
                                 l_match.Hour = TimeSpan.Parse(match.SelectSingleNode(".//div[@class='s-score s-date-HHmm']").Attributes["data-timeutc"].Value);
                             else
+                            {
+                                if (match.Attributes["class"].Value == "mu result")
+                                {
+                                    var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
+                                    l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
+                                    l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
+                                }
+                                //Match déja joué
                                 l_match.Hour = null;
+                            }
+                            
                             //Recherche de l'equipe
                             var l_team1IdFifa = match.SelectSingleNode(".//div[@class='t home']/div/span/img").Attributes["src"].Value.Split('/').Last().Split('.').First().Trim();
                             if (l_team1IdFifa == "void")
@@ -182,6 +192,27 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                         {
                             log.Info("Edition du match " + l_id);
                             l_match.IdFIFA = l_id;
+                            if (match.Attributes["class"].Value == "mu result")
+                            {
+                                var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
+                                l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
+                                l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
+                                l_match.MatchTime = null; 
+                            }
+
+                            if (match.Attributes["class"].Value == "mu live")
+                            {
+
+                                var l_date = l_match.Date + l_match.Hour;
+                                var enlapsed = (DateTime.Now - l_date.GetValueOrDefault().ToLocalTime());
+                                var l_minute = Convert.ToInt32(enlapsed.TotalMinutes);
+
+                                var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
+                                l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
+                                l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
+                                l_match.MatchTime = l_minute; 
+                            }
+
 
                         }
 

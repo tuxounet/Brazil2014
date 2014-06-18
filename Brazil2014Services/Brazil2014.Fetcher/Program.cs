@@ -26,9 +26,9 @@ namespace C2S.Brazil2014.Fetcher
                 schd.Start();
 
 
-            RegisterJob<FetchMatch>(schd, "0/30 * * 1/1 * ? *");
-            //RegisterJob<FetchNews>(schd, "0/30 * * 1/1 * ? *");
-            //RegisterJob<FetchVideos>(schd, "0/30 * * 1/1 * ? *");
+            RegisterJob<FetchMatch>(schd, "0 0/1 * 1/1 * ? *");
+            RegisterJob<FetchNews>(schd, "0 0/15 * 1/1 * ? *");
+            RegisterJob<FetchVideos>(schd, "0 0/15 * 1/1 * ? *");
 
             Console.ReadLine();
         }
