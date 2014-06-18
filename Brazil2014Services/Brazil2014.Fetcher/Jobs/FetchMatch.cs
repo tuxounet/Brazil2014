@@ -210,7 +210,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                                 var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
                                 l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
                                 l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
-                                l_match.MatchTime = l_minute; 
+                                l_match.MatchTime = l_minute + "'"; 
                             }
 
 
