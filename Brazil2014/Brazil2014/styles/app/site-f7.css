@@ -201,3 +201,9 @@ input {
     margin-right: 5px;
     border: #ccc solid 1px;
 }
+
+
+.home .page-content {
+    background-image: url("../../contents/images/background-transparent.png");
+    background-size: cover;
+}
