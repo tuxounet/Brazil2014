@@ -34,7 +34,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                 using (var db = new C2S.Brazil2014.Services.BOM.Entities.BRAZIL2014Entities())
                 {
 
-                    
+
                     foreach (SyndicationItem album in albums.Items)
                     {
                         var idFifa = album.Links.First().Uri.ToString();
@@ -53,27 +53,26 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                         news.Title = album.Summary.Text.Replace("\"", "&quot");
                         news.Summary = album.Summary.Text.Replace("\"", "&quot");
                         news.Date = album.PublishDate.DateTime;
-                        news.ThumbUrl = album.Links.FirstOrDefault(p => p.RelationshipType == "enclosure").Uri.ToString();
+                        var link = album.Links.FirstOrDefault(p => p.RelationshipType == "enclosure");
+                        if (link != null)
+                        {
+                            news.ThumbUrl = album.Links.FirstOrDefault(p => p.RelationshipType == "enclosure").Uri.ToString();
+                        }
+                        else
+                        {
+                            news.ThumbUrl = null;
+                        }
                         news.IdFIFA = idFifa;
                         news.Content = idFifa;
                         db.News.Add(news);
 
                         db.SaveChanges();
                     }
-
-
                 }
-
-
-
-
-
             }
             catch (Exception ex)
             {
                 log.Error(ex);
-
-
             }
         }
 

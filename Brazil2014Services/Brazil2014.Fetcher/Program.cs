@@ -26,9 +26,10 @@ namespace C2S.Brazil2014.Fetcher
                 schd.Start();
 
 
-            RegisterJob<FetchMatch>(schd, "0 0/1 * 1/1 * ? *");
-            RegisterJob<FetchNews>(schd, "0 0/15 * 1/1 * ? *");
-            RegisterJob<FetchVideos>(schd, "0 0/30 * 1/1 * ? *");
+      //      RegisterJob<FetchMatch>(schd, "0 0/1 * 1/1 * ? *");
+            //RegisterJob<FetchNews>(schd, "0 0/15 * 1/1 * ? *");
+            RegisterJob<FetchNews>(schd, "0/30 * * 1/1 * ? *");
+    //        RegisterJob<FetchVideos>(schd, "0 0/30 * 1/1 * ? *");
 
             Console.ReadLine();
         }
@@ -52,9 +53,9 @@ namespace C2S.Brazil2014.Fetcher
                 .Build();
 
             // Validate that the job doesn't already exists
-            if (schd.CheckExists(new JobKey("FetchMatchs", "Brazil2014")))
+            if (schd.CheckExists(new JobKey(name, "Brazil2014")))
             {
-                schd.DeleteJob(new JobKey("FetchMatchs", "Brazil2014"));
+                schd.DeleteJob(new JobKey(name, "Brazil2014"));
             }
 
             
