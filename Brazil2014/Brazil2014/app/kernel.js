@@ -4,6 +4,7 @@ window.Brazil = {
     router: null,
     app: null,
     storage: null,
+    connectivity : new connectivity(),
     start: function () {
 
         //Branchement du systeme d'erreur
@@ -14,8 +15,6 @@ window.Brazil = {
             //Indique que le chargement est terminé
             Brazil.started();
         });
-
-
 
     },
 
@@ -77,19 +76,32 @@ window.Brazil = {
         Brazil.storage = new LocalStorageClass();
         Brazil.storage.createIfNotExists(function (returnCode) {
             //Initialisation terminée, on analyse le code de retour 
-            if (returnCode != "OK") {
-                //Le code de retour n'est pas "OK", alors le ontenu de la base de données a besoin d'etre initialisée
+           
+            var initial = false;
+            if (returnCode != "OK")
+            {
+                initial = true; 
+            }
+
+            if (Brazil.connectivity.isOnline() == true) {
                 Brazil.storage.fillFromServer(true, null, function () {
                     //Alimentation effectuée, démarrage
                     logger.info("Chargement des données terminée");
+                    if (callback) callback();
                 });
+            } else {
+                  logger.info("Chargement des données terminée");
+                if (callback) callback();
             }
-            if (callback) callback();
+
+
 
            
         });
 
      
+            //Rafrachissement initial des données
+       
 
 
 
