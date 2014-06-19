@@ -17,6 +17,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
 
         public void Execute(IJobExecutionContext context)
         {
+            Match currentMatch = null;
 
             try
             {
@@ -41,6 +42,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                     int groupCounter = db.Group.Any() ? db.Group.Max(p => p.ID) + 1 : 1;
                     foreach (var match in matchs)
                     {
+
                         var s_id = match.GetAttributeValue("data-id", null);
                         if (s_id == null)
                         {
@@ -57,6 +59,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
 
 
                         var l_match = db.Match.FirstOrDefault(p => p.IdFIFA == l_id);
+                        currentMatch = l_match;
                         if (l_match == null)
                         {
                             log.Info("Nouveau match " + l_id);
@@ -74,11 +77,12 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                                     var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
                                     l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
                                     l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
+                                    l_match.Hour = null;
+                                    l_match.MatchTime = "FIN";
                                 }
-                                //Match déja joué
-                                l_match.Hour = null;
+
                             }
-                            
+
                             //Recherche de l'equipe
                             var l_team1IdFifa = match.SelectSingleNode(".//div[@class='t home']/div/span/img").Attributes["src"].Value.Split('/').Last().Split('.').First().Trim();
                             if (l_team1IdFifa == "void")
@@ -197,12 +201,13 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                                 var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
                                 l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
                                 l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
-                                l_match.MatchTime = null; 
+                                l_match.Hour = null;
+                                l_match.MatchTime = "FIN";
                             }
 
                             if (match.Attributes["class"].Value == "mu live")
                             {
-
+                             
                                 var l_date = l_match.Date + l_match.Hour;
                                 var enlapsed = (DateTime.Now - l_date.GetValueOrDefault().ToLocalTime());
                                 var l_minute = Convert.ToInt32(enlapsed.TotalMinutes);
@@ -210,7 +215,10 @@ namespace C2S.Brazil2014.Fetcher.Jobs
                                 var l_score = match.SelectSingleNode(".//span[@class='s-scoreText']").InnerText;
                                 l_match.Team1Goal = int.Parse(l_score.Split('-').First().Trim());
                                 l_match.Team2Goal = int.Parse(l_score.Split('-').Last().Trim());
-                                l_match.MatchTime = l_minute + "'"; 
+                                l_match.MatchTime = l_minute + "'";
+
+
+
                             }
 
 
@@ -230,13 +238,7 @@ namespace C2S.Brazil2014.Fetcher.Jobs
             catch (Exception ex)
             {
                 log.Error(ex);
-
             }
-
-
-
-
-
         }
     }
 }
