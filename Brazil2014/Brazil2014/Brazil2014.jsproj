@@ -240,8 +240,15 @@
     <Content Include="res\icons\webos\icon-64.png" />
     <Content Include="res\icons\windows-phone\icon-173.png" />
     <Content Include="res\icons\windows-phone\icon-48.png" />
+    <Content Include="res\icons\windows8\logo.png" />
+    <Content Include="res\icons\windows8\smalllogo.png" />
+    <Content Include="res\icons\windows8\storelogo.png" />
+    <Content Include="res\icons\wp8\icon-173-tile.png" />
+    <Content Include="res\icons\wp8\icon-62-tile.png" />
     <Content Include="res\screens\blackberry\screen-225.png" />
     <Content Include="res\screens\windows-phone\screen-portrait.jpg" />
+    <Content Include="res\screens\windows8\splashscreen.png" />
+    <Content Include="res\screens\wp8\screen-portrait.jpg" />
     <Content Include="scripts\components\connectivity.js" />
     <Content Include="splash.png" />
     <Content Include="scripts\components\classie.js" />
@@ -297,27 +304,13 @@
     <Content Include="styles\app\site.layout.min.css" />
     <Content Include="styles\app\site.less" />
     <Content Include="styles\app\site.min.css" />
-    <Content Include="styles\components\genericStyles.css" />
-    <Content Include="styles\components\genericStyles.less" />
-    <Content Include="styles\components\genericStyles.min.css" />
-    <Content Include="styles\components\niftymodals.css" />
-    <Content Include="styles\components\niftymodals.less" />
-    <Content Include="styles\components\niftymodals.min.css" />
-    <Content Include="styles\components\pageTransitions.css" />
-    <Content Include="styles\components\pageTransitions.less" />
-    <Content Include="styles\components\pageTransitions.min.css" />
     <Content Include="styles\fonts\glyphicons-halflings-regular.eot" />
     <Content Include="styles\fonts\glyphicons-halflings-regular.svg" />
     <Content Include="styles\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="styles\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="styles\fonts\OpenSans300.ttf" />
     <Content Include="styles\fonts\OpenSans400.woff" />
-    <Content Include="styles\vendor\bootstrap-theme.min.css" />
-    <Content Include="styles\vendor\bootstrap.min.css" />
     <Content Include="styles\vendor\framework7.min.css" />
-    <Content Include="styles\vendor\idangerous.swiper.css" />
-    <Content Include="styles\vendor\idangerous.swiper.scrollbar.css" />
-    <Content Include="styles\vendor\pushy.min.css" />
     <Content Include="version.js" />
   </ItemGroup>
   <PropertyGroup>

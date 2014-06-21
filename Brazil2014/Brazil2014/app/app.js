@@ -97,7 +97,7 @@
             swipePanel: 'left',
             swipeBackPage: false,
             // If it is webapp, we can enable hash navigation:
-            pushState: false,
+            pushState: true,
             preprocess: self.onPreparePage,
             // Hide and show indicator during ajax requests
             onAjaxStart: function (xhr) {

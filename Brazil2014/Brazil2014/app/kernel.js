@@ -4,7 +4,7 @@ window.Brazil = {
     router: null,
     app: null,
     storage: null,
-    connectivity : new connectivity(),
+    connectivity: new connectivity(),
     start: function () {
 
         //Branchement du systeme d'erreur
@@ -76,32 +76,27 @@ window.Brazil = {
         Brazil.storage = new LocalStorageClass();
         Brazil.storage.createIfNotExists(function (returnCode) {
             //Initialisation terminée, on analyse le code de retour 
-           
+
             var initial = false;
-            if (returnCode != "OK")
-            {
-                initial = true; 
+            if (returnCode != "OK") {
+                initial = true;
             }
 
             if (Brazil.connectivity.isOnline() == true) {
+
+                //Rafrachissement initial des données
                 Brazil.storage.fillFromServer(true, null, function () {
                     //Alimentation effectuée, démarrage
                     logger.info("Chargement des données terminée");
                     if (callback) callback();
                 });
             } else {
-                  logger.info("Chargement des données terminée");
+                logger.info("Chargement des données terminée");
                 if (callback) callback();
             }
-
-
-
-           
         });
 
-     
-            //Rafrachissement initial des données
-       
+
 
 
 
