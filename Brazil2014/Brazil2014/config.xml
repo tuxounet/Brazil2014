@@ -44,6 +44,7 @@
   <!-- android: app install location. 'auto' will choose. 'internalOnly' is device memory. 'preferExternal' is SDCard. -->
 
   <vs:features>
+    <vs:feature>com.msopentech.websql@0.0.4</vs:feature>
     <vs:feature>org.apache.cordova.splashscreen@0.3.0</vs:feature>
   </vs:features>
   <vs:platformSpecificValues>
@@ -53,7 +54,8 @@
 
   <!-- Plugins can also be added here. -->
   <gap:plugin name="org.apache.cordova.splashscreen" version="0.2.7" />
-
+  <gap:plugin name="com.msopentech.websql" version="0.0.4" />
+  
   <preference name="SplashScreen" value="splash" />
   <preference name="SplashScreenDelay" value="10000" />
 
